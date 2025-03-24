@@ -9,15 +9,15 @@ const About = () => (
   <div>
     {/* Nouvelle Section 1: Hero avec présentation et photo */}
     <div id="home" className="container mx-auto px-4 md:px-24 py-16 min-h-screen flex items-center -mt-[65px] overflow-hidden relative">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-        <div className="space-y-8 pt-8 md:pt-64 pl-0 md:pl-56 text-center md:text-left">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
+        <div className="space-y-8 pt-8 lg:pt-64 pl-0 lg:pl-56 text-center lg:text-left">
           <div className="space-y-1">
             <p className="text-xl text-gray-600">Bonjour, je suis Aaron,</p>
             <h1 className="text-4xl md:text-7xl font-bold">INGENIEUR DEVELOPPEMENT</h1>
           </div>
         </div>
 
-        <div className="hidden md:flex justify-end pr-16 pt-16">
+        <div className="hidden lg:flex justify-end pr-16 pt-16">
           <img 
             src={profilePic} 
             alt="Aaron Bulgheroni" 
@@ -26,7 +26,7 @@ const About = () => (
         </div>
       </div>
       
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2">
         <div className="flex flex-col items-center gap-3 group cursor-pointer"
           onClick={() => {
             document.getElementById('about')?.scrollIntoView({ 
