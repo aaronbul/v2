@@ -5,6 +5,7 @@ import logo from '../assets/logo.svg';
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,9 +35,13 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className="fixed w-full top-0 z-50 bg-white">
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <img 
@@ -46,7 +51,36 @@ const Header = () => {
             />
             <span className="text-xl text-black"></span>
           </div>
-          <ul className="flex items-center space-x-8">
+
+          {/* Menu hamburger pour mobile avec animation */}
+          <button 
+            onClick={toggleMenu}
+            className="md:hidden p-2 relative w-10 h-10 focus:outline-none"
+            aria-label="Menu"
+          >
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-0.5 bg-black transition-all duration-300 ease-in-out"
+              style={{
+                transform: isMenuOpen 
+                  ? 'translate(-50%, -50%) rotate(45deg)' 
+                  : 'translate(-50%, -50%) translateY(-6px)'
+              }}
+            />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-0.5 bg-black transition-all duration-300 ease-in-out"
+              style={{
+                opacity: isMenuOpen ? 0 : 1
+              }}
+            />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-0.5 bg-black transition-all duration-300 ease-in-out"
+              style={{
+                transform: isMenuOpen 
+                  ? 'translate(-50%, -50%) rotate(-45deg)' 
+                  : 'translate(-50%, -50%) translateY(6px)'
+              }}
+            />
+          </button>
+
+          {/* Menu desktop */}
+          <ul className="hidden md:flex items-center space-x-8">
             {[
               { id: 'home', label: 'Accueil' },
               { id: 'about', label: 'À propos' },
@@ -72,6 +106,40 @@ const Header = () => {
                       hoveredSection === id || activeSection === id ? 'scale-x-100' : 'scale-x-0'
                     }`}
                   ></span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Menu mobile avec animation */}
+        <div 
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <ul className="py-4 space-y-4">
+            {[
+              { id: 'home', label: 'Accueil' },
+              { id: 'about', label: 'À propos' },
+              { id: 'experience', label: 'Expériences' },
+              { id: 'skills', label: 'Compétences' },
+              { id: 'projects', label: 'Projets' },
+              { id: 'contact', label: 'Contact' }
+            ].map(({ id, label }) => (
+              <li key={id}>
+                <Link 
+                  to={`/#${id}`} 
+                  className={`block text-black py-2 transition-all duration-300 ${
+                    activeSection === id ? 'font-bold' : ''
+                  }`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  {label}
                 </Link>
               </li>
             ))}
