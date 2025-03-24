@@ -1,0 +1,97 @@
+import { Project } from '../data/projects';
+import { useEffect } from 'react';
+
+type ProjectModalProps = {
+  project: Project | null;
+  isOpen: boolean;
+  onClose: () => void;
+};
+
+const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  if (!project || !isOpen) return null;
+
+  const handleContentClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
+  return (
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div 
+        className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 m-4 scrollbar-hide"
+        onClick={handleContentClick}
+      >
+        <h1 className="text-center mb-4 text-2xl font-bold">{project.title}</h1>
+        <img 
+          className="w-full rounded-2xl mb-8" 
+          src={project.imageUrl} 
+          alt={project.title}
+        />
+        
+        <div className="space-y-6">
+          <div>
+            <h2 className="text-xl font-semibold mb-2">Description détaillée</h2>
+            <p className="text-gray-700">{project.longDescription}</p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">Technologies utilisées</h2>
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech, index) => (
+                <span 
+                  key={index}
+                  className="px-3 py-1 bg-gray-200 rounded-full text-sm"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex gap-4 justify-center">
+            {project.codeLink && (
+              <button 
+                onClick={() => window.open(project.codeLink, '_blank')}
+                className={`inline-block font-medium py-2 px-4 rounded-3xl transition-all duration-300 ${
+                  project.link 
+                    ? "bg-neutral-800 text-white hover:bg-neutral-950 hover:scale-105" 
+                    : "bg-neutral-800 text-white hover:bg-neutral-950 hover:scale-105"
+                }`}
+              >
+                Voir le code
+              </button>
+            )}
+            {project.link && (
+              <button 
+                onClick={() => window.open(project.link, '_blank')}
+                className={`inline-block font-medium py-2 px-4 rounded-3xl transition-all duration-300 ${
+                  project.codeLink
+                    ? "border-2 border-neutral-800 text-neutral-800 hover:bg-neutral-800 hover:text-white"
+                    : "bg-neutral-800 text-white hover:bg-neutral-950 hover:scale-105"
+                }`}
+              >
+                Voir le projet
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProjectModal; 
