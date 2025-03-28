@@ -15,12 +15,9 @@ const ExperienceSection = () => {
               <div className="w-4 h-4 bg-primary rounded-full border-4 border-white shadow-md"></div>
             </div>
 
-            {/* Point mobile */}
-            <div className="absolute left-0 top-0 w-3 h-3 bg-primary rounded-full border-2 border-white shadow-md md:hidden"></div>
-
-            <div className={`flex ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} w-full`}>
+            <div className={`flex ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} w-full justify-center`}>
               <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                <div className="bg-white p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ml-6 md:ml-0">
+                <div className="bg-white p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 md:ml-0">
                   <h3 className="text-lg md:text-xl font-bold text-primary mb-2">{experience.titre}</h3>
                   <p className="text-sm md:text-base text-gray-600 font-semibold mb-2">{experience.entreprise}</p>
                   <p className="text-xs md:text-sm text-gray-500 mb-3 md:mb-4">{experience.periode}</p>

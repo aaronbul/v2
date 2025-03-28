@@ -130,9 +130,7 @@ const Header = () => {
               <li key={id}>
                 <Link 
                   to={`/#${id}`} 
-                  className={`block text-black py-2 transition-all duration-300 ${
-                    activeSection === id ? 'font-bold' : ''
-                  }`}
+                  className="relative block text-black py-2 transition-all duration-300"
                   onClick={(e) => {
                     e.preventDefault();
                     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -140,6 +138,11 @@ const Header = () => {
                   }}
                 >
                   {label}
+                  <span 
+                    className={`absolute -bottom-1 left-0 w-full h-[1px] transform-gpu origin-left transition-transform duration-700 ease-out bg-black ${
+                      activeSection === id ? 'scale-x-100' : 'scale-x-0'
+                    }`}
+                  ></span>
                 </Link>
               </li>
             ))}

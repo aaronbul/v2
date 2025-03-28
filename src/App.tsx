@@ -25,10 +25,12 @@ const AppContent = () => {
   );
 };
 
-const App = () => (
-  <Router>
-    <AppContent />
-  </Router>
-);
+const App = () => {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+};
 
 export default App;

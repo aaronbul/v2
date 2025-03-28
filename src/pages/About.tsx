@@ -15,7 +15,7 @@ const About = () => (
           <div className="space-y-8 pt-8 lg:pt-64 pl-0 lg:pl-56 text-center lg:text-left">
             <div className="space-y-1">
               <p className="text-xl text-gray-600">Bonjour, je suis Aaron,</p>
-              <h1 className="text-4xl md:text-7xl font-bold">INGENIEUR DEVELOPPEMENT</h1>
+              <h1 className="text-4xl md:text-6xl font-bold">INGENIEUR DEVELOPPEMENT</h1>
             </div>
           </div>
 

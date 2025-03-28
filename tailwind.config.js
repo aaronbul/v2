@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Anonymous', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
       },
       backgroundSize: {
         'size-200': '200% 200%',
