@@ -9,21 +9,21 @@ import Contact from "../components/ContactSection";
 const About = () => (
   <div>
     {/* Nouvelle Section 1: Hero avec présentation et photo */}
-    <div id="home" className="min-h-screen flex items-center -mt-[65px] overflow-hidden relative">
+    <div id="home" className="min-h-screen flex items-center -mt-[120px] lg:-mt-[65px] overflow-hidden relative">
       <div className="container mx-auto px-4 md:px-24 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
-          <div className="space-y-8 pt-8 lg:pt-64 pl-0 lg:pl-56 text-center lg:text-left">
+          <div className="space-y-8 pt-4 lg:pt-64 pl-0 lg:pl-16 text-center lg:text-left">
             <div className="space-y-1">
               <p className="text-xl text-gray-600">Bonjour, je suis Aaron,</p>
               <h1 className="text-4xl md:text-6xl font-bold">INGENIEUR DEVELOPPEMENT</h1>
             </div>
           </div>
 
-          <div className="hidden lg:flex justify-end pr-16 pt-16">
+          <div className="hidden lg:flex justify-end items-center pr-16 pt-16">
             <img 
               src={profilePic} 
               alt="Aaron Bulgheroni" 
-              className="w-4/5 h-[600px] object-cover object-top grayscale"
+              className="w-[400px] h-[600px] object-cover object-top grayscale"
             />
           </div>
         </div>

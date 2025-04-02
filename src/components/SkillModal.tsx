@@ -41,32 +41,18 @@ const SkillModal: React.FC<SkillModalProps> = ({ skill, isOpen, onClose }) => {
             alt={skill.name} 
             className="h-24 w-24 object-contain mb-4" 
           />
-          <h1 className="text-2xl md:text-3xl font-bold text-center">{skill.name}</h1>
-        </div>
-
-        <div className="mb-6">
-          <h2 className="text-lg md:text-xl font-semibold mb-2">Expérience</h2>
-          <div className="flex items-center gap-4">
-            <div className="flex-1">
-              <div className="w-full bg-gray-200 rounded-full h-2.5">
-                <div 
-                  className="bg-primary h-2.5 rounded-full" 
-                  style={{ width: `${(skill.experience / 5) * 100}%` }}
-                ></div>
-              </div>
-            </div>
-            <span className="text-sm font-medium">
-              {skill.experience} {skill.experience > 1 ? 'ans' : 'an'} d'expérience
-            </span>
-          </div>
+          <h1 className="text-2xl md:text-3xl font-bold text-center mb-1">{skill.name}</h1>
+          <p className="text-gray-600 text-sm">
+            {skill.experience} {skill.experience > 1 ? 'ans' : 'an'} d'expérience
+          </p>
         </div>
 
         <div className="mb-6">
           <h2 className="text-lg md:text-xl font-semibold mb-2">Présentation</h2>
           <div className="space-y-4">
             <div>
-              <h3 className="text-md font-medium mb-2">À propos de {skill.name}</h3>
-              <p className="text-gray-700">
+              <h3 className="text-md font-semibold text-primary mb-3">À propos de {skill.name}</h3>
+              <p className="text-gray-600 leading-relaxed">
                 {skill.officialDescription || `Je maîtrise ${skill.name} et l'utilise régulièrement dans mes projets.`}
               </p>
               {skill.officialWebsite && (
@@ -74,15 +60,15 @@ const SkillModal: React.FC<SkillModalProps> = ({ skill, isOpen, onClose }) => {
                   href={skill.officialWebsite}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-primary hover:underline mt-2 inline-block"
+                  className="text-sm text-primary hover:underline mt-3 inline-block"
                 >
                   En savoir plus →
                 </a>
               )}
             </div>
             <div>
-              <h3 className="text-md font-medium mb-2">Mon expérience</h3>
-              <p className="text-gray-700">
+              <h3 className="text-md font-semibold text-primary mb-3">Mon expérience</h3>
+              <p className="text-gray-600 leading-relaxed">
                 {skill.description || `Je maîtrise ${skill.name} et l'utilise régulièrement dans mes projets.`}
               </p>
             </div>
