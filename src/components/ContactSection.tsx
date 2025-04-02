@@ -1,10 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const Contact = () => {
-  const navigate = useNavigate()
   const [notification, setNotification] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
   const showNotification = (type: 'success' | 'error', message: string) => {
