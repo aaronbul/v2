@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Skill } from '../data/skills';
 import SkillModal from './SkillModal';
 
@@ -9,15 +9,88 @@ interface SkillsSectionProps {
 const SkillsSection = ({ skills }: SkillsSectionProps) => {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sourceProjectId, setSourceProjectId] = useState<string | null>(null);
+  const [sourceProjectTitle, setSourceProjectTitle] = useState<string | null>(null);
 
-  const handleOpenModal = (skill: Skill) => {
+  const handleOpenModal = (skill: Skill, projectId: string | null = null, projectTitle: string | null = null) => {
     setSelectedSkill(skill);
+    setSourceProjectId(projectId);
+    setSourceProjectTitle(projectTitle);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedSkill(null);
+    // Ne pas effacer l'ID du projet source pour permettre d'y revenir même après avoir fermé le modal
+  };
+
+  useEffect(() => {
+    // Écouter l'événement pour ouvrir le modal d'un skill depuis ProjectModal
+    const handleOpenSkillModal = (event: CustomEvent) => {
+      const data = event.detail;
+      const skillName = data.skillName;
+      const projectId = data.sourceProjectId;
+      const projectTitle = data.sourceProjectTitle;
+      
+      const skill = skills.find(s => s.name === skillName);
+      if (skill) {
+        handleOpenModal(skill, projectId, projectTitle);
+      }
+    };
+
+    // Écouter l'événement pour ouvrir un skill par son nom (depuis ProjectsSection)
+    const handleOpenSkillByName = (event: CustomEvent) => {
+      const skillName = event.detail;
+      const skill = skills.find(s => s.name === skillName);
+      if (skill) {
+        // Utiliser la fonction handleOpenModal sans paramètres de projet
+        // pour éviter de perdre le contexte de navigation
+        setSelectedSkill(skill);
+        setIsModalOpen(true);
+      }
+    };
+
+    // Créer un événement pour que les projets puissent accéder au skill source
+    const handleProjectNeedsSkillSource = (event: CustomEvent) => {
+      if (selectedSkill) {
+        const response = new CustomEvent('projectReceiveSkillSource', {
+          detail: {
+            skillName: selectedSkill.name,
+            fromProjectId: sourceProjectId
+          }
+        });
+        document.dispatchEvent(response);
+      }
+    };
+
+    // Typecasting nécessaire pour TypeScript
+    document.addEventListener('openSkillModal', handleOpenSkillModal as EventListener);
+    document.addEventListener('projectNeedsSkillSource', handleProjectNeedsSkillSource as EventListener);
+    document.addEventListener('openSkillByName', handleOpenSkillByName as EventListener);
+
+    return () => {
+      document.removeEventListener('openSkillModal', handleOpenSkillModal as EventListener);
+      document.removeEventListener('projectNeedsSkillSource', handleProjectNeedsSkillSource as EventListener);
+      document.removeEventListener('openSkillByName', handleOpenSkillByName as EventListener);
+    };
+  }, [skills, selectedSkill, sourceProjectId]);
+
+  // Fonction pour revenir au projet source
+  const handleReturnToProject = () => {
+    if (sourceProjectId) {
+      // Fermer le modal des skills
+      setIsModalOpen(false);
+      
+      // Créer un événement pour ouvrir le modal du projet
+      const event = new CustomEvent('openProjectModal', { 
+        detail: {
+          projectId: sourceProjectId,
+          sourceSkillName: selectedSkill?.name
+        }
+      });
+      document.dispatchEvent(event);
+    }
   };
 
   return (
@@ -47,6 +120,9 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
         skill={selectedSkill}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
+        sourceProjectId={sourceProjectId}
+        sourceProjectTitle={sourceProjectTitle}
+        onReturnToProject={handleReturnToProject}
       />
     </div>
   );

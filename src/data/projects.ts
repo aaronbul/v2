@@ -27,7 +27,7 @@ export const projects: Project[] = [
     id: "2",
     title: "Portfolio 2021",
     description: "Mon premier portfolio développé avec HTML, CSS et JavaScript",
-    longDescription: "Ce portfolio représente ma première incursion dans le développement avec React. J'ai créé une interface moderne et responsive en utilisant Tailwind CSS, avec des animations fluides et une navigation intuitive. Le site présente mes projets et compétences de manière élégante.",
+    longDescription: "Mon premier portfolio est un projet qui m'a permis de me lancer dans le développement web. J'ai créé une interface simple et responsive en utilisant uniquement HTML, CSS et JavaScript natif. Le site présente mes projets et compétences de manière claire et efficace, me permettant d'acquérir les bases fondamentales du développement web front-end.",
     imageUrl: old_portfolio,
     link: "https://aaronbul.github.io/v1/",
     codeLink: "https://github.com/aaronbul/v1",
@@ -37,10 +37,10 @@ export const projects: Project[] = [
     id: "3",
     title: "Portfolio 2025",
     description: "Une refonte de mon portfolio avec React et Tailwind CSS",
-    longDescription: "Ce portfolio représente ma première incursion dans le développement avec React. J'ai créé une interface moderne et responsive en utilisant Tailwind CSS, avec des animations fluides et une navigation intuitive. Le site présente mes projets et compétences de manière élégante.",
+    longDescription: "Il s'agit de mon deuxième site personnel et de ma première incursion dans le développement avec React. J'ai créé une interface moderne et responsive en utilisant Tailwind CSS, avec des animations fluides et une navigation intuitive. Le site présente mes projets et compétences de manière élégante.",
     imageUrl: new_portfolio,
-    link: "https://aaronbul.github.io/v1/",
-    codeLink: "https://github.com/aaronbul/v1",
-    technologies: ["React", "Tailwind CSS", "TypeScript"]
+    link: "https://portfolio.bulgheroni.tech",
+    codeLink: "https://github.com/aaronbul/v2",
+    technologies: ["React", "Tailwind", "TypeScript"]
   },
 ];

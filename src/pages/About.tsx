@@ -1,6 +1,6 @@
 import profilePic from "../assets/about/IMG_1418.png";
 import resume from "../assets/aaron_bulgheroni_resume.pdf";
-import { skills } from '../data/skills';
+import { linkedSkills } from '../data/skills';
 import SkillsSection from '../components/SkillsSection';
 import ExperienceSection from "../components/ExperienceSection";
 import ProjectsSection from "../components/ProjectsSection";
@@ -56,9 +56,9 @@ const About = () => (
           <h2 className="text-2xl font-bold mb-6">À propos de moi</h2>
           <p className="text-gray-700 leading-relaxed mb-8">
           Je m'appelle Aaron et je suis expert en ingénierie logicielle. Dès mon plus jeune âge, 
-          je suis une personne motivé faisant preuve d'une grande détermination dans tout ce que j'entreprends 
-          que ce soit dans l'aspect professionnel que personnel. J'aspire à une carrière qui me permettra 
-          d'exprimer ma créativité en créant de beaux logiciels et des expériences attrayantes.
+          je suis une personne motivée faisant preuve d'une grande détermination dans tout ce que j'entreprends 
+          que ce soit dans le cadre professionnel ou personnel. J'aspire à une carrière me permettant d'exprimer 
+          pleinement ma créativité à travers la conception de logiciels élégants et d'expériences utilisateur engageantes.
           </p>
           <button 
             className="border-2 border-neutral-800 hover:bg-neutral-800 text-neutral-800 hover:text-white font-medium py-2 px-6 rounded-3xl transition-colors duration-300"
@@ -83,7 +83,7 @@ const About = () => (
     <div id="skills" className="bg-white min-h-screen">
       <div className="container mx-auto px-4 md:px-24 py-16">
         <div className="h-full w-full">
-          <SkillsSection skills={skills} />
+          <SkillsSection skills={linkedSkills} />
         </div>
       </div>
     </div>

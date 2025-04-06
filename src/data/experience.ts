@@ -43,7 +43,7 @@ export const experiences: Experience[] = [
     entreprise: "Iscod",
     periode: "2022 - 2023",
     description: [
-      "Candidat au Bachelor Concepteur développeur d’application. Obtention du diplôme Août 2023."
+      "Candidat au Bachelor Concepteur développeur d’application. Obtention du diplôme en Août 2023."
     ]
   },
   {
@@ -51,7 +51,7 @@ export const experiences: Experience[] = [
     entreprise: "Cegedim",
     periode: "2022 - Aujourd'hui",
     description: [
-      "Participation plusieurs évolutions du progicielle pour des clients. Optimisation de plusieurs scripts en PL/SQL. Rédaction de documentations utilisateurs."
+      "Analyse et conception d'évolutions pour un logiciel SIRH. Développement de fonctionnalités clés (exports, gestion des aptitudes/rémunérations, fermeture de collaborateurs) et optimisation des performances (PL/SQL, Oracle)."
     ]
   },
   {

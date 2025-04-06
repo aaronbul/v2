@@ -24,6 +24,7 @@ import kotlin from "../assets/skills/kotlin.svg";
 import csharp from "../assets/skills/csharp.svg";
 import spring from "../assets/skills/spring.svg";
 import figma from "../assets/skills/figma.svg";
+import { projects } from './projects';
 
 export interface SkillExample {
   title: string;
@@ -39,6 +40,7 @@ export interface Skill {
   officialDescription?: string;
   officialWebsite?: string;
   examples?: SkillExample[];
+  relatedProjects?: string[];
 }
 
 export const skills: Skill[] = [
@@ -436,3 +438,26 @@ export const skills: Skill[] = [
     ]
   }
 ]; 
+
+// Function to link skills to projects based on technologies
+export const linkSkillsToProjects = () => {
+  // Create a deep copy of skills to avoid direct mutation
+  const linkedSkills = [...skills];
+
+  // For each skill
+  linkedSkills.forEach(skill => {
+    // Find all projects that use this technology
+    const relatedProjects = projects
+      .filter(project => project.technologies.some(tech => 
+        tech.toLowerCase() === skill.name.toLowerCase()))
+      .map(project => project.id);
+
+    // Add related projects to the skill
+    skill.relatedProjects = relatedProjects;
+  });
+
+  return linkedSkills;
+};
+
+// Export the linked skills
+export const linkedSkills = linkSkillsToProjects(); 

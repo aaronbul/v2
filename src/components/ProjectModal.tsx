@@ -1,14 +1,34 @@
 import { Project } from '../data/projects';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Portal from './Portal';
+import { Skill, skills } from '../data/skills';
 
 type ProjectModalProps = {
   project: Project | null;
   isOpen: boolean;
   onClose: () => void;
+  sourceSkillName?: string | null;
+  onReturnToSkill?: () => void;
 };
 
-const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose }) => {
+const ProjectModal: React.FC<ProjectModalProps> = ({ 
+  project, 
+  isOpen, 
+  onClose,
+  sourceSkillName,
+  onReturnToSkill
+}) => {
+  const [skillsMap, setSkillsMap] = useState<Map<string, Skill>>(new Map());
+
+  useEffect(() => {
+    // Créer un Map des skills pour un accès rapide
+    const map = new Map<string, Skill>();
+    skills.forEach(skill => {
+      map.set(skill.name.toUpperCase(), skill);
+    });
+    setSkillsMap(map);
+  }, []);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -27,6 +47,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
     e.stopPropagation();
   };
 
+  const getSkillByName = (techName: string): Skill | undefined => {
+    return skillsMap.get(techName.toUpperCase());
+  };
+
   return (
     <Portal>
       <div 
@@ -38,12 +62,25 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
           className="bg-white rounded-2xl md:rounded-3xl w-full max-w-4xl h-[500px] md:h-[600px] overflow-y-auto p-4 md:p-6 m-0 md:m-4 scrollbar-hide"
           onClick={handleContentClick}
         >
-          <h1 className="text-center mb-4 text-xl md:text-2xl font-bold">{project.title}</h1>
-          <img 
-            className="w-full rounded-xl md:rounded-2xl mb-6 md:mb-8" 
-            src={project.imageUrl} 
-            alt={project.title}
-          />
+          <div className="flex flex-col">
+            {sourceSkillName && onReturnToSkill && (
+              <button 
+                onClick={onReturnToSkill}
+                className="self-start text-sm text-primary hover:underline mb-4 flex items-center gap-1"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                Revenir à la compétence {sourceSkillName}
+              </button>
+            )}
+            <h1 className="text-center mb-4 text-xl md:text-2xl font-bold">{project.title}</h1>
+            <img 
+              className="w-full rounded-xl md:rounded-2xl mb-6 md:mb-8" 
+              src={project.imageUrl} 
+              alt={project.title}
+            />
+          </div>
           
           <div className="space-y-6 md:space-y-8">
             <div>
@@ -54,14 +91,37 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             <div>
               <h2 className="text-lg md:text-xl font-semibold mb-2">Technologies utilisées</h2>
               <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, index) => (
-                  <span 
-                    key={index}
-                    className="px-2 md:px-3 py-1 bg-gray-200 rounded-full text-xs md:text-sm"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                {project.technologies.map((tech, index) => {
+                  const skill = getSkillByName(tech);
+                  return (
+                    <div 
+                      key={index}
+                      className={`px-2 md:px-3 py-1 bg-gray-200 rounded-full text-xs md:text-sm flex items-center gap-2 ${skill ? 'cursor-pointer hover:bg-gray-300 transition-colors' : ''}`}
+                      onClick={() => {
+                        if (skill) {
+                          // Fermer ce modal
+                          onClose();
+                          
+                          // Créer un événement personnalisé pour ouvrir le modal du skill
+                          // En incluant l'ID du projet source pour pouvoir y revenir
+                          const event = new CustomEvent('openSkillModal', { 
+                            detail: { 
+                              skillName: skill.name,
+                              sourceProjectId: project.id,
+                              sourceProjectTitle: project.title
+                            } 
+                          });
+                          document.dispatchEvent(event);
+                        }
+                      }}
+                    >
+                      {skill && (
+                        <img src={skill.logo} alt={tech} className="h-4 w-4 object-contain" />
+                      )}
+                      <span>{tech}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -98,4 +158,4 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
   );
 };
 
-export default ProjectModal; 
+export default ProjectModal;
