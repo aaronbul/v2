@@ -41,6 +41,6 @@ export const projects: Project[] = [
     imageUrl: new_portfolio,
     link: "https://portfolio.bulgheroni.tech",
     codeLink: "https://github.com/aaronbul/v2",
-    technologies: ["React", "Tailwind", "TypeScript"]
+    technologies: ["React", "Tailwind", "Node.js", "JavaScript", "HTML", "CSS", "TypeScript"]
   },
 ];

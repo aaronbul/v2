@@ -52,7 +52,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
     };
 
     // Créer un événement pour que les projets puissent accéder au skill source
-    const handleProjectNeedsSkillSource = (event: CustomEvent) => {
+    const handleProjectNeedsSkillSource = (_: CustomEvent) => {
       if (selectedSkill) {
         const response = new CustomEvent('projectReceiveSkillSource', {
           detail: {
