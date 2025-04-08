@@ -12,6 +12,39 @@ const Contact = () => {
     }, 5000);
   };
 
+  const sendEmail = async (values: { name: string; firstName: string; email: string; message: string }) => {
+    try {
+      console.log('Tentative d\'envoi d\'email...');
+      
+      const apiUrl = import.meta.env.PROD
+        ? import.meta.env.VITE_API_URL
+        : 'http://localhost:3000/api/send-email';
+      
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Erreur lors de l\'envoi de l\'email');
+      }
+
+      console.log('Réponse du serveur:', data);
+      return true;
+    } catch (error) {
+      console.error('Erreur détaillée:', error);
+      if (error instanceof Error) {
+        console.error('Message d\'erreur:', error.message);
+      }
+      return false;
+    }
+  };
+
   return (
     <>
       {notification && (
