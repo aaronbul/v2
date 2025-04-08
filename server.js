@@ -8,6 +8,7 @@ config();
 
 const app = express();
 const port = process.env.PORT || 3000;
+const contactEmail = process.env.CONTACT_EMAIL || 'admin@example.com';
 
 // Limitation de débit global pour toutes les requêtes
 const globalLimiter = rateLimit({
@@ -157,7 +158,7 @@ app.post('/api/send-email', emailLimiter, async (req, res) => {
     // Envoi de l'email avec les données sanitisées
     const response = await resend.emails.send({
       from: 'Portfolio <onboarding@resend.dev>',
-      to: ['aaron.baf@gmail.com'],
+      to: [contactEmail],
       subject: `Nouveau message de ${sanitizedFirstName} ${sanitizedName}`,
       html: `
         <h2>Nouveau message de contact</h2>
