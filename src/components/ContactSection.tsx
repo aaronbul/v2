@@ -16,7 +16,13 @@ const Contact = () => {
     try {
       console.log('Tentative d\'envoi d\'email...');
       
-      const apiUrl = 'https://v2-bl9wt2dw6-aarons-projects-6e3d5dd8.vercel.app/api/send-email';
+      // Utiliser l'API locale en développement, Heroku en production
+      const isDev = window.location.hostname === 'localhost';
+      const apiUrl = isDev
+        ? 'http://localhost:3000/api/send-email' 
+        : 'https://aarons-portfolio-api-d007dd1f4568.herokuapp.com/api/send-email';
+      
+      console.log('Utilisation de l\'API:', apiUrl);
       
       const response = await fetch(apiUrl, {
         method: 'POST',
@@ -28,12 +34,11 @@ const Contact = () => {
 
       const data = await response.json();
       
-      console.log('Réponse du serveur:', data);
-      
-      if (!data.success) {
-        throw new Error(data.message || 'Erreur lors de l\'envoi du message');
+      if (!response.ok) {
+        throw new Error(data.error || 'Erreur lors de l\'envoi de l\'email');
       }
-      
+
+      console.log('Réponse du serveur:', data);
       return true;
     } catch (error) {
       console.error('Erreur détaillée:', error);
