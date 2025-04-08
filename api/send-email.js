@@ -15,62 +15,63 @@ try {
 }
 
 export default async function handler(req, res) {
-  // Configuration CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // ----- GESTION CORS -----
+  const allowedOrigins = ['https://portfolio.bulgheroni.tech'];
+  const origin = req.headers.origin || '';
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Requête OPTIONS pour le preflight CORS
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
-  // Gérer les requêtes GET pour tester l'API
-  if (req.method === 'GET') {
+  // ----- PARSE DU BODY EN JSON SI NECESSAIRE -----
+  if (req.method === 'POST' && req.headers['content-type']?.includes('application/json')) {
+    const buffers = [];
+    for await (const chunk of req) {
+      buffers.push(chunk);
+    }
     try {
-      // Information sur l'environnement
-      const envInfo = {
-        nodeEnv: process.env.NODE_ENV || 'non défini',
-        hasResendKey: Boolean(process.env.RESEND_API_KEY),
-        keyLength: process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY.length : 0,
-        resendInitialized: Boolean(resend)
-      };
-
-      return res.status(200).json({
-        success: true,
-        message: 'API fonctionnelle - Version avec Resend sécurisée',
-        env: envInfo
-      });
+      req.body = JSON.parse(Buffer.concat(buffers).toString());
     } catch (error) {
-      return res.status(500).json({
-        success: false,
-        message: 'Erreur API',
-        error: String(error)
-      });
+      return res.status(400).json({ success: false, message: 'JSON invalide' });
     }
   }
 
-  // Gérer les requêtes POST (envoi du formulaire)
+  // ----- GET: PING DE L'API -----
+  if (req.method === 'GET') {
+    const envInfo = {
+      nodeEnv: process.env.NODE_ENV || 'non défini',
+      hasResendKey: Boolean(process.env.RESEND_API_KEY),
+      keyLength: process.env.RESEND_API_KEY?.length || 0,
+      resendInitialized: Boolean(resend)
+    };
+
+    return res.status(200).json({
+      success: true,
+      message: 'API fonctionnelle - Version avec Resend sécurisée',
+      env: envInfo
+    });
+  }
+
+  // ----- POST: ENVOI D'EMAIL -----
   if (req.method === 'POST') {
     try {
-      // Récupérer les données du formulaire
       const { name, firstName, email, message } = req.body || {};
-      
-      // Vérifier que toutes les données nécessaires sont présentes
+
       if (!name || !firstName || !email || !message) {
         return res.status(400).json({
           success: false,
           message: 'Données de formulaire incomplètes',
-          receivedData: { 
-            hasName: Boolean(name), 
-            hasFirstName: Boolean(firstName), 
-            hasEmail: Boolean(email), 
-            hasMessage: Boolean(message) 
-          }
+          receivedData: { name, firstName, email, message }
         });
       }
-      
-      // Envoi d'email avec Resend si disponible, sinon simulation
+
       if (resend) {
         try {
           const emailResponse = await resend.emails.send({
@@ -87,18 +88,13 @@ export default async function handler(req, res) {
             `,
             reply_to: email
           });
-          
-          console.log('Email envoyé via Resend:', emailResponse);
-          
+
           return res.status(200).json({
             success: true,
             message: 'Email envoyé avec succès via Resend',
             emailId: emailResponse.id
           });
         } catch (resendError) {
-          console.error('Erreur Resend:', resendError);
-          
-          // En cas d'erreur Resend, on revient à la simulation
           return res.status(200).json({
             success: true,
             message: 'Formulaire reçu avec succès (simulation après échec Resend)',
@@ -106,9 +102,6 @@ export default async function handler(req, res) {
           });
         }
       } else {
-        // Simulation d'envoi d'email (fallback)
-        console.log('Simulation - Données reçues:', { name, firstName, email, message });
-        
         return res.status(200).json({
           success: true,
           message: 'Formulaire reçu avec succès (simulation car Resend non disponible)',
@@ -116,16 +109,14 @@ export default async function handler(req, res) {
         });
       }
     } catch (error) {
-      console.error('Erreur:', error);
       return res.status(500).json({
         success: false,
-        message: 'Erreur lors du traitement',
+        message: 'Erreur serveur',
         error: String(error)
       });
     }
   }
 
-  // Si la méthode n'est ni GET, ni POST, ni OPTIONS
   return res.status(405).json({
     success: false,
     message: 'Méthode non autorisée',
