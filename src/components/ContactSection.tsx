@@ -16,9 +16,7 @@ const Contact = () => {
     try {
       console.log('Tentative d\'envoi d\'email...');
       
-      const apiUrl = import.meta.env.PROD
-        ? import.meta.env.VITE_API_URL
-        : 'http://localhost:3000/api/send-email';
+      const apiUrl = 'https://v2-1vzx3l1au-aarons-projects-6e3d5dd8.vercel.app/api/send-email';
       
       const response = await fetch(apiUrl, {
         method: 'POST',
@@ -30,11 +28,12 @@ const Contact = () => {
 
       const data = await response.json();
       
-      if (!response.ok) {
-        throw new Error(data.error || 'Erreur lors de l\'envoi de l\'email');
-      }
-
       console.log('Réponse du serveur:', data);
+      
+      if (!data.success) {
+        throw new Error(data.message || 'Erreur lors de l\'envoi du message');
+      }
+      
       return true;
     } catch (error) {
       console.error('Erreur détaillée:', error);
