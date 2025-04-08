@@ -16,7 +16,7 @@ const Contact = () => {
     try {
       console.log('Tentative d\'envoi d\'email...');
       
-      const apiUrl = 'https://v2-fy8lhfsyb-aarons-projects-6e3d5dd8.vercel.app/api/send-email';
+      const apiUrl = 'https://v2-bl9wt2dw6-aarons-projects-6e3d5dd8.vercel.app/api/send-email';
       
       const response = await fetch(apiUrl, {
         method: 'POST',

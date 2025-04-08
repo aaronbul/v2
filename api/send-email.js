@@ -1,4 +1,4 @@
-// Version avec Resend mais sécurisée
+// Version avec Resend et wrapper CORS
 import { Resend } from 'resend';
 
 // Créer une instance Resend protégée
@@ -14,22 +14,26 @@ try {
   console.error("Erreur lors de l'initialisation de Resend:", error);
 }
 
-export default async function handler(req, res) {
-  // ----- GESTION CORS -----
-  const allowedOrigins = ['https://portfolio.bulgheroni.tech'];
-  const origin = req.headers.origin || '';
-
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-  }
-
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
+// Wrapper CORS pour simplifier la gestion
+const allowCors = fn => async (req, res) => {
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  // Pour une sécurité plus stricte, utilisez cette ligne à la place
+  // res.setHeader('Access-Control-Allow-Origin', 'https://portfolio.bulgheroni.tech');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
   if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+    res.status(200).end();
+    return;
   }
+  return await fn(req, res);
+}
 
+// Handler principal
+const handler = async (req, res) => {
   // ----- PARSE DU BODY EN JSON SI NECESSAIRE -----
   if (req.method === 'POST' && req.headers['content-type']?.includes('application/json')) {
     const buffers = [];
@@ -54,7 +58,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       success: true,
-      message: 'API fonctionnelle - Version avec Resend sécurisée',
+      message: 'API fonctionnelle - Version avec Resend et wrapper CORS',
       env: envInfo
     });
   }
@@ -122,4 +126,7 @@ export default async function handler(req, res) {
     message: 'Méthode non autorisée',
     method: req.method
   });
-} 
+}
+
+// Export avec le wrapper CORS
+export default allowCors(handler); 
