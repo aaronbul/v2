@@ -35,16 +35,13 @@ const Contact = () => {
       const data = await response.json();
       
       if (!response.ok) {
-        throw new Error(data.error || 'Erreur lors de l\'envoi de l\'email');
+        throw new Error(data.message || 'Erreur lors de l\'envoi de l\'email');
       }
 
       console.log('Réponse du serveur:', data);
       return true;
     } catch (error) {
-      console.error('Erreur détaillée:', error);
-      if (error instanceof Error) {
-        console.error('Message d\'erreur:', error.message);
-      }
+      console.error('Erreur lors de l\'envoi:', error);
       return false;
     }
   };
