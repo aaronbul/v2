@@ -80,11 +80,13 @@ const Contact = () => {
               })}
               onSubmit={async (values, { setSubmitting, resetForm }) => {
                 try {
-                  // Simuler l'envoi du formulaire
-                  await new Promise(resolve => setTimeout(resolve, 1000));
-                  console.log('Message envoyé:', values);
-                  showNotification('success', 'Votre message a été envoyé avec succès !');
-                  resetForm();
+                  const success = await sendEmail(values);
+                  if (success) {
+                    showNotification('success', 'Votre message a été envoyé avec succès !');
+                    resetForm();
+                  } else {
+                    showNotification('error', 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.');
+                  }
                   setSubmitting(false);
                 } catch (error) {
                   setSubmitting(false);
