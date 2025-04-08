@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import { Resend } from 'resend';
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config();
+config();
 
 const app = express();
 const port = process.env.PORT || 3000;
