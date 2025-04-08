@@ -64,6 +64,30 @@ app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   // Protection XSS basique
   res.setHeader('X-XSS-Protection', '1; mode=block');
+  
+  // Content Security Policy (CSP)
+  res.setHeader('Content-Security-Policy', 
+    "default-src 'self'; " +
+    "script-src 'self'; " +
+    "style-src 'self' 'unsafe-inline'; " +
+    "img-src 'self' data:; " +
+    "font-src 'self'; " +
+    "connect-src 'self' https://aarons-portfolio-api-d007dd1f4568.herokuapp.com; " +
+    "frame-src 'none'; " +
+    "object-src 'none'; " +
+    "base-uri 'self'; " +
+    "form-action 'self';"
+  );
+  
+  // En-tête HSTS pour forcer les connexions HTTPS
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+  
+  // Refus du mode Referrer pour la confidentialité
+  res.setHeader('Referrer-Policy', 'no-referrer-when-downgrade');
+  
+  // Contrôle du stockage des données sur le navigateur
+  res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
+  
   next();
 });
 
