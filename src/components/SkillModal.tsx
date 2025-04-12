@@ -77,12 +77,15 @@ const SkillModal: React.FC<SkillModalProps> = ({
             {sourceProjectId && onReturnToProject && (
               <button 
                 onClick={onReturnToProject}
-                className="self-start text-sm text-primary hover:underline mb-4 flex items-center gap-1"
+                className="self-start text-sm text-primary mb-4 flex items-center gap-1 relative group"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                   <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                 </svg>
-                Revenir au projet {sourceProjectTitle || ''}
+                <span className="relative">
+                  Revenir au projet {sourceProjectTitle || ''}
+                  <span className="absolute -bottom-1 left-0 w-full h-[1px] transform-gpu origin-left transition-transform duration-700 ease-out bg-primary scale-x-0 group-hover:scale-x-100"></span>
+                </span>
               </button>
             )}
             <img 
@@ -124,31 +127,9 @@ const SkillModal: React.FC<SkillModalProps> = ({
             </div>
           </div>
 
-          <div className="mb-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-2">Exemples de réalisations</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {skill.examples?.map((example, index) => (
-                <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">{example.title}</h3>
-                  <p className="text-sm text-gray-600">{example.description}</p>
-                  {example.link && (
-                    <a 
-                      href={example.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-primary hover:underline mt-2 inline-block"
-                    >
-                      Voir le projet →
-                    </a>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
           {relatedProjects.length > 0 && (
-            <div>
-              <h2 className="text-lg md:text-xl font-semibold mb-2">Projets utilisant {skill.name}</h2>
+            <div className="mb-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Projets disponibles utilisant {skill.name}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {relatedProjects.map((project) => project && (
                   <div 
@@ -169,6 +150,30 @@ const SkillModal: React.FC<SkillModalProps> = ({
                         <p className="text-xs text-gray-600 line-clamp-2">{project.description}</p>
                       </div>
                     </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {skill.examples && skill.examples.length > 0 && (
+            <div className="mb-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Autres projets utilisant {skill.name}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {skill.examples.map((example, index) => (
+                  <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                    <h3 className="font-medium mb-2">{example.title}</h3>
+                    <p className="text-sm text-gray-600">{example.description}</p>
+                    {example.link && (
+                      <a 
+                        href={example.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary hover:underline mt-2 inline-block"
+                      >
+                        Voir le projet →
+                      </a>
+                    )}
                   </div>
                 ))}
               </div>

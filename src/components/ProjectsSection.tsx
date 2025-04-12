@@ -17,7 +17,7 @@ const ProjectsSection = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedProject(null);
-    setSourceSkillName(null);
+    setSourceSkillName(null); // Réinitialiser sourceSkillName lors de la fermeture
   };
 
   // Fonction pour revenir au skill source
@@ -26,9 +26,10 @@ const ProjectsSection = () => {
       // Fermer le modal du projet
       setIsModalOpen(false);
       setSelectedProject(null);
+      setSourceSkillName(null);
       
       // Créer un événement pour ouvrir le modal du skill
-      const event = new CustomEvent('returnToSkill', { 
+      const event = new CustomEvent('openSkillByName', { 
         detail: sourceSkillName
       });
       document.dispatchEvent(event);
@@ -49,30 +50,11 @@ const ProjectsSection = () => {
       }
     };
 
-    // Écouter l'événement pour revenir à un skill
-    const handleReturnToSkill = (event: CustomEvent) => {
-      const skillName = event.detail;
-      
-      // Fermer le modal du projet avant d'ouvrir le skill
-      setIsModalOpen(false);
-      setSelectedProject(null);
-      
-      // Créer un événement pour ouvrir le modal du skill
-      setTimeout(() => {
-        const openSkillEvent = new CustomEvent('openSkillByName', { 
-          detail: skillName
-        });
-        document.dispatchEvent(openSkillEvent);
-      }, 100); // Petit délai pour garantir que le modal du projet est bien fermé
-    };
-
     // Typecasting nécessaire pour TypeScript
     document.addEventListener('openProjectModal', handleOpenProjectModal as EventListener);
-    document.addEventListener('returnToSkill', handleReturnToSkill as EventListener);
 
     return () => {
       document.removeEventListener('openProjectModal', handleOpenProjectModal as EventListener);
-      document.removeEventListener('returnToSkill', handleReturnToSkill as EventListener);
     };
   }, []);
 

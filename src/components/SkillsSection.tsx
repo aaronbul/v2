@@ -22,7 +22,8 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedSkill(null);
-    // Ne pas effacer l'ID du projet source pour permettre d'y revenir même après avoir fermé le modal
+    setSourceProjectId(null);
+    setSourceProjectTitle(null);
   };
 
   useEffect(() => {
@@ -35,19 +36,36 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
       
       const skill = skills.find(s => s.name === skillName);
       if (skill) {
-        handleOpenModal(skill, projectId, projectTitle);
+        // Si on vient d'un projet, on met à jour les états source
+        if (projectId) {
+          setSelectedSkill(skill);
+          setSourceProjectId(projectId);
+          setSourceProjectTitle(projectTitle);
+          setIsModalOpen(true);
+        } else {
+          handleOpenModal(skill, projectId, projectTitle);
+        }
       }
     };
 
     // Écouter l'événement pour ouvrir un skill par son nom (depuis ProjectsSection)
     const handleOpenSkillByName = (event: CustomEvent) => {
-      const skillName = event.detail;
+      const data = event.detail;
+      const skillName = typeof data === 'string' ? data : data.skillName;
+      const projectId = typeof data === 'string' ? null : data.sourceProjectId;
+      const projectTitle = typeof data === 'string' ? null : data.sourceProjectTitle;
+      
       const skill = skills.find(s => s.name === skillName);
       if (skill) {
-        // Utiliser la fonction handleOpenModal sans paramètres de projet
-        // pour éviter de perdre le contexte de navigation
-        setSelectedSkill(skill);
-        setIsModalOpen(true);
+        // Si on vient d'un projet, on met à jour les états source
+        if (projectId) {
+          setSelectedSkill(skill);
+          setSourceProjectId(projectId);
+          setSourceProjectTitle(projectTitle);
+          setIsModalOpen(true);
+        } else {
+          handleOpenModal(skill, projectId, projectTitle);
+        }
       }
     };
 
@@ -81,12 +99,14 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
     if (sourceProjectId) {
       // Fermer le modal des skills
       setIsModalOpen(false);
+      setSelectedSkill(null);
+      setSourceProjectId(null);
+      setSourceProjectTitle(null);
       
       // Créer un événement pour ouvrir le modal du projet
       const event = new CustomEvent('openProjectModal', { 
         detail: {
-          projectId: sourceProjectId,
-          sourceSkillName: selectedSkill?.name
+          projectId: sourceProjectId
         }
       });
       document.dispatchEvent(event);

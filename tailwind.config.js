@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}",],
   theme: {
     extend: {
+      colors: {
+        primary: '#000000', // Couleur noire pour correspondre au header
+      },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
       },

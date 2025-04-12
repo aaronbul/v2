@@ -24,6 +24,7 @@ import kotlin from "../assets/skills/kotlin.svg";
 import csharp from "../assets/skills/csharp.svg";
 import spring from "../assets/skills/spring.svg";
 import figma from "../assets/skills/figma.svg";
+import sql from "../assets/skills/sql.svg";
 import { projects } from './projects';
 
 export interface SkillExample {
@@ -50,24 +51,7 @@ export const skills: Skill[] = [
     experience: 5,
     description: "Je maîtrise le HTML5 et ses fonctionnalités avancées, notamment les sémantiques, les formulaires, et l'intégration multimédia. Je suis également familier avec les bonnes pratiques d'accessibilité et de SEO.",
     officialDescription: "HTML (HyperText Markup Language) est le langage de balisage standard pour créer des pages web. Il décrit la structure du contenu web et permet d'organiser le contenu en sections, paragraphes, listes, liens, images et autres éléments.",
-    officialWebsite: "https://developer.mozilla.org/fr/docs/Web/HTML",
-    examples: [
-      {
-        title: "Haddock",
-        description: "Site web sur les jurons du Capitaine Haddock avec une structure HTML5 sémantique",
-        link: "https://github.com/aaronbul/Haddock"
-      },
-      {
-        title: "Portfolio 2021",
-        description: "Développement d'un portfolio responsive avec HTML5",
-        link: "https://github.com/aaronbul/v1"
-      },
-      {
-        title: "Portfolio 2025",
-        description: "Création d'un portfolio moderne avec React et HTML5",
-        link: "https://github.com/aaronbul/v1"
-      }
-    ]
+    officialWebsite: "https://developer.mozilla.org/fr/docs/Web/HTML"
   },
   {
     name: 'CSS',
@@ -75,19 +59,7 @@ export const skills: Skill[] = [
     experience: 5,
     description: "Expert en CSS3 avec une solide expérience en animations, transitions, et design responsive. Je maîtrise également les préprocesseurs CSS comme Sass et les frameworks comme Tailwind CSS.",
     officialDescription: "CSS (Cascading Style Sheets) est un langage de feuille de style utilisé pour décrire la présentation d'un document HTML. Il permet de contrôler la mise en page, les couleurs, les polices, les animations et d'autres aspects visuels.",
-    officialWebsite: "https://developer.mozilla.org/fr/docs/Web/CSS",
-    examples: [
-      {
-        title: "Haddock",
-        description: "Création d'une interface responsive avec CSS vanilla",
-        link: "https://github.com/aaronbul/Haddock"
-      },
-      {
-        title: "Portfolio 2021",
-        description: "Développement d'un portfolio avec CSS personnalisé",
-        link: "https://github.com/aaronbul/v1"
-      }
-    ]
+    officialWebsite: "https://developer.mozilla.org/fr/docs/Web/CSS"
   },
   {
     name: 'JavaScript',
@@ -95,19 +67,7 @@ export const skills: Skill[] = [
     experience: 5,
     description: "Développement JavaScript moderne avec une expertise en ES6+, programmation asynchrone, et manipulation du DOM. Je suis également familier avec les frameworks modernes comme React et Angular.",
     officialDescription: "JavaScript est un langage de programmation dynamique qui permet d'ajouter des fonctionnalités interactives aux pages web. Il est l'un des trois langages fondamentaux du web, aux côtés de HTML et CSS.",
-    officialWebsite: "https://developer.mozilla.org/fr/docs/Web/JavaScript",
-    examples: [
-      {
-        title: "Haddock",
-        description: "Développement d'une interface interactive pour la gestion des jurons",
-        link: "https://github.com/aaronbul/Haddock"
-      },
-      {
-        title: "Portfolio 2021",
-        description: "Création d'animations et d'interactions avec JavaScript vanilla",
-        link: "https://github.com/aaronbul/v1"
-      }
-    ]
+    officialWebsite: "https://developer.mozilla.org/fr/docs/Web/JavaScript"
   },  
   {
     name: 'TypeScript',
@@ -115,14 +75,7 @@ export const skills: Skill[] = [
     experience: 3,
     description: "Développement d'applications TypeScript avec typage statique et interfaces. Je maîtrise les fonctionnalités avancées comme les génériques et les décorateurs.",
     officialDescription: "TypeScript est un sur-ensemble typé de JavaScript qui se compile en JavaScript. Il ajoute des types statiques optionnels, des classes, des modules et d'autres fonctionnalités à JavaScript.",
-    officialWebsite: "https://www.typescriptlang.org/fr/",
-    examples: [
-      {
-        title: "Portfolio 2025",
-        description: "Développement d'un portfolio moderne avec TypeScript et React",
-        link: "https://github.com/aaronbul/v1"
-      }
-    ]
+    officialWebsite: "https://www.typescriptlang.org/fr/"
   },
   {
     name: 'Angular',
@@ -134,7 +87,7 @@ export const skills: Skill[] = [
     examples: [
       {
         title: "Application de Gestion",
-        description: "Création d'une application de gestion avec Angular et Material Design"
+        description: "Création d'une application de gestion de médiathèque avec Angular"
       }
     ]
   },
@@ -144,14 +97,7 @@ export const skills: Skill[] = [
     experience: 3,
     description: "Développement d'applications React modernes avec hooks, context API, et gestion d'état. Je suis également familier avec Next.js et les bonnes pratiques de performance.",
     officialDescription: "React est une bibliothèque JavaScript pour créer des interfaces utilisateur. Elle permet de créer des applications web complexes en composants réutilisables et gère efficacement le rendu et les mises à jour de l'interface.",
-    officialWebsite: "https://fr.reactjs.org/",
-    examples: [
-      {
-        title: "Portfolio 2025",
-        description: "Développement d'un portfolio moderne avec React et TypeScript",
-        link: "https://github.com/aaronbul/v1"
-      }
-    ]
+    officialWebsite: "https://fr.reactjs.org/"
   },
   {
     name: 'Tailwind',
@@ -159,14 +105,7 @@ export const skills: Skill[] = [
     experience: 1,
     description: "Utilisation de Tailwind CSS pour créer des interfaces modernes et responsives avec une approche utility-first.",
     officialDescription: "Tailwind CSS est un framework CSS utility-first qui permet de construire rapidement des designs personnalisés sans quitter votre HTML.",
-    officialWebsite: "https://tailwindcss.com/",
-    examples: [
-      {
-        title: "Portfolio 2025",
-        description: "Création d'une interface moderne avec Tailwind CSS",
-        link: "https://github.com/aaronbul/v1"
-      }
-    ]
+    officialWebsite: "https://tailwindcss.com/"
   },
   {
     name: 'Bootstrap',
@@ -174,14 +113,7 @@ export const skills: Skill[] = [
     experience: 5,
     description: "Expert en Bootstrap avec une solide expérience dans la création d'interfaces responsives et l'utilisation des composants avancés.",
     officialDescription: "Bootstrap est un framework CSS open-source qui facilite le développement de sites web responsifs et mobiles-first.",
-    officialWebsite: "https://getbootstrap.com/",
-    examples: [
-      {
-        title: "Haddock",
-        description: "Développement d'une interface responsive avec Bootstrap",
-        link: "https://github.com/aaronbul/Haddock"
-      }
-    ]
+    officialWebsite: "https://getbootstrap.com/"
   },
   {
     name: 'Docker',
@@ -217,13 +149,7 @@ export const skills: Skill[] = [
     experience: 5,
     description: "Utilisation intensive de GitHub pour la gestion de versions, la collaboration et l'intégration continue.",
     officialDescription: "GitHub est une plateforme de développement qui permet de collaborer sur des projets de code source en utilisant Git.",
-    officialWebsite: "https://github.com/",
-    examples: [
-      {
-        title: "Gestion de Projet",
-        description: "Gestion de projets collaboratifs avec GitHub"
-      }
-    ]
+    officialWebsite: "https://github.com/"
   },
   {
     name: 'GitLab',
@@ -245,13 +171,7 @@ export const skills: Skill[] = [
     experience: 3,
     description: "Création de maquettes et de prototypes interactifs avec Figma pour le design d'interfaces.",
     officialDescription: "Figma est un outil de design collaboratif basé sur le web qui permet de créer des interfaces utilisateur et des prototypes.",
-    officialWebsite: "https://www.figma.com/",
-    examples: [
-      {
-        title: "Design System",
-        description: "Création d'un design system complet avec Figma"
-      }
-    ]
+    officialWebsite: "https://www.figma.com/"
   },
   {
     name: 'Java',
@@ -290,8 +210,16 @@ export const skills: Skill[] = [
     officialWebsite: "https://www.swi-prolog.org/",
     examples: [
       {
-        title: "Système Expert",
-        description: "Création d'un système expert simple avec Prolog"
+        title: "Fonctionnalité d'export analytique",
+        description: "Mise en place et maintien d'une fonctionnalité d'export analytique pour un progiciel SIRH"
+      },
+      {
+        title: "Fonctionnalité d'ajout d'aptitude",
+        description: "Mise en place et maintien d'une fonctionnalité d'ajout d'aptitude et de gestion de la rémunération associée pour un progiciel SIRH"
+      },
+      {
+        title: "Fonctionnalité de fermeture de collaborateur",
+        description: "Mise en place et maintien d'une fonctionnalité de fermeture de collaborateur pour un progiciel SIRH"
       }
     ]
   },
@@ -320,21 +248,6 @@ export const skills: Skill[] = [
       {
         title: "API REST",
         description: "Création d'une API REST avec Node.js et MongoDB"
-      }
-    ]
-  },
-  {
-    name: 'MySQL',
-    logo: mysql,
-    experience: 5,
-    description: "Expert en MySQL avec une solide expérience dans la conception de bases de données et l'optimisation des performances.",
-    officialDescription: "MySQL est un système de gestion de base de données relationnelle open-source.",
-    officialWebsite: "https://www.mysql.com/",
-    examples: [
-      {
-        title: "Haddock",
-        description: "Conception et implémentation de la base de données pour le stockage des jurons",
-        link: "https://github.com/aaronbul/Haddock"
       }
     ]
   },
@@ -372,14 +285,7 @@ export const skills: Skill[] = [
     experience: 4,
     description: "Développement d'applications web avec PHP et ses frameworks modernes comme Laravel et Symfony.",
     officialDescription: "PHP est un langage de script généraliste particulièrement adapté au développement web.",
-    officialWebsite: "https://www.php.net/",
-    examples: [
-      {
-        title: "Haddock",
-        description: "Développement du backend avec PHP pour la gestion des jurons",
-        link: "https://github.com/aaronbul/Haddock"
-      }
-    ]
+    officialWebsite: "https://www.php.net/"
   },
   {
     name: 'PrestaShop',
@@ -415,13 +321,7 @@ export const skills: Skill[] = [
     experience: 2,
     description: "Utilisation de Sass pour la création de styles CSS plus maintenables et modulaires.",
     officialDescription: "Sass est un préprocesseur CSS qui ajoute des fonctionnalités puissantes comme les variables, les imbrications et les mixins.",
-    officialWebsite: "https://sass-lang.com/",
-    examples: [
-      {
-        title: "Styles Avancés",
-        description: "Création de styles CSS avancés avec Sass"
-      }
-    ]
+    officialWebsite: "https://sass-lang.com/"
   },
   {
     name: 'WordPress',
@@ -432,8 +332,26 @@ export const skills: Skill[] = [
     officialWebsite: "https://wordpress.org/",
     examples: [
       {
-        title: "Site Web",
-        description: "Création d'un site web avec WordPress"
+        title: "Site e-commerce",
+        description: "Création d'un site e-commerce avec WordPress"
+      }
+    ]
+  },
+  {
+    name: 'SQL',
+    logo: sql,
+    experience: 5,
+    description: "Expert en SQL avec une solide expérience dans plusieurs variantes : MySQL, PostgreSQL, SQLite et PL/SQL. Je maîtrise la conception de bases de données, l'optimisation des requêtes et la gestion des transactions.",
+    officialDescription: "SQL (Structured Query Language) est un langage de programmation standardisé pour gérer les bases de données relationnelles. Il permet de créer, modifier, interroger et gérer les données stockées dans une base de données.",
+    officialWebsite: "https://www.iso.org/standard/63555.html",
+    examples: [
+      {
+        title: "Fonctionnalité d'export analytique",
+        description: "Mise en place et maintien d'une vue en PL/SQL pour un progiciel SIRH"
+      },
+      {
+        title: "Bases de données relationnelles",
+        description: "Conception et optimisation de bases de données avec différentes variantes de SQL"
       }
     ]
   }
