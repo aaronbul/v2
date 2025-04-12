@@ -3,7 +3,6 @@ import bootstrap from "../assets/skills/bootstrap.svg";
 import github from "../assets/skills/github.svg";
 import java from "../assets/skills/java.svg";
 import mongodb from "../assets/skills/mongodb.svg";
-import mysql from "../assets/skills/mysql.svg";
 import node from "../assets/skills/nodejs.svg";
 import php from "../assets/skills/php.svg";
 import prestashop from "../assets/skills/prestashop.svg";
