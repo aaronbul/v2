@@ -11,7 +11,7 @@ export const experiences: Experience[] = [
     entreprise: "Lycée Français de Tananarive",
     periode: "2015 - 2018",
     description: [
-      "Candidat au Baccalauréat Science et Technologie du management et de la gestion option Gestion et Finance. Obtention du diplôme en Juin 2018."
+      "Candidat au Baccalauréat Science et Technologie du management et de la gestion option Gestion et Finance. Obtention du diplôme en juin 2018."
     ]
   },
   {
@@ -43,7 +43,7 @@ export const experiences: Experience[] = [
     entreprise: "Iscod",
     periode: "2022 - 2023",
     description: [
-      "Candidat au Bachelor Concepteur développeur d’application. Obtention du diplôme en Août 2023."
+      "Candidat au Bachelor Concepteur développeur d’application. Obtention du diplôme en août 2023."
     ]
   },
   {

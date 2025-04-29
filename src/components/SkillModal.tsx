@@ -121,7 +121,9 @@ const SkillModal: React.FC<SkillModalProps> = ({
               <div>
                 <h3 className="text-md font-semibold text-primary mb-3">Mon expérience</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {skill.description || `Je maîtrise ${skill.name} et l'utilise régulièrement dans mes projets.`}
+                  {skill.description?.split('\n\n').map((para: string, index: number) => (
+                    <p key={index}>{para}</p>
+                  )) || `Je maîtrise ${skill.name} et l'utilise régulièrement dans mes projets.`}
                 </p>
               </div>
             </div>
