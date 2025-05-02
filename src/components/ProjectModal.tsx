@@ -88,7 +88,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
           <div className="space-y-6 md:space-y-8">
             <div>
               <h2 className="text-lg md:text-xl font-semibold mb-2">Description détaillée</h2>
-              <p className="text-sm md:text-base text-gray-700">{project.longDescription}</p>
+              <p className="text-sm md:text-base text-gray-700">
+                {project.longDescription.split('\n\n').map((para: string, index: number) => (
+                  <p key={index}>{para}</p>
+                ))}</p>
             </div>
 
             <div>

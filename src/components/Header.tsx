@@ -6,9 +6,13 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
+      // Gérer la bordure lors du scroll
+      setIsScrolled(window.scrollY > 0);
+
       // Déterminer la section active
       const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
       
@@ -40,7 +44,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed w-full top-0 z-40 bg-white">
+    <header className={`fixed w-full top-0 z-40 bg-white transition-all duration-300 ${isScrolled ? 'border-b border-gray-200 shadow-sm' : ''}`}>
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">

@@ -2,18 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'Anonymous';
-    src: url('./font/Anonymous.woff2') format('woff2'),
-         url('./font/Anonymous.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  /* Application globale de la police */
-  * {
-    font-family: 'Montserrat', sans-serif;
-  }
+/* Application globale de la police */
+* {
+  font-family: 'Montserrat', sans-serif;
+}
 
 
 

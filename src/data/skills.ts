@@ -24,6 +24,7 @@ import csharp from "../assets/skills/csharp.svg";
 import spring from "../assets/skills/spring.svg";
 import figma from "../assets/skills/figma.svg";
 import sql from "../assets/skills/sql.svg";
+import skill from "../assets/skills/skills.svg";
 import { projects } from './projects';
 
 export interface SkillExample {
@@ -56,8 +57,8 @@ export const skills: Skill[] = [
     formulaires complexes et des intégrations multimédias. J'ai ensuite créé mon premier 
     portfolio en 2021, en développant une structure sémantique claire et accessible. \n
 
-    J'ai continué à approfondir mes connaissances avec mon portfolio 2025, en utilisant les 
-    dernières fonctionnalités HTML5 pour créer une expérience utilisateur moderne et 
+    J'ai continué à approfondir mes connaissances avec mon portfolio 2025, en utilisant 
+    les dernières fonctionnalités HTML5 pour créer une expérience utilisateur moderne et 
     interactive.`,
     officialDescription: `HTML (HyperText Markup Language) est le langage de balisage standard pour 
     créer des pages web. Il décrit la structure du contenu web et permet d'organiser le contenu en 
@@ -276,8 +277,8 @@ export const skills: Skill[] = [
     d'interfaces. Je maîtrise les composants réutilisables, les styles partagés, et les 
     fonctionnalités de collaboration en temps réel. \n
 
-    Mon expérience avec Figma a été particulièrement enrichissante lors du développement de 
-    mon portfolio 2025, où j'ai créé un design system complet avec des composants réutilisables 
+    Mon expérience avec Figma a été particulièrement enrichissante lors du développement 
+    de mon portfolio 2025, où j'ai créé un design system complet avec des composants réutilisables 
     et des styles partagés. J'ai également mis en place des prototypes interactifs pour tester 
     l'expérience utilisateur et valider les interactions. \n
 
@@ -348,23 +349,7 @@ export const skills: Skill[] = [
     rémunération associée.`,
     officialDescription: `Prolog est un langage de programmation logique utilisé principalement 
     pour l'intelligence artificielle et la résolution de problèmes complexes.`,
-    officialWebsite: `https://www.swi-prolog.org/`,
-    examples: [
-      {
-        title: `Fonctionnalité d'export analytique`,
-        description: `Mise en place et maintien d'une vue en PL/SQL pour un progiciel SIRH`
-      },
-      {
-        title: `Fonctionnalité d'ajout d'aptitude`,
-        description: `Mise en place et maintien d'une fonctionnalité d'ajout d'aptitude et de 
-        gestion de la rémunération associée pour un progiciel SIRH`
-      },
-      {
-        title: `Fonctionnalité de fermeture de collaborateur`,
-        description: `Mise en place et maintien d'une fonctionnalité de fermeture de collaborateur 
-        pour un progiciel SIRH`
-      }
-    ]
+    officialWebsite: `https://www.swi-prolog.org/`
   },
   {
     name: `C#`,
@@ -552,15 +537,108 @@ export const skills: Skill[] = [
     officialWebsite: `https://www.iso.org/standard/63555.html`,
     examples: [
       {
-        title: `Fonctionnalité d'export analytique`,
-        description: `Mise en place et maintien d'une vue en PL/SQL pour un progiciel SIRH`
-      },
-      {
         title: `Bases de données relationnelles`,
         description: `Conception et optimisation de bases de données avec différentes variantes de 
         SQL`
       }
     ]
+  },
+  {
+    name: `Adaptabilité`,
+    logo: skill,
+    experience: 5,
+    description: `Capacité à m'adapter rapidement aux nouvelles situations, technologies et environnements 
+    de travail. Je suis capable de m'ajuster aux changements et d'apprendre rapidement de nouvelles 
+    compétences. \n
+
+    Mon expérience professionnelle m'a permis de développer une grande adaptabilité, notamment lors 
+    de mes transitions entre différents langages de programmation et frameworks. J'ai su m'adapter 
+    aux méthodologies agiles et aux différents environnements de développement. \n
+
+    Cette capacité d'adaptation m'a été particulièrement utile lors de mes différents projets, où j'ai dû 
+    rapidement assimiler les besoins spécifiques et m'adapter aux environnements techniques variés.`,
+    officialDescription: `L'adaptabilité est la capacité à s'ajuster efficacement aux changements et 
+    aux nouvelles situations dans un environnement professionnel en constante évolution.`
+  },
+  {
+    name: `Esprit d'équipe`,
+    logo: skill,
+    experience: 5,
+    description: `Capacité à collaborer efficacement au sein d'une équipe, à partager les connaissances 
+    et à contribuer à l'atteinte des objectifs communs. Je valorise la communication, l'entraide et le 
+    respect mutuel. \n
+
+    Mon expérience en développement m'a permis de travailler dans diverses équipes, allant des petits 
+    groupes de développeurs aux équipes pluridisciplinaires. J'ai participé à des projets collaboratifs 
+    où j'ai appris à coordonner mes efforts avec d'autres développeurs, designers et chefs de projet. \n
+
+    J'ai également contribué à la création d'une culture de partage des connaissances au sein des équipes, 
+    en organisant des sessions de code review et en documentant les bonnes pratiques. Cette approche 
+    collaborative a permis d'améliorer la qualité du code et l'efficacité de l'équipe.`,
+    officialDescription: `L'esprit d'équipe est la capacité à travailler harmonieusement avec d'autres 
+    personnes, à contribuer activement aux objectifs communs et à maintenir un environnement de travail 
+    positif et productif.`
+  },
+  {
+    name: `Organisation`,
+    logo: skill,
+    experience: 5,
+    description: `Capacité à structurer et planifier efficacement mon travail, à gérer les priorités et à 
+    respecter les délais. Je maitrise les outils de gestion de projet et les méthodologies agiles. \n
+
+    Mon expérience en développement m'a permis de développer une approche méthodique dans la 
+    gestion des projets. J'utilise des outils comme Jira et Trello pour suivre l'avancement des 
+    tâches et maintenir une vue d'ensemble claire des projets. \n
+
+    J'ai également mis en place des processus de documentation et de versioning rigoureux, 
+    permettant une meilleure traçabilité et une maintenance facilitée des projets. Cette 
+    organisation méthodique contribue à la qualité et à la pérennité des solutions développées.`,
+    officialDescription: `L'organisation est la capacité à structurer son travail, à gérer efficacement 
+    son temps et ses ressources pour atteindre les objectifs fixés dans les délais impartis.`
+  },
+  {
+    name: `Curiosité`,
+    logo: skill,
+    experience: 5,
+    description: `Passion pour l'apprentissage continu et l'exploration de nouvelles technologies. Je 
+    m'intéresse activement aux évolutions du monde du développement et aux meilleures pratiques 
+    émergentes. \n
+
+    Cette curiosité m'a permis de rester à jour avec les dernières avancées technologiques et 
+    d'expérimenter avec de nouveaux outils et frameworks. Je participe régulièrement à des 
+    conférences et des meetups pour élargir mes connaissances et échanger avec d'autres 
+    professionnels. \n
+
+    Cette soif d'apprentissage se reflète dans mes projets personnels, où j'explore 
+    régulièrement de nouvelles approches et technologies pour améliorer mes compétences et 
+    enrichir mon expérience.`,
+    officialDescription: `La curiosité est le désir constant d'apprendre, de découvrir et de comprendre 
+    de nouvelles choses, essentiel pour rester compétitif dans un domaine en perpétuelle évolution.`
+  },
+  {
+    name: `Autonomie`,
+    logo: skill,
+    experience: 5,
+    description: `Capacité à prendre des initiatives et à mener des projets de manière indépendante tout 
+    en maintenant une communication efficace avec l'équipe. Je suis capable de résoudre des 
+    problèmes complexes et de prendre des décisions éclairées. \n
+
+    Mon expérience en développement m'a permis de développer une forte autonomie dans la 
+    résolution de problèmes techniques. Je sais identifier les ressources nécessaires, 
+    rechercher des solutions et implémenter des réponses adaptées aux défis rencontrés. \n
+
+    Cette autonomie se manifeste également dans ma capacité à gérer mes projets de bout en 
+    bout, de l'analyse des besoins à la mise en production, tout en maintenant une 
+    communication transparente avec les parties prenantes. \n
+
+    L'auto-apprentissage est un aspect essentiel de mon autonomie. Je m'investis 
+    régulièrement dans l'apprentissage de nouvelles technologies et méthodologies, en 
+    utilisant diverses ressources comme la documentation officielle, les tutoriels en ligne, 
+    et les projets pratiques. Cette capacité d'apprentissage autonome me permet de rester à 
+    jour et de m'adapter rapidement aux nouvelles exigences techniques.`,
+    officialDescription: `L'autonomie est la capacité à travailler de manière indépendante, à prendre des 
+    initiatives et à assumer la responsabilité de ses actions tout en maintenant une collaboration 
+    efficace avec l'équipe.`
   }
 ]; 
 
