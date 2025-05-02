@@ -339,10 +339,9 @@ Please change the parent <Route path="${F}"> to <Route path="${F==="/"?"*":`${F}
     contraintes avec Prolog. 
 
 
-    Mon expérience avec Prolog a été particulièrement enrichissante lors de mon passage chez 
-    Cegedim, où j'ai travaillé sur des projets d'intelligence artificielle et de planification 
-    sous contraintes. J'ai développé des solutions pour la résolution de problèmes complexes et 
-    l'optimisation de processus. 
+    Mon expérience avec Prolog a été particulièrement enrichissante dans le développement de 
+    projets d'intelligence artificielle et de planification sous contraintes. J'ai développé des 
+    solutions pour la résolution de problèmes complexes et l'optimisation de processus. 
 
 
     J'ai également contribué au développement d'un logiciel SIRH, notamment en optimisant des 
