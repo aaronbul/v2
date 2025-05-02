@@ -338,10 +338,9 @@ export const skills: Skill[] = [
     description: `Développement d'applications d'intelligence artificielle et de planification sous 
     contraintes avec Prolog. \n
 
-    Mon expérience avec Prolog a été particulièrement enrichissante lors de mon passage chez 
-    Cegedim, où j'ai travaillé sur des projets d'intelligence artificielle et de planification 
-    sous contraintes. J'ai développé des solutions pour la résolution de problèmes complexes et 
-    l'optimisation de processus. \n
+    Mon expérience avec Prolog a été particulièrement enrichissante dans le développement de 
+    projets d'intelligence artificielle et de planification sous contraintes. J'ai développé des 
+    solutions pour la résolution de problèmes complexes et l'optimisation de processus. \n
 
     J'ai également contribué au développement d'un logiciel SIRH, notamment en optimisant des 
     scripts PL/SQL, en développant l'export analytique avec une interface et une base Oracle, 
