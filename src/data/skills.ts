@@ -49,11 +49,7 @@ export const skills: Skill[] = [
     name: `HTML`,
     logo: html,
     experience: 5,
-    description: `Je maîtrise le HTML5 et ses fonctionnalités avancées, notamment les sémantiques, 
-    les formulaires, et l'intégration multimédia. Je suis également familier avec les bonnes 
-    pratiques d'accessibilité et de SEO. \n
-
-    Mon expérience avec HTML a débuté avec le projet Haddock, où j'ai mis en place des 
+    description: `Mon expérience avec HTML a débuté avec le projet Haddock, où j'ai mis en place des 
     formulaires complexes et des intégrations multimédias. J'ai ensuite créé mon premier 
     portfolio en 2021, en développant une structure sémantique claire et accessible. \n
 
@@ -69,11 +65,7 @@ export const skills: Skill[] = [
     name: `CSS`,
     logo: css,
     experience: 5,
-    description: `Expert en CSS3 avec une solide expérience en animations, transitions, et design 
-    responsive. Je maîtrise également les préprocesseurs CSS comme Sass et les frameworks comme 
-    Tailwind CSS. \n
-
-    Mon parcours avec CSS a commencé avec le projet Haddock, où j'ai créé des animations 
+    description: `Mon parcours avec CSS a commencé avec le projet Haddock, où j'ai créé des animations 
     fluides et des transitions pour améliorer l'expérience utilisateur. J'ai également mis en 
     place un design responsive pour assurer une expérience optimale sur tous les appareils. \n
 
@@ -89,11 +81,7 @@ export const skills: Skill[] = [
     name: `JavaScript`,
     logo: javascript,
     experience: 5,
-    description: `Développement JavaScript moderne avec une expertise en ES6+, programmation 
-    asynchrone, et manipulation du DOM. Je suis également familier avec les frameworks modernes 
-    comme React et Angular. \n
-
-    Mon parcours avec JavaScript a commencé avec mon premier portfolio en 2021, où j'ai utilisé 
+    description: `Mon parcours avec JavaScript a commencé avec mon premier portfolio en 2021, où j'ai utilisé 
     JavaScript natif pour créer des interactions utilisateur et des animations. Cette expérience 
     m'a permis d'acquérir une solide base en manipulation du DOM et en gestion des événements. \n
 
@@ -110,11 +98,7 @@ export const skills: Skill[] = [
     name: `TypeScript`,
     logo: typescript,
     experience: 3,
-    description: `Développement d'applications TypeScript avec typage statique et interfaces. Je 
-    maîtrise les fonctionnalités avancées comme les génériques, les décorateurs, et les types 
-    utilitaires. \n 
-
-    Mon expérience avec TypeScript a été particulièrement enrichissante lors du développement 
+    description: `Mon expérience avec TypeScript a été particulièrement enrichissante lors du développement 
     de mon portfolio 2025, où j'ai utilisé le typage strict pour assurer la qualité du code et 
     faciliter la maintenance. J'ai également mis en place des interfaces réutilisables et des 
     types génériques pour optimiser la réutilisation du code. \n
@@ -132,11 +116,7 @@ export const skills: Skill[] = [
     name: `Angular`,
     logo: angular,
     experience: 2,
-    description: `Développement d'applications Angular avec les dernières versions, incluant les 
-    composants, les services, et la gestion d'état. Je maîtrise les concepts fondamentaux comme 
-    les modules, les directives, et les pipes. \n
-
-    Mon expérience avec Angular a été particulièrement enrichissante lors du développement 
+    description: `Mon expérience avec Angular a été particulièrement enrichissante lors du développement 
     d'une application de gestion de médiathèque. J'ai mis en place une architecture modulaire 
     avec des services partagés pour la gestion des données et l'authentification. J'ai également 
     implémenté des fonctionnalités avancées comme le lazy loading des modules et la gestion 
@@ -158,10 +138,7 @@ export const skills: Skill[] = [
     name: `React`,
     logo: react,
     experience: 3,
-    description: `Développement d'applications React modernes avec hooks, context API, et gestion 
-    d'état. Je maîtrise les bonnes pratiques de performance et l'optimisation des composants. \n
-
-    Mon expérience avec React a débuté avec mon portfolio 2025, où j'ai créé une interface 
+    description: `Mon expérience avec React a débuté avec mon portfolio 2025, où j'ai créé une interface 
     moderne et responsive en utilisant Tailwind CSS. Cette expérience m'a permis de maîtriser 
     les concepts de composants réutilisables et de gestion d'état. \n
 
@@ -183,10 +160,7 @@ export const skills: Skill[] = [
     name: `Tailwind`,
     logo: tailwind,
     experience: 1,
-    description: `Utilisation de Tailwind CSS pour créer des interfaces modernes et responsives 
-    avec une approche utility-first. \n
-
-    Mon expérience avec Tailwind CSS a débuté avec mon portfolio 2025, où j'ai créé une 
+    description: `Mon expérience avec Tailwind CSS a débuté avec mon portfolio 2025, où j'ai créé une 
     interface moderne et responsive. Cette expérience m'a permis de maîtriser l'approche 
     utility-first et de comprendre l'importance de la conception d'interfaces utilisateur 
     performantes.`,
@@ -198,10 +172,7 @@ export const skills: Skill[] = [
     name: `Bootstrap`,
     logo: bootstrap,
     experience: 5,
-    description: `Expert en Bootstrap avec une solide expérience dans la création d'interfaces 
-    responsives et l'utilisation des composants avancés. \n
-
-    Mon parcours avec Bootstrap a commencé avec le projet Haddock, où j'ai créé une interface 
+    description: `Mon parcours avec Bootstrap a commencé avec le projet Haddock, où j'ai créé une interface 
     utilisateur responsive et intuitive. Cette expérience m'a permis de maîtriser les composants 
     Bootstrap et les techniques de personnalisation. \n
 
@@ -215,8 +186,10 @@ export const skills: Skill[] = [
     name: `Docker`,
     logo: docker,
     experience: 3,
-    description: `Création et gestion de conteneurs Docker pour le développement et le déploiement 
-    d'applications.`,
+    description: `Mon expérience avec Docker a été particulièrement enrichissante dans la mise en place 
+    d'environnements de développement cohérents et dans le déploiement d'applications. J'ai 
+    travaillé sur la conteneurisation de plusieurs applications, ce qui a permis d'améliorer 
+    la portabilité et la scalabilité des solutions.`,
     officialDescription: `Docker est une plateforme de conteneurisation qui permet d'empaqueter une 
     application et ses dépendances dans un conteneur isolé.`,
     officialWebsite: `https://www.docker.com/`,
@@ -231,8 +204,10 @@ export const skills: Skill[] = [
     name: `Kubernetes`,
     logo: kubernetes,
     experience: 1,
-    description: `Gestion de clusters Kubernetes pour l'orchestration de conteneurs et le 
-    déploiement d'applications.`,
+    description: `Mon expérience avec Kubernetes a débuté avec la mise en place d'un cluster de 
+    production pour le déploiement d'applications conteneurisées. J'ai travaillé sur 
+    l'orchestration des conteneurs et la gestion des ressources, ce qui a permis d'améliorer 
+    la fiabilité et la scalabilité des applications.`,
     officialDescription: `Kubernetes est un système d'orchestration de conteneurs open-source qui 
     automatise le déploiement, la mise à l'échelle et la gestion des applications conteneurisées.`,
     officialWebsite: `https://kubernetes.io/fr/`,
@@ -247,8 +222,10 @@ export const skills: Skill[] = [
     name: `GitHub`,
     logo: github,
     experience: 5,
-    description: `Utilisation intensive de GitHub pour la gestion de versions, la collaboration et 
-    l'intégration continue.`,
+    description: `Mon expérience avec GitHub a été essentielle dans la gestion de mes projets 
+    personnels et professionnels. J'ai mis en place des workflows de développement collaboratif, 
+    des pipelines CI/CD, et des processus de code review qui ont permis d'améliorer la qualité 
+    du code et la collaboration au sein des équipes.`,
     officialDescription: `GitHub est une plateforme de développement qui permet de collaborer sur 
     des projets de code source en utilisant Git.`,
     officialWebsite: `https://github.com/`
@@ -257,8 +234,10 @@ export const skills: Skill[] = [
     name: `GitLab`,
     logo: gitlab,
     experience: 5,
-    description: `Utilisation de GitLab pour la gestion de versions, CI/CD et la collaboration 
-    d'équipe.`,
+    description: `Mon expérience avec GitLab a été particulièrement enrichissante dans la mise en 
+    place de pipelines CI/CD et la gestion de projets complexes. J'ai travaillé sur 
+    l'automatisation des processus de build, test et déploiement, ce qui a permis d'améliorer 
+    l'efficacité du développement et la qualité des livrables.`,
     officialDescription: `GitLab est une plateforme DevOps complète qui fournit des outils de 
     gestion de code source, CI/CD, et collaboration.`,
     officialWebsite: `https://about.gitlab.com/`,
@@ -273,11 +252,7 @@ export const skills: Skill[] = [
     name: `Figma`,
     logo: figma,
     experience: 3,
-    description: `Création de maquettes et de prototypes interactifs avec Figma pour le design 
-    d'interfaces. Je maîtrise les composants réutilisables, les styles partagés, et les 
-    fonctionnalités de collaboration en temps réel. \n
-
-    Mon expérience avec Figma a été particulièrement enrichissante lors du développement 
+    description: `Mon expérience avec Figma a été particulièrement enrichissante lors du développement 
     de mon portfolio 2025, où j'ai créé un design system complet avec des composants réutilisables 
     et des styles partagés. J'ai également mis en place des prototypes interactifs pour tester 
     l'expérience utilisateur et valider les interactions. \n
@@ -294,11 +269,7 @@ export const skills: Skill[] = [
     name: `Java`,
     logo: java,
     experience: 4,
-    description: `Développement d'applications Java avec Spring Boot et les frameworks modernes. 
-    Je maîtrise les concepts fondamentaux comme la programmation orientée objet, les collections, 
-    et la gestion des exceptions. \n
-
-    Mon expérience avec Java a été particulièrement enrichissante lors du développement 
+    description: `Mon expérience avec Java a été particulièrement enrichissante lors du développement 
     d'applications backend robustes et évolutives. J'ai mis en place des architectures basées sur 
     Spring Boot, avec une gestion efficace des dépendances et une configuration optimisée. \n
 
@@ -320,7 +291,10 @@ export const skills: Skill[] = [
     name: `Kotlin`,
     logo: kotlin,
     experience: 1,
-    description: `Développement d'applications Android et backend avec Kotlin.`,
+    description: `Mon expérience avec Kotlin a débuté avec le développement d'applications Android 
+    modernes. J'ai travaillé sur la création d'interfaces utilisateur fluides et l'implémentation 
+    de fonctionnalités natives, ce qui m'a permis de découvrir les avantages de ce langage 
+    moderne par rapport à Java.`,
     officialDescription: `Kotlin est un langage de programmation moderne qui s'exécute sur la JVM 
     et peut être compilé en JavaScript ou en code natif.`,
     officialWebsite: `https://kotlinlang.org/`,
@@ -335,10 +309,7 @@ export const skills: Skill[] = [
     name: `Prolog`,
     logo: prolog,
     experience: 3,
-    description: `Développement d'applications d'intelligence artificielle et de planification sous 
-    contraintes avec Prolog. \n
-
-    Mon expérience avec Prolog a été particulièrement enrichissante dans le développement de 
+    description: `Mon expérience avec Prolog a été particulièrement enrichissante dans le développement de 
     projets d'intelligence artificielle et de planification sous contraintes. J'ai développé des 
     solutions pour la résolution de problèmes complexes et l'optimisation de processus. \n
 
@@ -354,7 +325,10 @@ export const skills: Skill[] = [
     name: `C#`,
     logo: csharp,
     experience: 1,
-    description: `Développement d'applications Windows et web avec C# et .NET.`,
+    description: `Mon expérience avec C# a débuté avec le développement d'applications Windows Forms 
+    et d'applications web avec ASP.NET. J'ai travaillé sur la création d'interfaces utilisateur 
+    et l'implémentation de fonctionnalités backend, ce qui m'a permis de découvrir les 
+    capacités de ce langage moderne.`,
     officialDescription: `C# est un langage de programmation moderne, orienté objet et typé, conçu 
     pour le développement d'applications sur la plateforme .NET.`,
     officialWebsite: `https://learn.microsoft.com/fr-fr/dotnet/csharp/`,
@@ -369,8 +343,10 @@ export const skills: Skill[] = [
     name: `MongoDB`,
     logo: mongodb,
     experience: 3,
-    description: `Utilisation de MongoDB pour le stockage de données NoSQL et la gestion de 
-    documents.`,
+    description: `Mon expérience avec MongoDB a été particulièrement enrichissante dans le 
+    développement d'applications nécessitant une grande flexibilité dans la structure des 
+    données. J'ai travaillé sur l'optimisation des requêtes et la mise en place de schémas 
+    efficaces pour des applications à haute performance.`,
     officialDescription: `MongoDB est une base de données NoSQL qui stocke les données sous forme 
     de documents JSON.`,
     officialWebsite: `https://www.mongodb.com/`,
@@ -385,12 +361,7 @@ export const skills: Skill[] = [
     name: `Node.js`,
     logo: node,
     experience: 4,
-    description: `Développement backend avec Node.js, Express, et MongoDB. 
-    Je maîtrise la création d'APIs RESTful, la gestion des microservices, et l'optimisation des 
-    performances. J'ai une solide expérience dans la mise en place de tests unitaires et 
-    d'intégration, ainsi que dans le déploiement continu. \n
-
-    Mon expérience avec Node.js a été particulièrement enrichissante lors du développement de 
+    description: `Mon expérience avec Node.js a été particulièrement enrichissante lors du développement de 
     mon portfolio 2025, où j'ai créé une API REST complète avec authentification JWT et gestion 
     des fichiers. J'ai également mis en place des tests automatisés et un pipeline CI/CD pour 
     assurer la qualité du code.`,
@@ -409,8 +380,10 @@ export const skills: Skill[] = [
     name: `Spring`,
     logo: spring,
     experience: 2,
-    description: `Développement d'applications Java avec le framework Spring et ses différents 
-    modules.`,
+    description: `Mon expérience avec Spring a été particulièrement enrichissante dans le 
+    développement d'applications d'entreprise robustes. J'ai travaillé sur la mise en place 
+    d'architectures modulaires et l'implémentation de fonctionnalités avancées comme la 
+    gestion des transactions et la sécurité.`,
     officialDescription: `Spring est un framework Java populaire pour le développement 
     d'applications d'entreprise.`,
     officialWebsite: `https://spring.io/`,
@@ -425,11 +398,7 @@ export const skills: Skill[] = [
     name: `PHP`,
     logo: php,
     experience: 4,
-    description: `Développement d'applications web avec PHP et ses frameworks modernes comme 
-    Laravel et Symfony. Je maîtrise les concepts fondamentaux comme la programmation orientée 
-    objet, les namespaces, et la gestion des erreurs. \n
-
-    Mon expérience avec PHP a été particulièrement enrichissante lors du développement du 
+    description: `Mon expérience avec PHP a été particulièrement enrichissante lors du développement du 
     projet Haddock, où j'ai créé un backend robuste pour gérer les requêtes de la base de 
     données et implémenter un système d'authentification pour la modération du contenu. J'ai 
     également mis en place des fonctionnalités de recherche avancée et de filtrage des données. \n
@@ -445,8 +414,10 @@ export const skills: Skill[] = [
     name: `PrestaShop`,
     logo: prestashop,
     experience: 2,
-    description: `Développement de modules et de thèmes pour PrestaShop, ainsi que la 
-    personnalisation de boutiques en ligne.`,
+    description: `Mon expérience avec PrestaShop a été particulièrement enrichissante dans le 
+    développement de boutiques en ligne personnalisées. J'ai travaillé sur la création de 
+    thèmes sur mesure et l'implémentation de fonctionnalités spécifiques pour répondre aux 
+    besoins des clients.`,
     officialDescription: `PrestaShop est une plateforme e-commerce open-source permettant de créer 
     des boutiques en ligne.`,
     officialWebsite: `https://www.prestashop.com/`,
@@ -461,11 +432,7 @@ export const skills: Skill[] = [
     name: `Python`,
     logo: python,
     experience: 3,
-    description: `Développement d'applications Python pour l'automatisation et l'analyse de 
-    données. Je maîtrise les concepts fondamentaux comme la programmation orientée objet, les 
-    générateurs, et la gestion des exceptions. \n
-
-    Mon expérience avec Python a été particulièrement enrichissante dans le développement de 
+    description: `Mon expérience avec Python a été particulièrement enrichissante dans le développement de 
     scripts d'automatisation pour optimiser des processus métier. J'ai également travaillé sur 
     des projets d'analyse de données en utilisant des bibliothèques comme Pandas et NumPy pour 
     le traitement et la visualisation des données. \n
@@ -487,8 +454,10 @@ export const skills: Skill[] = [
     name: `Sass`,
     logo: sass,
     experience: 2,
-    description: `Utilisation de Sass pour la création de styles CSS plus maintenables et 
-    modulaires.`,
+    description: `Mon expérience avec Sass a été particulièrement enrichissante dans la création de 
+    styles CSS plus maintenables et modulaires. J'ai travaillé sur l'implémentation de 
+    variables, de mixins et de fonctions pour optimiser la réutilisation du code et améliorer 
+    la maintenabilité des styles.`,
     officialDescription: `Sass est un préprocesseur CSS qui ajoute des fonctionnalités puissantes 
     comme les variables, les imbrications et les mixins.`,
     officialWebsite: `https://sass-lang.com/`
@@ -497,8 +466,10 @@ export const skills: Skill[] = [
     name: `WordPress`,
     logo: wordpress,
     experience: 2,
-    description: `Développement de thèmes et de plugins WordPress, ainsi que la personnalisation 
-    de sites web.`,
+    description: `Mon expérience avec WordPress a été particulièrement enrichissante dans le 
+    développement de sites web personnalisés. J'ai travaillé sur la création de thèmes sur 
+    mesure et l'implémentation de fonctionnalités spécifiques pour répondre aux besoins des 
+    clients.`,
     officialDescription: `WordPress est un système de gestion de contenu (CMS) open-source utilisé 
     pour créer des sites web.`,
     officialWebsite: `https://wordpress.org/`,
@@ -513,11 +484,7 @@ export const skills: Skill[] = [
     name: `SQL`,
     logo: sql,
     experience: 5,
-    description: `Expert en SQL avec une solide expérience dans plusieurs variantes : MySQL, 
-    PostgreSQL, SQLite et PL/SQL. Je maîtrise la conception de bases de données, l'optimisation 
-    des requêtes et la gestion des transactions. \n
-
-    Mon parcours avec SQL a été marqué par le projet Haddock, où j'ai développé une base de 
+    description: `Mon parcours avec SQL a été marqué par le projet Haddock, où j'ai développé une base de 
     données MySQL pour stocker les jurons du Capitaine Haddock et leurs contextes. Cette 
     expérience m'a permis de maîtriser la conception de schémas de base de données et la 
     gestion des requêtes complexes. \n
@@ -546,11 +513,7 @@ export const skills: Skill[] = [
     name: `Adaptabilité`,
     logo: skill,
     experience: 5,
-    description: `Capacité à m'adapter rapidement aux nouvelles situations, technologies et environnements 
-    de travail. Je suis capable de m'ajuster aux changements et d'apprendre rapidement de nouvelles 
-    compétences. \n
-
-    Mon expérience professionnelle m'a permis de développer une grande adaptabilité, notamment lors 
+    description: `Mon expérience professionnelle m'a permis de développer une grande adaptabilité, notamment lors 
     de mes transitions entre différents langages de programmation et frameworks. J'ai su m'adapter 
     aux méthodologies agiles et aux différents environnements de développement. \n
 
@@ -563,11 +526,7 @@ export const skills: Skill[] = [
     name: `Esprit d'équipe`,
     logo: skill,
     experience: 5,
-    description: `Capacité à collaborer efficacement au sein d'une équipe, à partager les connaissances 
-    et à contribuer à l'atteinte des objectifs communs. Je valorise la communication, l'entraide et le 
-    respect mutuel. \n
-
-    Mon expérience en développement m'a permis de travailler dans diverses équipes, allant des petits 
+    description: `Mon expérience en développement m'a permis de travailler dans diverses équipes, allant des petits 
     groupes de développeurs aux équipes pluridisciplinaires. J'ai participé à des projets collaboratifs 
     où j'ai appris à coordonner mes efforts avec d'autres développeurs, designers et chefs de projet. \n
 
@@ -582,10 +541,7 @@ export const skills: Skill[] = [
     name: `Organisation`,
     logo: skill,
     experience: 5,
-    description: `Capacité à structurer et planifier efficacement mon travail, à gérer les priorités et à 
-    respecter les délais. Je maitrise les outils de gestion de projet et les méthodologies agiles. \n
-
-    Mon expérience en développement m'a permis de développer une approche méthodique dans la 
+    description: `Mon expérience en développement m'a permis de développer une approche méthodique dans la 
     gestion des projets. J'utilise des outils comme Jira et Trello pour suivre l'avancement des 
     tâches et maintenir une vue d'ensemble claire des projets. \n
 
@@ -599,11 +555,7 @@ export const skills: Skill[] = [
     name: `Curiosité`,
     logo: skill,
     experience: 5,
-    description: `Passion pour l'apprentissage continu et l'exploration de nouvelles technologies. Je 
-    m'intéresse activement aux évolutions du monde du développement et aux meilleures pratiques 
-    émergentes. \n
-
-    Cette curiosité m'a permis de rester à jour avec les dernières avancées technologiques et 
+    description: `Cette curiosité m'a permis de rester à jour avec les dernières avancées technologiques et 
     d'expérimenter avec de nouveaux outils et frameworks. Je participe régulièrement à des 
     conférences et des meetups pour élargir mes connaissances et échanger avec d'autres 
     professionnels. \n
@@ -618,11 +570,7 @@ export const skills: Skill[] = [
     name: `Autonomie`,
     logo: skill,
     experience: 5,
-    description: `Capacité à prendre des initiatives et à mener des projets de manière indépendante tout 
-    en maintenant une communication efficace avec l'équipe. Je suis capable de résoudre des 
-    problèmes complexes et de prendre des décisions éclairées. \n
-
-    Mon expérience en développement m'a permis de développer une forte autonomie dans la 
+    description: `Mon expérience en développement m'a permis de développer une forte autonomie dans la 
     résolution de problèmes techniques. Je sais identifier les ressources nécessaires, 
     rechercher des solutions et implémenter des réponses adaptées aux défis rencontrés. \n
 
