@@ -3,6 +3,7 @@ import Navbar from "./components/Header";
 import About from "./pages/About";
 import NotFound from './pages/Page404';
 import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 
 // Composant wrapper pour gérer l'affichage conditionnel
 const AppContent = () => {
@@ -21,6 +22,7 @@ const AppContent = () => {
         </Routes>
       </main>
       {!is404Page && <Footer />}
+      {!is404Page && <BackToTop />}
     </div>
   );
 };
