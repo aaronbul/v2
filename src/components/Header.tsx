@@ -53,7 +53,7 @@ const Header = () => {
               alt="Logo" 
               className="h-8 w-auto"
             />
-            <span className="text-xl text-black"></span>
+            <span className="text-xl text-black">Bulgheroni</span>
           </div>
 
           {/* Menu hamburger pour mobile avec animation */}

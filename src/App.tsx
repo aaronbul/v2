@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Header";
-import About from "./pages/About";
+import About from "./pages/Main";
 import NotFound from './pages/Page404';
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";

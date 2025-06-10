@@ -5,8 +5,9 @@ import SkillsSection from '../components/SkillsSection';
 import ExperienceSection from "../components/ExperienceSection";
 import ProjectsSection from "../components/ProjectsSection";
 import Contact from "../components/ContactSection";
+import AboutSection from "../components/AboutSection";
 
-const About = () => (
+const Main = () => (
   <div>
     {/* Nouvelle Section 1: Hero avec présentation et photo */}
     <div id="home" className="min-h-screen flex items-center -mt-[120px] lg:-mt-[65px] overflow-hidden relative">
@@ -50,22 +51,10 @@ const About = () => (
     </div>
 
     {/* Section 2: Résumé */}
-    <div id="about" className="bg-white min-h-screen flex items-center">
+    <div id="about" className="bg-white min-h-screen">
       <div className="container mx-auto px-4 md:px-24 py-16">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-6">À propos de moi</h2>
-          <p className="text-gray-700 leading-relaxed mb-8">
-          Je m'appelle Aaron et je suis expert en ingénierie logicielle. Dès mon plus jeune âge, 
-          je suis une personne motivée faisant preuve d'une grande détermination dans tout ce que j'entreprends 
-          que ce soit dans le cadre professionnel ou personnel. J'aspire à une carrière me permettant d'exprimer 
-          pleinement ma créativité à travers la conception de logiciels élégants et d'expériences utilisateur engageantes.
-          </p>
-          <button 
-            className="border-2 border-neutral-800 hover:bg-neutral-800 text-neutral-800 hover:text-white font-medium py-2 px-6 rounded-3xl transition-colors duration-300"
-            onClick={() => window.open(resume, '_blank')}
-          >
-            Télécharger mon CV
-          </button>
+        <div className="h-full w-full">
+          <AboutSection />
         </div>
       </div>
     </div>
@@ -108,6 +97,6 @@ const About = () => (
   </div>
 );
 
-export default About;
+export default Main;
 
   
