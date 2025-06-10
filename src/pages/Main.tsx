@@ -1,5 +1,4 @@
 import profilePic from "../assets/about/IMG_1418.png";
-import resume from "../assets/aaron_bulgheroni_resume.pdf";
 import { linkedSkills } from '../data/skills';
 import SkillsSection from '../components/SkillsSection';
 import ExperienceSection from "../components/ExperienceSection";
@@ -32,9 +31,17 @@ const Main = () => (
         <div className="absolute bottom-[10%] left-1/2 transform -translate-x-1/2">
           <div className="flex flex-col items-center gap-3 group cursor-pointer"
             onClick={() => {
-              document.getElementById('about')?.scrollIntoView({ 
-                behavior: 'smooth'
-              });
+              const element = document.getElementById('about');
+              if (element) {
+                const headerOffset = 65; // Augmentation de l'offset pour éviter de voir la section précédente
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }
             }}
           >
             <span className="text-gray-600 text-sm font-medium">En savoir plus sur moi</span>

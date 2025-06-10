@@ -101,7 +101,21 @@ const Header = () => {
                   onMouseLeave={() => setHoveredSection(null)}
                   onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+                    const element = document.getElementById(id);
+                    if (element) {
+                      // Offset différent pour la section contact en fonction de la taille de l'écran
+                      const isMobile = window.innerWidth < 768; // Breakpoint md de Tailwind
+                      const headerOffset = id === 'contact' 
+                        ? (isMobile ? 5 : 40) // 5px pour mobile (réduit pour voir plus du footer), 40px pour desktop
+                        : 65;
+                      const elementPosition = element.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
                   }}
                 >
                   {label}
@@ -137,8 +151,22 @@ const Header = () => {
                   className="relative block text-black py-2 transition-all duration-300"
                   onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-                    setIsMenuOpen(false);
+                    const element = document.getElementById(id);
+                    if (element) {
+                      // Offset différent pour la section contact en fonction de la taille de l'écran
+                      const isMobile = window.innerWidth < 768; // Breakpoint md de Tailwind
+                      const headerOffset = id === 'contact' 
+                        ? (isMobile ? 5 : 40) // 5px pour mobile (réduit pour voir plus du footer), 40px pour desktop
+                        : 65;
+                      const elementPosition = element.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                      setIsMenuOpen(false);
+                    }
                   }}
                 >
                   {label}
