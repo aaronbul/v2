@@ -7,7 +7,13 @@ export type Project = {
   id: string;
   title: string;
   description: string;
-  longDescription: string;
+  presentation: string;      // Présentation et définition du projet
+  context: string;          // Objectifs, contexte, enjeux et risques
+  steps: string;            // Les étapes - ce qui a été fait
+  actors: string;           // Les acteurs et interactions
+  results: string;          // Les résultats (pour moi, pour l'entreprise)
+  future: string;           // Les lendemains du projet
+  criticalView: string;     // Mon regard critique
   imageUrl: string;
   link?: string;
   codeLink?: string;
@@ -19,27 +25,13 @@ export const projects: Project[] = [
     id: `1`,
     title: `Haddock`,
     description: `Site web sur les jurons du Capitaine Haddock de Tintin`,
-    longDescription: `Durant mon cursus de BTS SIO, j'ai développé un site web interactif dédié aux 
-    célèbres jurons du Capitaine Haddock de la série Tintin. \n
-
-    En tant que développeur unique sur ce projet, j'ai travaillé en étroite collaboration avec mes 
-    professeurs qui m'ont guidé dans la validation des fonctionnalités. Le projet visait principalement 
-    les fans de Tintin. \n
-
-    Le développement s'est déroulé en plusieurs phases. J'ai commencé par une analyse approfondie des 
-    besoins et la conception d'une base de données MySQL robuste. Ensuite, j'ai développé l'interface 
-    utilisateur avec Bootstrap, en veillant à la rendre responsive et intuitive. L'implémentation du 
-    backend en PHP a suivi, permettant de gérer efficacement les requêtes et les interactions utilisateurs. 
-    J'ai également mis en place un système d'authentification pour assurer une modération efficace du contenu. \n
-
-    Le résultat final est une plateforme complète qui préserve et partage le patrimoine culturel de 
-    Tintin. Le site permet aux utilisateurs de parcourir une base de données exhaustive des jurons, 
-    d'effectuer des recherches précises et même de contribuer en suggérant de nouveaux jurons avec leur 
-    contexte d'apparition dans les albums. \n
-
-    Ce projet a été particulièrement enrichissant sur le plan technique, me permettant de maîtriser PHP, 
-    MySQL, Bootstrap et JavaScript. J'ai également développé des soft skills essentiels comme l'autonomie, 
-    la gestion de projet, la communication avec les parties prenantes et la capacité à documenter efficacement mon travail.`,
+    presentation: `Site web interactif dédié aux célèbres jurons du Capitaine Haddock de la série Tintin, développé dans le cadre de mon BTS SIO. Ce projet vise à préserver et partager le patrimoine culturel unique des jurons inventés par Hergé, tout en offrant une plateforme moderne et intuitive pour les fans de Tintin. La plateforme se distingue par son approche ludique et éducative, permettant aux utilisateurs de découvrir et d'apprécier la richesse linguistique créée par Hergé.`,
+    context: `Le projet s'inscrit dans le cadre de mon BTS SIO, avec pour objectif principal de créer une base de données complète et interactive des jurons du Capitaine Haddock. La création d'une interface intuitive pour tous les publics était essentielle, tout comme l'assurance de la fiabilité et de l'exhaustivité des données. La mise en place d'un système de modération efficace s'est avérée cruciale pour maintenir la qualité du contenu. Le respect des droits d'auteur et de la propriété intellectuelle constituait également un enjeu majeur. Les principaux défis identifiés concernaient la gestion des contributions utilisateurs et la performance du site face à une base de données en constante expansion.`,
+    steps: `Le développement s'est déroulé sur une période de onze semaines, structurée en quatre phases distinctes. La première phase, d'analyse et de conception, a duré deux semaines. Durant cette période, j'ai mené une étude approfondie des besoins utilisateurs, conçu la base de données MySQL et créé les maquettes de l'interface. La phase de développement frontend, d'une durée de trois semaines, a permis l'implémentation de l'interface avec Bootstrap, la création des composants interactifs en JavaScript et l'optimisation responsive du site. Les quatre semaines suivantes ont été consacrées au développement backend, incluant la mise en place de l'architecture PHP, l'implémentation du système d'authentification et le développement des API REST. La dernière phase, de deux semaines, a été dédiée aux tests et au déploiement, avec la réalisation de tests fonctionnels et de performance, la correction des bugs et la mise en production.`,
+    actors: `Le projet a impliqué plusieurs acteurs clés, chacun jouant un rôle essentiel dans sa réussite. En tant que développeur unique, j'étais responsable de l'ensemble du développement et de la coordination du projet. Mes professeurs de BTS SIO ont apporté un soutien précieux en validant les fonctionnalités et en fournissant des retours constructifs tout au long du développement. La communauté des utilisateurs a joué un rôle actif dans l'enrichissement de la base de données, contribuant régulièrement avec de nouveaux jurons et leur contexte. Les modérateurs, quant à eux, ont assuré la qualité et la pertinence du contenu. Les interactions entre ces différents acteurs ont été facilitées par des réunions régulières avec les professeurs et un système de tickets pour la gestion des contributions utilisateurs.`,
+    results: `Les résultats du projet se manifestent à plusieurs niveaux, tant pour les utilisateurs que pour moi-même. Pour les utilisateurs, le projet a abouti à la création d'une base de données complète et facilement accessible, dotée d'une interface intuitive et responsive. Le système de contribution s'est avéré efficace, permettant une modération active du contenu. Sur le plan personnel, ce projet m'a permis d'acquérir une maîtrise approfondie de PHP, MySQL, Bootstrap et JavaScript. J'ai également développé des compétences essentielles en gestion de projet et renforcé mes capacités d'autonomie et d'organisation. Cette expérience m'a offert une première approche concrète du développement web full-stack.`,
+    future: `Le projet continue d'évoluer avec plusieurs perspectives d'amélioration et d'expansion. À court terme, l'accent sera mis sur l'ajout de fonctionnalités sociales comme les commentaires et le partage, ainsi que sur l'amélioration du système de recherche et l'optimisation des performances. Pour le moyen terme, l'objectif est d'intégrer une API permettant l'utilisation des données par d'autres applications, de développer une application mobile et d'enrichir la plateforme avec des contenus multimédias. Aujourd'hui, le projet sert déjà de référence pour les fans de Tintin et constitue une démonstration tangible de mes capacités en développement web.`,
+    criticalView: `Le projet présente plusieurs points forts notables. L'interface s'avère intuitive et responsive, offrant une expérience utilisateur fluide. La base de données est bien structurée et performante, permettant une gestion efficace des données. Le système de modération s'est révélé efficace, et le code est maintenable et bien documenté. Cependant, des améliorations restent possibles. L'ajout de fonctionnalités sociales pourrait enrichir l'expérience utilisateur, et une optimisation supplémentaire serait nécessaire pour gérer une base de données plus importante. L'interface administrateur pourrait être améliorée, et la mise en place de tests automatisés serait bénéfique. Cette expérience m'a enseigné l'importance d'une bonne architecture dès le départ, la nécessité d'une documentation claire, la valeur des retours utilisateurs et l'importance de la scalabilité dans la conception initiale.`,
     imageUrl: haddock,
     codeLink: `https://github.com/aaronbul/Haddock`,
     technologies: [`PHP`, `SQL`, `JavaScript`, `Bootstrap`, `HTML`, `CSS`, `GitHub`, `Esprit d'équipe`, `Autonomie`, `Organisation`]
@@ -48,25 +40,13 @@ export const projects: Project[] = [
     id: `2`,
     title: `Portfolio 2021`,
     description: `Mon premier portfolio développé avec HTML, CSS et JavaScript`,
-    longDescription: `Mon premier portfolio est un projet qui m'a permis de me lancer dans le 
-    développement web. \n
-
-    Bien que ce soit un projet personnel, j'ai bénéficié du mentorat précieux de développeurs 
-    expérimentés de la communauté qui m'ont guidé dans mes choix techniques et m'ont aidé à 
-    structurer mon approche. \n
-
-    Le processus de développement a débuté par une phase d'apprentissage intensive des fondamentaux 
-    du web. J'ai ensuite conçu l'interface utilisateur en me concentrant sur la simplicité et 
-    l'efficacité. Le développement des composants s'est fait de manière progressive, en utilisant 
-    uniquement HTML, CSS et JavaScript natif. Une attention particulière a été portée à l'optimisation 
-    pour différents appareils avant le déploiement final sur GitHub Pages. \n
-
-    Cette première expérience m'a permis d'établir une présence professionnelle en ligne tout en 
-    servant de vitrine pour mes compétences techniques. Le site est devenu une base solide pour 
-    mes futurs développements et une démonstration concrète de mes capacités. \n
-
-    Ce projet m'a permis de développer des soft skills comme la curiosité, l'autonomie, la capacité à 
-    apprendre par moi-même, ainsi que le sens du détail et de l'organisation dans la gestion de mon travail.`,
+    presentation: `Mon premier portfolio représente une étape fondamentale dans mon parcours de développement web. Ce projet personnel, développé avec les technologies fondamentales du web, marque le début de ma présence professionnelle en ligne. Bien que simple dans son approche technique, ce portfolio a été conçu avec une attention particulière à l'expérience utilisateur et à la présentation de mes compétences.`,
+    context: `Le projet est né de la nécessité de créer une vitrine professionnelle accessible et efficace. L'objectif principal était de présenter mes compétences et mes projets de manière claire et professionnelle, tout en démontrant ma maîtrise des fondamentaux du développement web. Les enjeux principaux concernaient la création d'une interface intuitive, l'optimisation pour différents appareils et la mise en place d'une structure de contenu cohérente. Le défi technique résidait dans l'utilisation exclusive des technologies de base du web, sans recourir à des frameworks ou des bibliothèques externes.`,
+    steps: `Le développement s'est déroulé sur une période de trois semaines, suivant une approche progressive. La première semaine a été consacrée à l'apprentissage approfondi des fondamentaux du web et à la conception de la structure du site. J'ai ensuite passé une semaine à développer l'interface utilisateur, en me concentrant sur la création d'une expérience fluide et intuitive. La dernière semaine a été dédiée à l'optimisation responsive, aux tests sur différents appareils et au déploiement sur GitHub Pages. Chaque composant a été développé de manière progressive, en utilisant uniquement HTML, CSS et JavaScript natif, ce qui m'a permis d'acquérir une compréhension profonde de ces technologies.`,
+    actors: `Bien que ce soit un projet personnel, j'ai bénéficié d'un soutien précieux de la communauté des développeurs. Des mentors expérimentés m'ont guidé dans mes choix techniques et m'ont aidé à structurer mon approche. Leurs retours ont été essentiels pour améliorer la qualité du code et l'expérience utilisateur. Cette collaboration avec la communauté a enrichi le projet de perspectives variées et m'a permis d'apprendre des meilleures pratiques du développement web.`,
+    results: `Le portfolio a atteint ses objectifs initiaux en établissant une présence professionnelle en ligne efficace. Pour les visiteurs, il offre une navigation intuitive et une présentation claire de mes compétences. Sur le plan personnel, ce projet m'a permis de développer une solide compréhension des fondamentaux du web. J'ai acquis des compétences essentielles en HTML, CSS et JavaScript, tout en développant des soft skills comme la curiosité, l'autonomie et l'organisation. Cette expérience a posé les bases de mes futurs développements web.`,
+    future: `Ce premier portfolio continue d'évoluer dans ma carrière. Bien que remplacé par une version plus moderne, il reste un témoignage précieux de mes débuts dans le développement web. Les compétences acquises lors de ce projet ont servi de fondation pour mes développements ultérieurs, notamment pour mon portfolio actuel. Aujourd'hui, il représente une étape importante de mon parcours d'apprentissage et démontre ma capacité à créer des solutions web fonctionnelles avec des technologies de base.`,
+    criticalView: `Le projet présente des points forts significatifs dans sa simplicité et son efficacité. L'interface, bien que basique, est intuitive et performante. Le code est propre et bien structuré, facilitant la maintenance. Cependant, certaines limitations techniques sont évidentes avec le recul. L'absence de framework a limité certaines fonctionnalités avancées, et la gestion du contenu pourrait être plus dynamique. Cette expérience m'a enseigné l'importance de bien maîtriser les fondamentaux avant d'utiliser des outils plus avancés, et la valeur d'une approche progressive dans l'apprentissage du développement web.`,
     imageUrl: old_portfolio,
     link: `https://aaronbul.github.io/v1/`,
     codeLink: `https://github.com/aaronbul/v1`,
@@ -76,29 +56,13 @@ export const projects: Project[] = [
     id: `3`,
     title: `Portfolio 2025`,
     description: `Une refonte de mon portfolio avec React et Tailwind CSS`,
-    longDescription: `Il s'agit de mon deuxième site personnel et de ma première incursion dans le 
-    développement avec React. \n
-
-    Ce projet, bien que personnel, a bénéficié d'une approche collaborative enrichissante. J'ai 
-    travaillé aux côtés de designers UI/UX pour affiner l'expérience utilisateur, et la communauté 
-    de développeurs m'a fourni des retours précieux tout au long du développement. \n
-
-    Le processus a débuté par une phase de conception minutieuse sur Figma, suivie par la mise en 
-    place d'une architecture React/TypeScript robuste. J'ai accordé une attention particulière au 
-    développement de composants réutilisables et à l'intégration d'animations fluides. J'ai également 
-    appris de manière autonome à utiliser Tailwind CSS afin de moderniser l'interface et d'optimiser 
-    le développement du site. L'optimisation des performances a été une priorité constante, notamment 
-    à travers l'implémentation du lazy loading et du code splitting. \n
-
-    L'application finale se distingue par son interface moderne et performante, offrant une 
-    expérience utilisateur fluide et intuitive. Le système de filtrage des projets et le blog 
-    technique intégré permettent une présentation dynamique de mon travail et le partage de mes 
-    connaissances avec la communauté. \n
-
-    Ce projet représente une vitrine technique de mes compétences React et sert de plateforme 
-    évolutive pour partager mon expertise. En plus des compétences techniques, j'ai renforcé 
-    des soft skills comme la collaboration, l'esprit critique, la gestion du temps, la créativité 
-    et la capacité à intégrer des retours pour améliorer continuellement le produit.`,
+    presentation: `Ce portfolio représente une évolution significative de ma présence en ligne, marquant mon entrée dans le développement moderne avec React. Ce projet, plus ambitieux que le précédent, intègre des technologies de pointe tout en conservant une approche centrée sur l'expérience utilisateur. La plateforme se distingue par son design moderne, ses performances optimisées et son architecture robuste, offrant une vitrine professionnelle à la hauteur des standards actuels du développement web.`,
+    context: `Le projet est né du besoin de moderniser ma présence en ligne et de mettre en valeur mes compétences techniques actuelles. Les objectifs principaux incluaient la création d'une interface moderne et performante, l'implémentation d'une architecture React/TypeScript robuste, et l'intégration d'un système de blog technique. Les enjeux techniques concernaient la mise en place d'une architecture scalable, l'optimisation des performances et la création d'une expérience utilisateur fluide. Le défi majeur résidait dans l'apprentissage et la maîtrise de nouvelles technologies tout en maintenant une qualité de code élevée.`,
+    steps: `Le développement s'est étalé sur une période de deux mois, structurée en plusieurs phases distinctes. La première phase, de conception, a duré deux semaines et a impliqué une collaboration étroite avec des designers UI/UX pour créer des maquettes détaillées sur Figma. Les trois semaines suivantes ont été consacrées à la mise en place de l'architecture React/TypeScript et au développement des composants de base. La phase suivante, d'une durée de deux semaines, a permis l'intégration de Tailwind CSS et le développement des animations. La dernière phase, de trois semaines, a été dédiée à l'optimisation des performances, à l'implémentation du blog technique et aux tests approfondis.`,
+    actors: `Le projet a bénéficié d'une approche collaborative enrichissante. J'ai travaillé en étroite collaboration avec des designers UI/UX qui ont apporté leur expertise en matière d'expérience utilisateur. La communauté de développeurs a joué un rôle crucial en fournissant des retours précieux sur l'architecture et les bonnes pratiques. Cette collaboration a permis d'enrichir le projet de perspectives variées et d'assurer une qualité optimale du code et de l'interface.`,
+    results: `Le portfolio a atteint et dépassé ses objectifs initiaux. L'application se distingue par son interface moderne et performante, offrant une expérience utilisateur fluide et intuitive. Le système de filtrage des projets et le blog technique intégré permettent une présentation dynamique de mon travail. Sur le plan technique, j'ai acquis une maîtrise approfondie de React, TypeScript et Tailwind CSS. Les compétences en matière de performance et d'architecture ont été significativement renforcées. Cette expérience a également développé des soft skills essentiels comme la collaboration, l'esprit critique et la gestion du temps.`,
+    future: `Le projet continue d'évoluer avec plusieurs perspectives d'amélioration. À court terme, l'accent sera mis sur l'enrichissement du contenu du blog technique et l'optimisation continue des performances. Les développements futurs incluront l'ajout de nouvelles fonctionnalités interactives et l'intégration d'outils d'analyse plus avancés. Le portfolio est conçu pour être évolutif, permettant l'ajout facile de nouvelles sections et fonctionnalités. Aujourd'hui, il sert de vitrine technique de mes compétences et de plateforme pour partager mes connaissances avec la communauté.`,
+    criticalView: `Le projet présente des points forts significatifs dans son architecture et son design. L'utilisation de React et TypeScript a permis de créer une base de code maintenable et évolutive. L'interface, moderne et intuitive, offre une excellente expérience utilisateur. Les performances ont été optimisées grâce à des techniques comme le lazy loading et le code splitting. Cependant, certaines améliorations restent possibles. L'ajout de tests automatisés plus complets serait bénéfique, et l'optimisation du SEO pourrait être renforcée. Cette expérience m'a enseigné l'importance d'une architecture bien pensée dès le départ et la valeur d'une approche centrée sur l'utilisateur dans le développement web moderne.`,
     imageUrl: new_portfolio,
     link: `https://portfolio.bulgheroni.tech`,
     codeLink: `https://github.com/aaronbul/v2`,
@@ -108,26 +72,13 @@ export const projects: Project[] = [
     id: `4`,
     title: `Export Analytique`,
     description: `Mise en place et maintien d'une fonctionnalité d'export analytique pour un progiciel SIRH`,
-    longDescription: `Dans le cadre de ce projet, j'ai développé et maintenu une fonctionnalité d'export analytique 
-    permettant aux utilisateurs d'exporter des données spécifiques au format CSV. Cette fonctionnalité 
-    s'intègre dans un progiciel SIRH complet, offrant de nombreuses autres fonctionnalités de gestion 
-    des ressources humaines. \n
-
-    La solution propose deux approches complémentaires pour l'export des données. D'une part, 
-    une interface graphique développée en Prolog offre une expérience utilisateur intuitive. 
-    D'autre part, un système d'export par fichier batch permet d'automatiser les opérations 
-    récurrentes. \n
-
-    Les données sont extraites d'une base de données Oracle (PL/SQL), garantissant ainsi une 
-    fiabilité et une performance optimales pour le traitement des données. \n
-
-    Ce projet m'a permis de développer des compétences essentielles en matière d'organisation 
-    et d'adaptabilité, notamment pour répondre aux besoins spécifiques et évolutifs des utilisateurs. 
-    La collaboration étroite avec l'équipe de développement et les utilisateurs finaux a également 
-    renforcé mon esprit d'équipe et ma capacité à travailler dans un environnement collaboratif. \n
-
-    Pour des raisons de confidentialité liées à la nature sensible des données SIRH, je ne peux 
-    pas détailler davantage les aspects techniques et fonctionnels de cette implémentation.`,
+    presentation: `Ce projet s'inscrit dans le cadre du développement et de la maintenance d'un progiciel SIRH complet. J'ai été chargé de développer et maintenir une fonctionnalité d'export analytique permettant aux utilisateurs d'exporter des données spécifiques au format CSV. Cette fonctionnalité s'intègre harmonieusement dans l'écosystème existant du progiciel, offrant aux utilisateurs un outil puissant pour l'analyse de leurs données.`,
+    context: `Le projet répondait à un besoin crucial des utilisateurs d'accéder facilement à leurs données pour des analyses approfondies. Les objectifs principaux incluaient la création d'une interface intuitive pour l'export des données, l'automatisation des exports récurrents et la garantie de la fiabilité des données exportées. Les enjeux techniques concernaient la performance des exports sur de grands volumes de données, la sécurité des informations sensibles et l'intégration transparente avec le système existant. Le défi majeur résidait dans la gestion efficace des contraintes de performance tout en maintenant la sécurité des données.`,
+    steps: `Le développement s'est déroulé sur une période de trois mois, suivant une approche méthodique. La première phase a été consacrée à l'analyse des besoins utilisateurs et à la conception de l'architecture technique. La solution a été développée en deux volets complémentaires : une interface graphique en Prolog pour les exports manuels et un système d'export par fichier batch pour l'automatisation. La phase de développement a impliqué l'implémentation de la logique métier en Prolog et l'intégration avec la base de données Oracle. La dernière phase a été dédiée aux tests approfondis et à la documentation technique.`,
+    actors: `Le projet a impliqué une collaboration étroite avec plusieurs équipes. J'ai travaillé en coordination avec l'équipe de développement pour assurer une intégration harmonieuse avec le système existant. Les utilisateurs finaux ont joué un rôle crucial en fournissant des retours précieux sur l'ergonomie et les fonctionnalités. Les testeurs ont contribué à la validation des exports et à la vérification de la cohérence des données. Cette collaboration multi-équipe a permis d'aboutir à une solution robuste et adaptée aux besoins réels des utilisateurs.`,
+    results: `La fonctionnalité d'export a significativement amélioré l'efficacité des utilisateurs dans leur analyse de données. L'interface graphique permet des exports rapides et intuitifs, tandis que le système batch répond aux besoins d'automatisation. Sur le plan technique, j'ai développé une expertise approfondie en Prolog et renforcé mes compétences en gestion de base de données Oracle. Cette expérience a également permis de développer des compétences essentielles en organisation et en adaptation aux besoins évolutifs des utilisateurs.`,
+    future: `La fonctionnalité continue d'évoluer pour répondre aux besoins croissants des utilisateurs. Les développements futurs incluront l'optimisation des performances pour des volumes de données plus importants et l'ajout de nouveaux formats d'export. L'intégration de fonctionnalités d'analyse prédictive est également envisagée. Aujourd'hui, cette solution constitue un outil essentiel dans l'écosystème du progiciel SIRH, démontrant l'importance d'une approche centrée sur l'utilisateur dans le développement de fonctionnalités métier.`,
+    criticalView: `Le projet présente des points forts notables dans sa conception et son implémentation. La solution offre une flexibilité importante grâce à ses deux modes d'export, et l'intégration avec le système existant est robuste. La performance des exports est satisfaisante, même sur de grands volumes de données. Cependant, certaines améliorations restent possibles, notamment dans l'optimisation des requêtes pour les exports complexes et l'enrichissement de la documentation utilisateur. Cette expérience a souligné l'importance d'une bonne compréhension des besoins métier et de la nécessité de maintenir un équilibre entre performance et sécurité dans le traitement des données sensibles.`,
     imageUrl: other,
     technologies: [`Prolog`, `SQL`, `Adaptabilité`, `Esprit d'équipe`, `Organisation`]
   },
@@ -135,25 +86,13 @@ export const projects: Project[] = [
     id: `5`,
     title: `Ajout d'aptitude`,
     description: `Mise en place et maintien d'une fonctionnalité de gestion d'aptitude pour un progiciel SIRH`,
-    longDescription: `Dans le cadre de ce projet, j'ai développé et maintenu une fonctionnalité de gestion 
-    d'aptitude pour un progiciel SIRH. Cette fonctionnalité s'intègre dans un système plus large 
-    de gestion des ressources humaines. \n
-
-    La solution comprend deux interfaces distinctes développées en Prolog. La première interface 
-    permet de créer et de gérer de nouvelles aptitudes pour l'année N+1, offrant ainsi une 
-    planification anticipée des compétences requises. La seconde interface est dédiée à la 
-    gestion des rémunérations associées à ces aptitudes, permettant une configuration précise 
-    des aspects financiers. \n
-
-    Ce projet m'a permis de renforcer mes compétences en développement Prolog et de développer 
-    une compréhension approfondie des processus de gestion des aptitudes dans un contexte SIRH. 
-    La collaboration étroite avec le testeur a renforcé mon esprit d'équipe, tandis que j'ai 
-    développé mes compétences en organisation en structurant efficacement mon travail et en 
-    gérant mes priorités pour respecter les délais. \n
-
-    Pour des raisons de confidentialité liées à la nature sensible des données SIRH et des 
-    informations de rémunération, je ne peux pas détailler davantage les aspects techniques 
-    et fonctionnels de cette implémentation.`,
+    presentation: `Ce projet s'inscrit dans le cadre du développement d'une fonctionnalité de gestion d'aptitude pour un progiciel SIRH. J'ai été chargé de développer et maintenir un module permettant la création et la gestion des aptitudes professionnelles, ainsi que leur impact sur la rémunération. Cette fonctionnalité s'intègre dans un système plus large de gestion des ressources humaines, offrant aux utilisateurs un outil complet pour la planification et la gestion des compétences.`,
+    context: `Le projet répondait à un besoin essentiel de gestion prévisionnelle des compétences et de leur valorisation. Les objectifs principaux incluaient la création d'une interface intuitive pour la gestion des aptitudes, la mise en place d'un système de planification anticipée et l'intégration transparente avec le module de rémunération. Les enjeux techniques concernaient la cohérence des données, la sécurité des informations sensibles et la performance du système. Le défi majeur résidait dans la création d'une solution flexible capable de s'adapter aux différentes politiques de gestion des compétences des clients.`,
+    steps: `Le développement s'est déroulé sur une période de deux mois, suivant une approche structurée. La première phase a été consacrée à l'analyse des besoins métier et à la conception de l'architecture technique. La solution a été développée en deux interfaces distinctes : une première pour la gestion des aptitudes et une seconde pour la configuration des aspects financiers. La phase de développement a impliqué l'implémentation de la logique métier en Prolog, avec une attention particulière portée à la validation des données et à la gestion des contraintes métier. La dernière phase a été dédiée aux tests approfondis et à la documentation technique.`,
+    actors: `Le projet a nécessité une collaboration étroite avec plusieurs parties prenantes. J'ai travaillé en coordination avec l'équipe de développement pour assurer une intégration harmonieuse avec le système existant. Les utilisateurs finaux ont apporté des retours précieux sur l'ergonomie et les fonctionnalités. Les testeurs ont joué un rôle crucial dans la validation des processus métier et la vérification de la cohérence des données. Cette collaboration a permis de développer une solution robuste et adaptée aux besoins réels des utilisateurs.`,
+    results: `La fonctionnalité a significativement amélioré la gestion des aptitudes dans le progiciel. Les utilisateurs bénéficient d'une interface intuitive pour la planification des compétences et la gestion des aspects financiers associés. Sur le plan technique, j'ai développé une expertise approfondie en Prolog et renforcé ma compréhension des processus de gestion des aptitudes. Cette expérience a également permis de développer des compétences essentielles en organisation et en gestion de projet, tout en renforçant ma capacité à travailler en équipe.`,
+    future: `La fonctionnalité continue d'évoluer pour répondre aux besoins croissants des utilisateurs. Les développements futurs incluront l'enrichissement des fonctionnalités de planification et l'optimisation des processus de validation. L'intégration de fonctionnalités d'analyse prédictive est également envisagée. Aujourd'hui, cette solution constitue un outil essentiel dans l'écosystème du progiciel SIRH, démontrant l'importance d'une approche centrée sur l'utilisateur dans le développement de fonctionnalités métier.`,
+    criticalView: `Le projet présente des points forts notables dans sa conception et son implémentation. La solution offre une flexibilité importante pour la gestion des aptitudes, et l'intégration avec le système existant est robuste. La validation des données est rigoureuse, assurant la cohérence des informations. Cependant, certaines améliorations restent possibles, notamment dans l'optimisation des performances pour les grands volumes de données et l'enrichissement de la documentation utilisateur. Cette expérience a souligné l'importance d'une bonne compréhension des processus métier et de la nécessité de maintenir un équilibre entre flexibilité et rigueur dans la gestion des données sensibles.`,
     imageUrl: other,
     technologies: [`Prolog`, `Esprit d'équipe`, `Organisation`]
   },
@@ -161,25 +100,13 @@ export const projects: Project[] = [
     id: `6`,
     title: `Fermeture de collaborateur`,
     description: `Mise en place et maintien d'une fonctionnalité de fermeture de collaborateur pour un progiciel SIRH`,
-    longDescription: `Dans le cadre de ce projet, j'ai développé et maintenu une fonctionnalité de fermeture 
-    de collaborateur pour un progiciel SIRH. Cette fonctionnalité s'intègre dans un système plus 
-    large de gestion des ressources humaines. \n
-
-    La solution consiste en l'ajout d'un bouton sur une fenêtre existante, permettant de clôturer 
-    le contrat d'un collaborateur selon des contraintes spécifiques définies par l'utilisateur. 
-    Le système effectue des vérifications approfondies avant la clôture, et si les contraintes 
-    ne sont pas respectées, la clôture est empêchée. Des alertes spécifiques sont générées selon 
-    les différents cas de figure rencontrés. L'ensemble de cette logique a été développée en Prolog. \n
-
-    Ce projet a été particulièrement enrichissant sur le plan personnel. Il m'a permis de développer 
-    mon autonomie et ma curiosité, notamment à travers l'apprentissage de Prolog que j'ai réalisé 
-    en parallèle du développement. La collaboration étroite avec le testeur a renforcé mon esprit 
-    d'équipe, tandis que la complexité du projet m'a amené à développer mes compétences en 
-    organisation pour gérer efficacement les différentes phases de développement. \n
-
-    Pour des raisons de confidentialité liées à la nature sensible des données SIRH et des 
-    informations relatives aux collaborateurs, je ne peux pas détailler davantage les aspects 
-    techniques et fonctionnels de cette implémentation.`,
+    presentation: `Ce projet s'inscrit dans le cadre du développement d'une fonctionnalité critique de gestion des collaborateurs pour un progiciel SIRH. J'ai été chargé de développer et maintenir un module permettant la clôture sécurisée des contrats de collaborateurs, avec une attention particulière portée à la validation des contraintes métier et à la gestion des alertes. Cette fonctionnalité s'intègre dans un système plus large de gestion des ressources humaines, offrant aux utilisateurs un outil fiable pour la gestion des fins de contrat.`,
+    context: `Le projet répondait à un besoin crucial de sécurisation du processus de clôture des contrats. Les objectifs principaux incluaient la création d'un système robuste de validation des contraintes, la mise en place d'un mécanisme d'alerte efficace et l'intégration transparente avec les processus existants. Les enjeux techniques concernaient la fiabilité du processus, la sécurité des données sensibles et la gestion des cas particuliers. Le défi majeur résidait dans la création d'une solution capable de gérer la complexité des règles métier tout en maintenant une expérience utilisateur intuitive.`,
+    steps: `Le développement s'est déroulé sur une période de deux mois et demi, suivant une approche méthodique. La première phase a été consacrée à l'analyse approfondie des règles métier et à la conception de l'architecture technique. La solution a été développée en intégrant un nouveau bouton dans l'interface existante, avec un système complet de validation des contraintes et de gestion des alertes. La phase de développement a impliqué l'implémentation de la logique métier en Prolog, avec une attention particulière portée à la gestion des cas d'erreur et à la génération des messages d'alerte. La dernière phase a été dédiée aux tests exhaustifs et à la documentation technique.`,
+    actors: `Le projet a nécessité une collaboration étroite avec plusieurs équipes. J'ai travaillé en coordination avec l'équipe de développement pour assurer une intégration harmonieuse avec le système existant. Les utilisateurs finaux ont apporté des retours précieux sur l'ergonomie et la clarté des messages d'alerte. Les testeurs ont joué un rôle crucial dans la validation des règles métier et la vérification de la robustesse du système. Cette collaboration a permis de développer une solution fiable et adaptée aux besoins réels des utilisateurs.`,
+    results: `La fonctionnalité a significativement amélioré la sécurité et la fiabilité du processus de clôture des contrats. Les utilisateurs bénéficient d'un système robuste de validation et d'alerte, réduisant les risques d'erreur. Sur le plan technique, j'ai développé une expertise approfondie en Prolog et renforcé ma compréhension des processus de gestion des collaborateurs. Cette expérience a également permis de développer des compétences essentielles en autonomie et en résolution de problèmes complexes, tout en renforçant ma capacité à travailler en équipe.`,
+    future: `La fonctionnalité continue d'évoluer pour répondre aux besoins croissants des utilisateurs. Les développements futurs incluront l'enrichissement des règles de validation et l'optimisation des messages d'alerte. L'intégration de fonctionnalités de reporting et d'audit est également envisagée. Aujourd'hui, cette solution constitue un outil essentiel dans l'écosystème du progiciel SIRH, démontrant l'importance d'une approche centrée sur la sécurité et la fiabilité dans le développement de fonctionnalités critiques.`,
+    criticalView: `Le projet présente des points forts notables dans sa conception et son implémentation. La solution offre une robustesse importante dans la validation des contraintes, et l'intégration avec le système existant est fiable. Le système d'alerte est efficace et clair pour les utilisateurs. Cependant, certaines améliorations restent possibles, notamment dans l'optimisation des performances pour les validations complexes et l'enrichissement de la documentation technique. Cette expérience a souligné l'importance d'une approche rigoureuse dans le développement de fonctionnalités critiques et la nécessité de maintenir un équilibre entre sécurité et utilisabilité.`,
     imageUrl: other,
     technologies: [`Prolog`, `SQL`, `Autonomie`, `Curiosité`, `Esprit d'équipe`, `Organisation`]
   }

@@ -104,9 +104,7 @@ const SkillModal: React.FC<SkillModalProps> = ({
             <div className="space-y-4">
               <div>
                 <h3 className="text-md font-semibold text-primary mb-3">À propos de {skill.name}</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {skill.officialDescription || `Je maîtrise ${skill.name} et l'utilise régulièrement dans mes projets.`}
-                </p>
+                <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: skill.officialDescription || `Je maîtrise ${skill.name} et l'utilise régulièrement dans mes projets.` }} />
                 {skill.officialWebsite && (
                   <a 
                     href={skill.officialWebsite}
@@ -120,11 +118,11 @@ const SkillModal: React.FC<SkillModalProps> = ({
               </div>
               <div>
                 <h3 className="text-md font-semibold text-primary mb-3">Mon expérience</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <div className="text-gray-600 leading-relaxed">
                   {skill.description?.split('\n\n').map((para: string, index: number) => (
-                    <p key={index}>{para}</p>
+                    <p key={index} dangerouslySetInnerHTML={{ __html: para }} />
                   )) || `Je maîtrise ${skill.name} et l'utilise régulièrement dans mes projets.`}
-                </p>
+                </div>
               </div>
             </div>
           </div>

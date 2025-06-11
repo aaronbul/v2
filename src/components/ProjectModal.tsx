@@ -87,11 +87,38 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
           
           <div className="space-y-6 md:space-y-8">
             <div>
-              <h2 className="text-lg md:text-xl font-semibold mb-2">Description détaillée</h2>
-              <p className="text-sm md:text-base text-gray-700">
-                {project.longDescription.split('\n\n').map((para: string, index: number) => (
-                  <p key={index}>{para}</p>
-                ))}</p>
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Présentation</h2>
+              <p className="text-sm md:text-base text-gray-700">{project.presentation}</p>
+            </div>
+
+            <div>
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Contexte et objectifs</h2>
+              <p className="text-sm md:text-base text-gray-700">{project.context}</p>
+            </div>
+
+            <div>
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Développement</h2>
+              <p className="text-sm md:text-base text-gray-700">{project.steps}</p>
+            </div>
+
+            <div>
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Acteurs et interactions</h2>
+              <p className="text-sm md:text-base text-gray-700">{project.actors}</p>
+            </div>
+
+            <div>
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Résultats</h2>
+              <p className="text-sm md:text-base text-gray-700 whitespace-pre-line">{project.results}</p>
+            </div>
+
+            <div>
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Perspectives</h2>
+              <p className="text-sm md:text-base text-gray-700">{project.future}</p>
+            </div>
+
+            <div>
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Regard critique</h2>
+              <p className="text-sm md:text-base text-gray-700 whitespace-pre-line">{project.criticalView}</p>
             </div>
 
             <div>
