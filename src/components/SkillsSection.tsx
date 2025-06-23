@@ -4,10 +4,9 @@ import SkillModal from './SkillModal';
 
 interface SkillsSectionProps {
   skills: Skill[];
-  experienceTitle?: string;
 }
 
-const SkillsSection = ({ skills, experienceTitle }: SkillsSectionProps) => {
+const SkillsSection = ({ skills }: SkillsSectionProps) => {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sourceProjectId, setSourceProjectId] = useState<string | null>(null);

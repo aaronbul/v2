@@ -23,7 +23,7 @@ const SkillModal: React.FC<SkillModalProps> = ({
   sourceProjectTitle,
   sourceExperienceId,
   onReturnToProject,
-  onReturnToExperience 
+  onReturnToExperience // Utilisé dans le JSX pour le bouton de retour
 }) => {
   // Fonction pour générer les étoiles en fonction du niveau d'expérience
   const generateStars = (experience: number) => {
@@ -110,20 +110,6 @@ const SkillModal: React.FC<SkillModalProps> = ({
       detail: {
         projectId: projectId,
         sourceSkillName: skill.name
-      }
-    });
-    document.dispatchEvent(event);
-  };
-
-  // Fonction pour revenir à l'expérience
-  const handleReturnToExperience = () => {
-    // Fermer le modal de compétence
-    onClose();
-    
-    // Créer un événement pour ouvrir la modal d'expérience
-    const event = new CustomEvent('openExperienceModal', { 
-      detail: {
-        experienceId: sourceExperienceId
       }
     });
     document.dispatchEvent(event);
