@@ -2,13 +2,17 @@ import { Project } from '../data/projects';
 import { useEffect, useState } from 'react';
 import Portal from './Portal';
 import { Skill, skills } from '../data/skills';
+import { experiences } from '../data/experience';
 
 type ProjectModalProps = {
   project: Project | null;
   isOpen: boolean;
   onClose: () => void;
   sourceSkillName?: string | null;
+  sourceExperienceId?: string | null;
+  sourceExperienceTitle?: string | null;
   onReturnToSkill?: () => void;
+  onReturnToExperience?: () => void;
 };
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ 
@@ -16,7 +20,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
   isOpen, 
   onClose,
   sourceSkillName,
-  onReturnToSkill
+  sourceExperienceId,
+  sourceExperienceTitle,
+  onReturnToSkill,
+  onReturnToExperience
 }) => {
   const [skillsMap, setSkillsMap] = useState<Map<string, Skill>>(new Map());
 
@@ -51,6 +58,25 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
     return skillsMap.get(techName.toUpperCase());
   };
 
+  // Récupérer les expériences associées à ce projet
+  const relatedExperiences = project.relatedExperiences && project.relatedExperiences.length > 0
+    ? project.relatedExperiences.map(id => experiences.find(e => e.id === id)).filter(Boolean)
+    : [];
+
+  // Fonction pour naviguer vers une expérience
+  const navigateToExperience = (experienceId: string) => {
+    // Fermer ce modal et ouvrir le modal de l'expérience
+    onClose();
+    const event = new CustomEvent('openExperienceModal', { 
+      detail: {
+        experienceId: experienceId,
+        sourceProjectId: project.id,
+        sourceProjectTitle: project.title
+      }
+    });
+    document.dispatchEvent(event);
+  };
+
   return (
     <Portal>
       <div 
@@ -73,6 +99,20 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                 </svg>
                 <span className="relative">
                   Revenir à la compétence {sourceSkillName}
+                  <span className="absolute -bottom-1 left-0 w-full h-[1px] transform-gpu origin-left transition-transform duration-700 ease-out bg-primary scale-x-0 group-hover:scale-x-100"></span>
+                </span>
+              </button>
+            )}
+            {sourceExperienceId && sourceExperienceTitle && onReturnToExperience && (
+              <button 
+                onClick={onReturnToExperience}
+                className="self-start text-sm text-primary mb-4 flex items-center gap-1 relative group"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                <span className="relative">
+                  Revenir à l'expérience {sourceExperienceTitle}
                   <span className="absolute -bottom-1 left-0 w-full h-[1px] transform-gpu origin-left transition-transform duration-700 ease-out bg-primary scale-x-0 group-hover:scale-x-100"></span>
                 </span>
               </button>
@@ -157,6 +197,36 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                 })}
               </div>
             </div>
+
+            {relatedExperiences.length > 0 && (
+              <div>
+                <h2 className="text-lg md:text-xl font-semibold mb-2">Expériences liées</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {relatedExperiences.map((experience) => experience && (
+                    <div 
+                      key={experience.id} 
+                      className="bg-gray-50 p-4 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => navigateToExperience(experience.id)}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="overflow-hidden rounded-md w-16 h-12">
+                          <img 
+                            src={experience.logo || '/placeholder.png'} 
+                            alt={experience.company} 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div>
+                          <h3 className="font-medium mb-1">{experience.title}</h3>
+                          <p className="text-xs text-gray-600 line-clamp-2">{experience.company}</p>
+                          <p className="text-xs text-gray-500">{experience.period}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               {project.codeLink && (

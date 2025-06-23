@@ -2,6 +2,7 @@ import { Skill } from '../data/skills';
 import { useEffect } from 'react';
 import Portal from './Portal';
 import { projects } from '../data/projects';
+import { experiences } from '../data/experience';
 
 type SkillModalProps = {
   skill: Skill | null;
@@ -9,7 +10,9 @@ type SkillModalProps = {
   onClose: () => void;
   sourceProjectId?: string | null;
   sourceProjectTitle?: string | null;
+  sourceExperienceId?: string | null;
   onReturnToProject?: () => void;
+  onReturnToExperience?: () => void;
 };
 
 const SkillModal: React.FC<SkillModalProps> = ({ 
@@ -18,8 +21,50 @@ const SkillModal: React.FC<SkillModalProps> = ({
   onClose, 
   sourceProjectId, 
   sourceProjectTitle,
-  onReturnToProject 
+  sourceExperienceId,
+  onReturnToProject,
+  onReturnToExperience 
 }) => {
+  // Fonction pour générer les étoiles en fonction du niveau d'expérience
+  const generateStars = (experience: number) => {
+    const maxStars = 5;
+    const stars = [];
+    
+    // Nouvelle logique : 2 étoiles minimum, 5 étoiles maximum
+    // 1-2 ans = 2 étoiles, 3-4 ans = 3 étoiles, 5-6 ans = 4 étoiles, 7+ ans = 5 étoiles
+    let filledStars;
+    if (experience <= 2) {
+      filledStars = 2;
+    } else if (experience <= 4) {
+      filledStars = 3;
+    } else if (experience <= 6) {
+      filledStars = 4;
+    } else {
+      filledStars = 5;
+    }
+
+    for (let i = 0; i < maxStars; i++) {
+      stars.push(
+        <svg
+          key={i}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill={i < filledStars ? "currentColor" : "none"}
+          stroke={i < filledStars ? "none" : "currentColor"}
+          className="w-4 h-4 inline-block"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+          />
+        </svg>
+      );
+    }
+    return stars;
+  };
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -43,6 +88,14 @@ const SkillModal: React.FC<SkillModalProps> = ({
     ? skill.relatedProjects.map(id => projects.find(p => p.id === id)).filter(Boolean)
     : [];
 
+  // Récupérer les expériences associées à cette compétence
+  const relatedExperiences = skill.relatedExperiences && skill.relatedExperiences.length > 0
+    ? skill.relatedExperiences.map(id => experiences.find(e => e.id === id)).filter(Boolean)
+    : [];
+
+  // Récupérer l'expérience source pour afficher son titre
+  const sourceExperience = sourceExperienceId ? experiences.find(e => e.id === sourceExperienceId) : null;
+
   // Fonction pour naviguer vers un projet
   const navigateToProject = (projectId: string) => {
     // Si c'est le projet source, utiliser la fonction existante
@@ -56,6 +109,33 @@ const SkillModal: React.FC<SkillModalProps> = ({
     const event = new CustomEvent('openProjectModal', { 
       detail: {
         projectId: projectId,
+        sourceSkillName: skill.name
+      }
+    });
+    document.dispatchEvent(event);
+  };
+
+  // Fonction pour revenir à l'expérience
+  const handleReturnToExperience = () => {
+    // Fermer le modal de compétence
+    onClose();
+    
+    // Créer un événement pour ouvrir la modal d'expérience
+    const event = new CustomEvent('openExperienceModal', { 
+      detail: {
+        experienceId: sourceExperienceId
+      }
+    });
+    document.dispatchEvent(event);
+  };
+
+  // Fonction pour naviguer vers une expérience
+  const navigateToExperience = (experienceId: string) => {
+    // Fermer ce modal et ouvrir le modal de l'expérience
+    onClose();
+    const event = new CustomEvent('openExperienceModal', { 
+      detail: {
+        experienceId: experienceId,
         sourceSkillName: skill.name
       }
     });
@@ -88,15 +168,32 @@ const SkillModal: React.FC<SkillModalProps> = ({
                 </span>
               </button>
             )}
+            {sourceExperienceId && onReturnToExperience && (
+              <button 
+                onClick={onReturnToExperience}
+                className="self-start text-sm text-primary mb-4 flex items-center gap-1 relative group"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                <span className="relative">
+                  Revenir à l'expérience {sourceExperience?.title || ''}
+                  <span className="absolute -bottom-1 left-0 w-full h-[1px] transform-gpu origin-left transition-transform duration-700 ease-out bg-primary scale-x-0 group-hover:scale-x-100"></span>
+                </span>
+              </button>
+            )}
             <img 
               src={skill.logo} 
               alt={skill.name} 
               className="h-24 w-24 object-contain mb-4" 
             />
             <h1 className="text-2xl md:text-3xl font-bold text-center mb-1">{skill.name}</h1>
-            <p className="text-gray-600 text-sm">
-              {skill.experience} {skill.experience > 1 ? 'ans' : 'an'} d'expérience
-            </p>
+            <div className="flex items-center justify-center gap-2 text-gray-600 text-sm">
+              <span>{skill.experience} {skill.experience > 1 ? 'ans' : 'an'} d'expérience</span>
+              <div className="flex items-center text-yellow-500">
+                {generateStars(skill.experience)}
+              </div>
+            </div>
           </div>
 
           <div className="mb-6">
@@ -148,6 +245,36 @@ const SkillModal: React.FC<SkillModalProps> = ({
                       <div>
                         <h3 className="font-medium mb-1">{project.title}</h3>
                         <p className="text-xs text-gray-600 line-clamp-2">{project.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {relatedExperiences.length > 0 && (
+            <div className="mb-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Expériences utilisant {skill.name}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {relatedExperiences.map((experience) => experience && (
+                  <div 
+                    key={experience.title} 
+                    className="bg-gray-50 p-4 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                    onClick={() => navigateToExperience(experience.id)}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="overflow-hidden rounded-md w-16 h-12">
+                        <img 
+                          src={experience.logo || '/placeholder.png'} 
+                          alt={experience.company} 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-medium mb-1">{experience.title}</h3>
+                        <p className="text-xs text-gray-600 line-clamp-2">{experience.company}</p>
+                        <p className="text-xs text-gray-500">{experience.period}</p>
                       </div>
                     </div>
                   </div>

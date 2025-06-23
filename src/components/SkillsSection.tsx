@@ -4,18 +4,32 @@ import SkillModal from './SkillModal';
 
 interface SkillsSectionProps {
   skills: Skill[];
+  experienceTitle?: string;
 }
 
-const SkillsSection = ({ skills }: SkillsSectionProps) => {
+const SkillsSection = ({ skills, experienceTitle }: SkillsSectionProps) => {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sourceProjectId, setSourceProjectId] = useState<string | null>(null);
   const [sourceProjectTitle, setSourceProjectTitle] = useState<string | null>(null);
+  const [sourceExperienceId, setSourceExperienceId] = useState<string | null>(null);
+  const [activeFilter, setActiveFilter] = useState<'all' | 'technical' | 'soft'>('all');
+  const [filteredSkills, setFilteredSkills] = useState<Skill[]>(skills);
 
-  const handleOpenModal = (skill: Skill, projectId: string | null = null, projectTitle: string | null = null) => {
+  // Filtrer les compétences en fonction du filtre actif
+  useEffect(() => {
+    if (activeFilter === 'all') {
+      setFilteredSkills(skills);
+    } else {
+      setFilteredSkills(skills.filter(skill => skill.category === activeFilter));
+    }
+  }, [skills, activeFilter]);
+
+  const handleOpenModal = (skill: Skill, projectId: string | null = null, projectTitle: string | null = null, experienceId: string | null = null) => {
     setSelectedSkill(skill);
     setSourceProjectId(projectId);
     setSourceProjectTitle(projectTitle);
+    setSourceExperienceId(experienceId);
     setIsModalOpen(true);
   };
 
@@ -24,6 +38,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
     setSelectedSkill(null);
     setSourceProjectId(null);
     setSourceProjectTitle(null);
+    setSourceExperienceId(null);
   };
 
   useEffect(() => {
@@ -33,6 +48,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
       const skillName = data.skillName;
       const projectId = data.sourceProjectId;
       const projectTitle = data.sourceProjectTitle;
+      const experienceId = data.sourceExperienceId;
       
       const skill = skills.find(s => s.name === skillName);
       if (skill) {
@@ -41,9 +57,10 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
           setSelectedSkill(skill);
           setSourceProjectId(projectId);
           setSourceProjectTitle(projectTitle);
+          setSourceExperienceId(null);
           setIsModalOpen(true);
         } else {
-          handleOpenModal(skill, projectId, projectTitle);
+          handleOpenModal(skill, projectId, projectTitle, experienceId);
         }
       }
     };
@@ -62,10 +79,26 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
           setSelectedSkill(skill);
           setSourceProjectId(projectId);
           setSourceProjectTitle(projectTitle);
+          setSourceExperienceId(null);
           setIsModalOpen(true);
         } else {
-          handleOpenModal(skill, projectId, projectTitle);
+          handleOpenModal(skill, projectId, projectTitle, null);
         }
+      }
+    };
+
+    // Écouter l'événement pour ouvrir un skill par son nom (depuis ExperienceSection)
+    const handleOpenSkillByNameFromExperience = (event: CustomEvent) => {
+      const data = event.detail;
+      const skillName = typeof data === 'string' ? data : data.skillName;
+      
+      const skill = skills.find(s => s.name === skillName);
+      if (skill) {
+        setSelectedSkill(skill);
+        setSourceProjectId(null);
+        setSourceProjectTitle(null);
+        setSourceExperienceId(null);
+        setIsModalOpen(true);
       }
     };
 
@@ -86,52 +119,95 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
     document.addEventListener('openSkillModal', handleOpenSkillModal as EventListener);
     document.addEventListener('projectNeedsSkillSource', handleProjectNeedsSkillSource as EventListener);
     document.addEventListener('openSkillByName', handleOpenSkillByName as EventListener);
+    document.addEventListener('openSkillByNameFromExperience', handleOpenSkillByNameFromExperience as EventListener);
 
     return () => {
       document.removeEventListener('openSkillModal', handleOpenSkillModal as EventListener);
       document.removeEventListener('projectNeedsSkillSource', handleProjectNeedsSkillSource as EventListener);
       document.removeEventListener('openSkillByName', handleOpenSkillByName as EventListener);
+      document.removeEventListener('openSkillByNameFromExperience', handleOpenSkillByNameFromExperience as EventListener);
     };
   }, [skills, selectedSkill, sourceProjectId]);
 
-  // Fonction pour revenir au projet source
-  const handleReturnToProject = () => {
-    if (sourceProjectId) {
-      // Fermer le modal des skills
-      setIsModalOpen(false);
-      setSelectedSkill(null);
-      setSourceProjectId(null);
-      setSourceProjectTitle(null);
-      
-      // Créer un événement pour ouvrir le modal du projet
-      const event = new CustomEvent('openProjectModal', { 
-        detail: {
-          projectId: sourceProjectId
-        }
-      });
-      document.dispatchEvent(event);
-    }
+  // Fonction pour revenir à l'expérience
+  const handleReturnToExperience = () => {
+    // Fermer le modal de compétence
+    setIsModalOpen(false);
+    setSelectedSkill(null);
+    setSourceProjectId(null);
+    setSourceProjectTitle(null);
+    setSourceExperienceId(null);
+    
+    // Créer un événement pour ouvrir la modal d'expérience
+    const event = new CustomEvent('openExperienceModal', { 
+      detail: {
+        experienceId: sourceExperienceId
+      }
+    });
+    document.dispatchEvent(event);
   };
 
   return (
-    <div>
-      <h1 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Mes compétences</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto">
-        {skills.map((skill) => (
-          <div 
-            key={skill.name} 
-            className="flex flex-col items-center p-3 md:p-4 border-2 border-gray-200 rounded-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
-            onClick={() => handleOpenModal(skill)}
+    <div className="opacity-0 animate-fadeIn">
+      <h1 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Mes Compétences</h1>
+      
+      {/* Boutons de filtre */}
+      <div className="flex justify-center mb-8">
+        <div className="flex space-x-1 md:space-x-2 bg-gray-100 p-1 rounded-lg">
+          <button
+            onClick={() => setActiveFilter('all')}
+            className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+              activeFilter === 'all'
+                ? 'bg-white text-primary shadow-sm'
+                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+            }`}
           >
-            <img 
-              src={skill.logo} 
-              alt={skill.name} 
-              className="h-12 w-12 md:h-20 md:w-20 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" 
-            />
-            <p className="mt-2 text-xs md:text-sm font-medium text-center">{skill.name}</p>
-            <p className="text-[10px] md:text-xs text-gray-600 mt-1 text-center">
-              {skill.experience} {skill.experience > 1 ? 'ans' : 'an'} d'expérience
-            </p>
+            Toutes
+          </button>
+          <button
+            onClick={() => setActiveFilter('technical')}
+            className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+              activeFilter === 'technical'
+                ? 'bg-white text-primary shadow-sm'
+                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+            }`}
+          >
+            Techniques
+          </button>
+          <button
+            onClick={() => setActiveFilter('soft')}
+            className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+              activeFilter === 'soft'
+                ? 'bg-white text-primary shadow-sm'
+                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+            }`}
+          >
+            Soft Skills
+          </button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 max-w-5xl mx-auto mb-8 md:mb-16">
+        {filteredSkills.map((skill, index) => (
+          <div
+            key={skill.name}
+            className="opacity-0 animate-slideUp"
+            style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
+          >
+            <div 
+              className="flex flex-col items-center p-3 md:p-4 border-2 border-gray-200 rounded-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
+              onClick={() => handleOpenModal(skill)}
+            >
+              <img 
+                src={skill.logo} 
+                alt={skill.name} 
+                className="h-12 w-12 md:h-20 md:w-20 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" 
+              />
+              <p className="mt-2 text-xs md:text-sm font-medium text-center">{skill.name}</p>
+              <p className="text-[10px] md:text-xs text-gray-600 mt-1 text-center">
+                {skill.experience} {skill.experience > 1 ? 'ans' : 'an'} d'expérience
+              </p>
+            </div>
           </div>
         ))}
       </div>
@@ -142,7 +218,19 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
         onClose={handleCloseModal}
         sourceProjectId={sourceProjectId}
         sourceProjectTitle={sourceProjectTitle}
-        onReturnToProject={handleReturnToProject}
+        sourceExperienceId={sourceExperienceId}
+        onReturnToProject={sourceProjectId ? () => {
+          setIsModalOpen(false);
+          setSelectedSkill(null);
+          setSourceProjectId(null);
+          setSourceProjectTitle(null);
+          setSourceExperienceId(null);
+          const event = new CustomEvent('openProjectModal', { 
+            detail: sourceProjectId
+          });
+          document.dispatchEvent(event);
+        } : undefined}
+        onReturnToExperience={handleReturnToExperience}
       />
     </div>
   );

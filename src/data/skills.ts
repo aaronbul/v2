@@ -37,11 +37,13 @@ export interface Skill {
   name: string;
   logo: string;
   experience: number;
+  category: 'technical' | 'soft';
   description?: string;
   officialDescription?: string;
   officialWebsite?: string;
   examples?: SkillExample[];
   relatedProjects?: string[];
+  relatedExperiences?: string[]; // IDs des expériences
 }
 
 export const skills: Skill[] = [
@@ -49,6 +51,7 @@ export const skills: Skill[] = [
     name: `HTML`,
     logo: html,
     experience: 5,
+    category: 'technical',
     description: `Mon expérience avec HTML a débuté avec le projet <strong>Haddock</strong>, où j'ai mis en place des 
     <strong>formulaires complexes</strong> et des <strong>intégrations multimédias</strong>. J'ai ensuite créé mon premier 
     portfolio en 2021, en développant une <strong>structure sémantique</strong> claire et <strong>accessible</strong>. \n
@@ -59,12 +62,14 @@ export const skills: Skill[] = [
     officialDescription: `HTML (HyperText Markup Language) est le langage de balisage standard pour 
     créer des pages web. Il décrit la <strong>structure</strong> du contenu web et permet d'organiser le contenu en 
     <strong>sections</strong>, <strong>paragraphes</strong>, <strong>listes</strong>, <strong>liens</strong>, <strong>images</strong> et autres éléments.`,
-    officialWebsite: `https://developer.mozilla.org/fr/docs/Web/HTML`
+    officialWebsite: `https://developer.mozilla.org/fr/docs/Web/HTML`,
+    relatedExperiences: ["2", "3", "5"]
   },
   {
     name: `CSS`,
     logo: css,
     experience: 5,
+    category: 'technical',
     description: `Mon parcours avec CSS a commencé avec le projet <strong>Haddock</strong>, où j'ai créé des <strong>animations 
     fluides</strong> et des <strong>transitions</strong> pour améliorer l'expérience utilisateur. J'ai également mis en 
     place un <strong>design responsive</strong> pour assurer une expérience optimale sur tous les appareils. \n
@@ -81,6 +86,7 @@ export const skills: Skill[] = [
     name: `JavaScript`,
     logo: javascript,
     experience: 5,
+    category: 'technical',
     description: `Mon parcours avec JavaScript a commencé avec mon premier portfolio en 2021, où j'ai utilisé 
     <strong>JavaScript natif</strong> pour créer des <strong>interactions utilisateur</strong> et des <strong>animations</strong>. Cette expérience 
     m'a permis d'acquérir une solide base en <strong>manipulation du DOM</strong> et en <strong>gestion des événements</strong>. \n
@@ -98,6 +104,7 @@ export const skills: Skill[] = [
     name: `TypeScript`,
     logo: typescript,
     experience: 3,
+    category: 'technical',
     description: `Mon expérience avec TypeScript a été particulièrement enrichissante lors du développement 
     de mon portfolio 2025, où j'ai utilisé le <strong>typage strict</strong> pour assurer la <strong>qualité du code</strong> et 
     faciliter la <strong>maintenance</strong>. J'ai également mis en place des <strong>interfaces réutilisables</strong> et des 
@@ -116,6 +123,7 @@ export const skills: Skill[] = [
     name: `Angular`,
     logo: angular,
     experience: 2,
+    category: 'technical',
     description: `Mon expérience avec Angular a été particulièrement enrichissante lors du développement 
     d'une <strong>application de gestion de médiathèque</strong>. J'ai mis en place une <strong>architecture modulaire</strong> 
     avec des <strong>services partagés</strong> pour la <strong>gestion des données</strong> et l'<strong>authentification</strong>. J'ai également 
@@ -138,6 +146,7 @@ export const skills: Skill[] = [
     name: `React`,
     logo: react,
     experience: 3,
+    category: 'technical',
     description: `Mon expérience avec React a débuté avec mon portfolio 2025, où j'ai créé une <strong>interface 
     moderne</strong> et <strong>responsive</strong> en utilisant <strong>Tailwind CSS</strong>. Cette expérience m'a permis de maîtriser 
     les concepts de <strong>composants réutilisables</strong> et de <strong>gestion d'état</strong>. \n
@@ -154,12 +163,14 @@ export const skills: Skill[] = [
     officialDescription: `React est une <strong>bibliothèque JavaScript</strong> pour créer des <strong>interfaces 
     utilisateur</strong>. Elle permet de créer des applications web complexes en <strong>composants réutilisables</strong> et 
     gère efficacement le <strong>rendu</strong> et les <strong>mises à jour</strong> de l'interface.`,
-    officialWebsite: `https://fr.reactjs.org/`
+    officialWebsite: `https://fr.reactjs.org/`,
+    relatedExperiences: ["5", "7"]
   },
   {
     name: `Tailwind`,
     logo: tailwind,
     experience: 1,
+    category: 'technical',
     description: `Mon expérience avec Tailwind CSS a débuté avec mon portfolio 2025, où j'ai créé une 
     <strong>interface moderne</strong> et <strong>responsive</strong>. Cette expérience m'a permis de maîtriser l'<strong>approche 
     utility-first</strong> et de comprendre l'importance de la <strong>conception d'interfaces utilisateur 
@@ -172,6 +183,7 @@ export const skills: Skill[] = [
     name: `Bootstrap`,
     logo: bootstrap,
     experience: 5,
+    category: 'technical',
     description: `Mon parcours avec Bootstrap a commencé avec le projet <strong>Haddock</strong>, où j'ai créé une <strong>interface 
     utilisateur responsive</strong> et <strong>intuitive</strong>. Cette expérience m'a permis de maîtriser les <strong>composants 
     Bootstrap</strong> et les <strong>techniques de personnalisation</strong>. \n
@@ -186,6 +198,7 @@ export const skills: Skill[] = [
     name: `Docker`,
     logo: docker,
     experience: 3,
+    category: 'technical',
     description: `Mon expérience avec Docker a été particulièrement enrichissante dans la mise en place 
     d'<strong>environnements de développement cohérents</strong> et dans le <strong>déploiement d'applications</strong>. J'ai 
     travaillé sur la <strong>conteneurisation</strong> de plusieurs applications, ce qui a permis d'améliorer 
@@ -204,6 +217,7 @@ export const skills: Skill[] = [
     name: `Kubernetes`,
     logo: kubernetes,
     experience: 1,
+    category: 'technical',
     description: `Mon expérience avec Kubernetes a débuté avec la mise en place d'un <strong>cluster de 
     production</strong> pour le <strong>déploiement d'applications conteneurisées</strong>. J'ai travaillé sur 
     l'<strong>orchestration des conteneurs</strong> et la <strong>gestion des ressources</strong>, ce qui a permis d'améliorer 
@@ -222,6 +236,7 @@ export const skills: Skill[] = [
     name: `GitHub`,
     logo: github,
     experience: 5,
+    category: 'technical',
     description: `Mon expérience avec GitHub a été essentielle dans la <strong>gestion de mes projets 
     personnels et professionnels</strong>. J'ai mis en place des <strong>workflows de développement collaboratif</strong>, 
     des <strong>pipelines CI/CD</strong>, et des <strong>processus de code review</strong> qui ont permis d'améliorer la <strong>qualité 
@@ -234,6 +249,7 @@ export const skills: Skill[] = [
     name: `GitLab`,
     logo: gitlab,
     experience: 5,
+    category: 'technical',
     description: `Mon expérience avec GitLab a été particulièrement enrichissante dans la mise en 
     place de <strong>pipelines CI/CD</strong> et la <strong>gestion de projets complexes</strong>. J'ai travaillé sur 
     l'<strong>automatisation</strong> des processus de <strong>build</strong>, <strong>test</strong> et <strong>déploiement</strong>, ce qui a permis d'améliorer 
@@ -252,6 +268,7 @@ export const skills: Skill[] = [
     name: `Figma`,
     logo: figma,
     experience: 3,
+    category: 'technical',
     description: `Mon expérience avec Figma a été particulièrement enrichissante lors du développement 
     de mon portfolio 2025, où j'ai créé un <strong>design system complet</strong> avec des <strong>composants réutilisables</strong> 
     et des <strong>styles partagés</strong>. J'ai également mis en place des <strong>prototypes interactifs</strong> pour tester 
@@ -269,6 +286,7 @@ export const skills: Skill[] = [
     name: `Java`,
     logo: java,
     experience: 4,
+    category: 'technical',
     description: `Mon expérience avec Java a été particulièrement enrichissante lors du développement 
     d'<strong>applications backend robustes</strong> et <strong>évolutives</strong>. J'ai mis en place des architectures basées sur 
     <strong>Spring Boot</strong>, avec une <strong>gestion efficace des dépendances</strong> et une <strong>configuration optimisée</strong>. \n
@@ -291,6 +309,7 @@ export const skills: Skill[] = [
     name: `Kotlin`,
     logo: kotlin,
     experience: 1,
+    category: 'technical',
     description: `Mon expérience avec Kotlin a débuté avec le développement d'<strong>applications Android 
     modernes</strong>. J'ai travaillé sur la création d'<strong>interfaces utilisateur fluides</strong> et l'<strong>implémentation 
     de fonctionnalités natives</strong>, ce qui m'a permis de découvrir les avantages de ce langage 
@@ -308,23 +327,25 @@ export const skills: Skill[] = [
   {
     name: `Prolog`,
     logo: prolog,
-    experience: 3,
-    description: `Mon expérience avec Prolog a été particulièrement enrichissante dans le développement de 
-    projets d'<strong>intelligence artificielle</strong> et de <strong>planification sous contraintes</strong>. J'ai développé des 
-    solutions pour la <strong>résolution de problèmes complexes</strong> et l'<strong>optimisation de processus</strong>. \n
+    experience: 2,
+    category: 'technical',
+    description: `Mon expérience avec Prolog a été particulièrement enrichissante lors de mon alternance chez 
+    <strong>Cegedim</strong>, où j'ai développé des fonctionnalités critiques pour un progiciel SIRH. J'ai travaillé 
+    sur la <strong>gestion des aptitudes</strong>, les <strong>exports analytiques</strong> et la <strong>fermeture de collaborateurs</strong>. \n
 
-    J'ai également contribué au développement d'un <strong>logiciel SIRH</strong>, notamment en optimisant des 
-    <strong>scripts PL/SQL</strong>, en développant l'<strong>export analytique</strong> avec une interface et une base Oracle, 
-    et en implémentant des fonctionnalités comme l'<strong>ajout d'aptitude</strong> et la <strong>gestion de la 
-    rémunération associée</strong>.`,
-    officialDescription: `Prolog est un langage de programmation <strong>logique</strong> utilisé principalement 
-    pour l'<strong>intelligence artificielle</strong> et la <strong>résolution de problèmes complexes</strong>.`,
-    officialWebsite: `https://www.swi-prolog.org/`
+    Cette expérience m'a permis de maîtriser la <strong>programmation logique</strong> et de comprendre l'importance 
+    de la <strong>validation des contraintes métier</strong> dans les applications critiques.`,
+    officialDescription: `Prolog est un langage de <strong>programmation logique</strong> basé sur la 
+    <strong>logique du premier ordre</strong>. Il est particulièrement adapté pour la <strong>résolution de problèmes</strong> 
+    et la <strong>programmation par contraintes</strong>.`,
+    officialWebsite: `https://www.swi-prolog.org/`,
+    relatedExperiences: ["6"]
   },
   {
     name: `C#`,
     logo: csharp,
     experience: 1,
+    category: 'technical',
     description: `Mon expérience avec C# a débuté avec le développement d'<strong>applications Windows Forms</strong> 
     et d'<strong>applications web avec ASP.NET</strong>. J'ai travaillé sur la création d'<strong>interfaces utilisateur</strong> 
     et l'<strong>implémentation de fonctionnalités backend</strong>, ce qui m'a permis de découvrir les 
@@ -343,6 +364,7 @@ export const skills: Skill[] = [
     name: `MongoDB`,
     logo: mongodb,
     experience: 3,
+    category: 'technical',
     description: `Mon expérience avec MongoDB a été particulièrement enrichissante dans le 
     développement d'<strong>applications nécessitant une grande flexibilité</strong> dans la structure des 
     données. J'ai travaillé sur l'<strong>optimisation des requêtes</strong> et la mise en place de <strong>schémas 
@@ -361,6 +383,7 @@ export const skills: Skill[] = [
     name: `Node.js`,
     logo: node,
     experience: 4,
+    category: 'technical',
     description: `Mon expérience avec Node.js a été particulièrement enrichissante lors du développement de 
     mon portfolio 2025, où j'ai créé une <strong>API REST complète</strong> avec <strong>authentification JWT</strong> et 
     <strong>gestion des fichiers</strong>. J'ai également mis en place des <strong>tests automatisés</strong> et un 
@@ -380,6 +403,7 @@ export const skills: Skill[] = [
     name: `Spring`,
     logo: spring,
     experience: 2,
+    category: 'technical',
     description: `Mon expérience avec Spring a été particulièrement enrichissante dans le 
     développement d'<strong>applications d'entreprise robustes</strong>. J'ai travaillé sur la mise en place 
     d'<strong>architectures modulaires</strong> et l'implémentation de fonctionnalités avancées comme la 
@@ -398,6 +422,7 @@ export const skills: Skill[] = [
     name: `PHP`,
     logo: php,
     experience: 4,
+    category: 'technical',
     description: `Mon expérience avec PHP a été particulièrement enrichissante lors du développement du 
     projet Haddock, où j'ai créé un <strong>backend robuste</strong> pour gérer les <strong>requêtes de la base de 
     données</strong> et implémenter un <strong>système d'authentification</strong> pour la modération du contenu. J'ai 
@@ -414,6 +439,7 @@ export const skills: Skill[] = [
     name: `PrestaShop`,
     logo: prestashop,
     experience: 2,
+    category: 'technical',
     description: `Mon expérience avec PrestaShop a été particulièrement enrichissante dans le 
     développement de <strong>boutiques en ligne personnalisées</strong>. J'ai travaillé sur la création de 
     <strong>thèmes sur mesure</strong> et l'<strong>implémentation de fonctionnalités spécifiques</strong> pour répondre aux 
@@ -432,6 +458,7 @@ export const skills: Skill[] = [
     name: `Python`,
     logo: python,
     experience: 3,
+    category: 'technical',
     description: `Mon expérience avec Python a été particulièrement enrichissante dans le développement de 
     <strong>scripts d'automatisation</strong> pour optimiser des processus métier. J'ai également travaillé sur 
     des projets d'<strong>analyse de données</strong> en utilisant des bibliothèques comme <strong>Pandas</strong> et 
@@ -454,6 +481,7 @@ export const skills: Skill[] = [
     name: `Sass`,
     logo: sass,
     experience: 2,
+    category: 'technical',
     description: `Mon expérience avec Sass a été particulièrement enrichissante dans la création de 
     <strong>styles CSS plus maintenables</strong> et <strong>modulaires</strong>. J'ai travaillé sur l'implémentation de 
     <strong>variables</strong>, de <strong>mixins</strong> et de <strong>fonctions</strong> pour optimiser la <strong>réutilisation du code</strong> et 
@@ -466,6 +494,7 @@ export const skills: Skill[] = [
     name: `WordPress`,
     logo: wordpress,
     experience: 2,
+    category: 'technical',
     description: `Mon expérience avec WordPress a été particulièrement enrichissante dans le 
     développement de <strong>sites web personnalisés</strong>. J'ai travaillé sur la création de 
     <strong>thèmes sur mesure</strong> et l'<strong>implémentation de fonctionnalités spécifiques</strong> pour répondre aux 
@@ -484,6 +513,7 @@ export const skills: Skill[] = [
     name: `SQL`,
     logo: sql,
     experience: 5,
+    category: 'technical',
     description: `Mon parcours avec SQL a été marqué par le projet Haddock, où j'ai développé une 
     <strong>base de données MySQL</strong> pour stocker les jurons du Capitaine Haddock et leurs contextes. Cette 
     expérience m'a permis de maîtriser la <strong>conception de schémas de base de données</strong> et la 
@@ -513,6 +543,7 @@ export const skills: Skill[] = [
     name: `Adaptabilité`,
     logo: skill,
     experience: 5,
+    category: 'soft',
     description: `Mon expérience professionnelle m'a permis de développer une grande adaptabilité, notamment lors 
     de mes <strong>transitions entre différents langages de programmation</strong> et <strong>frameworks</strong>. J'ai su m'adapter 
     aux <strong>méthodologies agiles</strong> et aux différents <strong>environnements de développement</strong>. \n
@@ -526,6 +557,7 @@ export const skills: Skill[] = [
     name: `Esprit d'équipe`,
     logo: skill,
     experience: 5,
+    category: 'soft',
     description: `Mon expérience en développement m'a permis de travailler dans <strong>diverses équipes</strong>, allant des petits 
     groupes de développeurs aux <strong>équipes pluridisciplinaires</strong>. J'ai participé à des <strong>projets collaboratifs</strong> 
     où j'ai appris à coordonner mes efforts avec d'autres développeurs, designers et chefs de projet. \n
@@ -541,6 +573,7 @@ export const skills: Skill[] = [
     name: `Organisation`,
     logo: skill,
     experience: 5,
+    category: 'soft',
     description: `Mon expérience en développement m'a permis de développer une <strong>approche méthodique</strong> dans la 
     gestion des projets. J'utilise des outils comme <strong>Jira</strong> et <strong>Trello</strong> pour suivre l'avancement des 
     tâches et maintenir une <strong>vue d'ensemble claire</strong> des projets. \n
@@ -555,6 +588,7 @@ export const skills: Skill[] = [
     name: `Curiosité`,
     logo: skill,
     experience: 5,
+    category: 'soft',
     description: `Cette curiosité m'a permis de <strong>rester à jour</strong> avec les dernières avancées technologiques et 
     d'<strong>expérimenter</strong> avec de nouveaux outils et frameworks. Je participe régulièrement à des 
     <strong>conférences</strong> et des <strong>meetups</strong> pour élargir mes connaissances et échanger avec d'autres 
@@ -570,6 +604,7 @@ export const skills: Skill[] = [
     name: `Autonomie`,
     logo: skill,
     experience: 5,
+    category: 'soft',
     description: `Mon expérience en développement m'a permis de développer une <strong>forte autonomie</strong> dans la 
     <strong>résolution de problèmes techniques</strong>. Je sais <strong>identifier les ressources nécessaires</strong>, 
     <strong>rechercher des solutions</strong> et <strong>implémenter des réponses adaptées</strong> aux défis rencontrés. \n

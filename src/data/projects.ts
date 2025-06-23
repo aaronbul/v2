@@ -18,6 +18,8 @@ export type Project = {
   link?: string;
   codeLink?: string;
   technologies: string[];
+  company?: string;
+  relatedExperiences?: string[]; // IDs des expériences liées
 };
 
 export const projects: Project[] = [
@@ -34,7 +36,9 @@ export const projects: Project[] = [
     criticalView: `Le projet présente plusieurs points forts notables. L'interface s'avère intuitive et responsive, offrant une expérience utilisateur fluide. La base de données est bien structurée et performante, permettant une gestion efficace des données. Le système de modération s'est révélé efficace, et le code est maintenable et bien documenté. Cependant, des améliorations restent possibles. L'ajout de fonctionnalités sociales pourrait enrichir l'expérience utilisateur, et une optimisation supplémentaire serait nécessaire pour gérer une base de données plus importante. L'interface administrateur pourrait être améliorée, et la mise en place de tests automatisés serait bénéfique. Cette expérience m'a enseigné l'importance d'une bonne architecture dès le départ, la nécessité d'une documentation claire, la valeur des retours utilisateurs et l'importance de la scalabilité dans la conception initiale.`,
     imageUrl: haddock,
     codeLink: `https://github.com/aaronbul/Haddock`,
-    technologies: [`PHP`, `SQL`, `JavaScript`, `Bootstrap`, `HTML`, `CSS`, `GitHub`, `Esprit d'équipe`, `Autonomie`, `Organisation`]
+    technologies: [`PHP`, `SQL`, `JavaScript`, `Bootstrap`, `HTML`, `CSS`, `GitHub`, `Esprit d'équipe`, `Autonomie`, `Organisation`],
+    company: "Lycée Sainte Marguerite",
+    relatedExperiences: ["2"]
   },
   {
     id: `2`,
@@ -50,7 +54,8 @@ export const projects: Project[] = [
     imageUrl: old_portfolio,
     link: `https://aaronbul.github.io/v1/`,
     codeLink: `https://github.com/aaronbul/v1`,
-    technologies: [`JavaScript`, `HTML`, `CSS`, `GitHub`, `Sass`, `Curiosité`, `Autonomie`, `Organisation`]
+    technologies: [`JavaScript`, `HTML`, `CSS`, `GitHub`, `Sass`, `Curiosité`, `Autonomie`, `Organisation`],
+    relatedExperiences: ["3"]
   },
   {
     id: `3`,
@@ -66,7 +71,8 @@ export const projects: Project[] = [
     imageUrl: new_portfolio,
     link: `https://portfolio.bulgheroni.tech`,
     codeLink: `https://github.com/aaronbul/v2`,
-    technologies: [`React`, `TypeScript`, `Tailwind`, `Node.js`, `JavaScript`, `HTML`, `CSS`, `GitHub`, `Figma`, `Curiosité`, `Autonomie`, `Organisation`]
+    technologies: [`React`, `TypeScript`, `Tailwind`, `Node.js`, `JavaScript`, `HTML`, `CSS`, `GitHub`, `Figma`, `Curiosité`, `Autonomie`, `Organisation`],
+    relatedExperiences: ["5", "7"]
   },
   {
     id: `4`,
@@ -80,7 +86,9 @@ export const projects: Project[] = [
     future: `La fonctionnalité continue d'évoluer pour répondre aux besoins croissants des utilisateurs. Les développements futurs incluront l'optimisation des performances pour des volumes de données plus importants et l'ajout de nouveaux formats d'export. L'intégration de fonctionnalités d'analyse prédictive est également envisagée. Aujourd'hui, cette solution constitue un outil essentiel dans l'écosystème du progiciel SIRH, démontrant l'importance d'une approche centrée sur l'utilisateur dans le développement de fonctionnalités métier.`,
     criticalView: `Le projet présente des points forts notables dans sa conception et son implémentation. La solution offre une flexibilité importante grâce à ses deux modes d'export, et l'intégration avec le système existant est robuste. La performance des exports est satisfaisante, même sur de grands volumes de données. Cependant, certaines améliorations restent possibles, notamment dans l'optimisation des requêtes pour les exports complexes et l'enrichissement de la documentation utilisateur. Cette expérience a souligné l'importance d'une bonne compréhension des besoins métier et de la nécessité de maintenir un équilibre entre performance et sécurité dans le traitement des données sensibles.`,
     imageUrl: other,
-    technologies: [`Prolog`, `SQL`, `Adaptabilité`, `Esprit d'équipe`, `Organisation`]
+    technologies: [`Prolog`, `SQL`, `Adaptabilité`, `Esprit d'équipe`, `Organisation`],
+    company: "Cegedim",
+    relatedExperiences: ["6"]
   },
   {
     id: `5`,
@@ -94,7 +102,9 @@ export const projects: Project[] = [
     future: `La fonctionnalité continue d'évoluer pour répondre aux besoins croissants des utilisateurs. Les développements futurs incluront l'enrichissement des fonctionnalités de planification et l'optimisation des processus de validation. L'intégration de fonctionnalités d'analyse prédictive est également envisagée. Aujourd'hui, cette solution constitue un outil essentiel dans l'écosystème du progiciel SIRH, démontrant l'importance d'une approche centrée sur l'utilisateur dans le développement de fonctionnalités métier.`,
     criticalView: `Le projet présente des points forts notables dans sa conception et son implémentation. La solution offre une flexibilité importante pour la gestion des aptitudes, et l'intégration avec le système existant est robuste. La validation des données est rigoureuse, assurant la cohérence des informations. Cependant, certaines améliorations restent possibles, notamment dans l'optimisation des performances pour les grands volumes de données et l'enrichissement de la documentation utilisateur. Cette expérience a souligné l'importance d'une bonne compréhension des processus métier et de la nécessité de maintenir un équilibre entre flexibilité et rigueur dans la gestion des données sensibles.`,
     imageUrl: other,
-    technologies: [`Prolog`, `Esprit d'équipe`, `Organisation`]
+    technologies: [`Prolog`, `Esprit d'équipe`, `Organisation`],
+    company: "Cegedim",
+    relatedExperiences: ["6"]
   },
   {
     id: `6`,
@@ -108,6 +118,8 @@ export const projects: Project[] = [
     future: `La fonctionnalité continue d'évoluer pour répondre aux besoins croissants des utilisateurs. Les développements futurs incluront l'enrichissement des règles de validation et l'optimisation des messages d'alerte. L'intégration de fonctionnalités de reporting et d'audit est également envisagée. Aujourd'hui, cette solution constitue un outil essentiel dans l'écosystème du progiciel SIRH, démontrant l'importance d'une approche centrée sur la sécurité et la fiabilité dans le développement de fonctionnalités critiques.`,
     criticalView: `Le projet présente des points forts notables dans sa conception et son implémentation. La solution offre une robustesse importante dans la validation des contraintes, et l'intégration avec le système existant est fiable. Le système d'alerte est efficace et clair pour les utilisateurs. Cependant, certaines améliorations restent possibles, notamment dans l'optimisation des performances pour les validations complexes et l'enrichissement de la documentation technique. Cette expérience a souligné l'importance d'une approche rigoureuse dans le développement de fonctionnalités critiques et la nécessité de maintenir un équilibre entre sécurité et utilisabilité.`,
     imageUrl: other,
-    technologies: [`Prolog`, `SQL`, `Autonomie`, `Curiosité`, `Esprit d'équipe`, `Organisation`]
+    technologies: [`Prolog`, `SQL`, `Autonomie`, `Curiosité`, `Esprit d'équipe`, `Organisation`],
+    company: "Cegedim",
+    relatedExperiences: ["6"]
   }
 ];
