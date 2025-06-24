@@ -105,7 +105,7 @@ const ExperienceSection = () => {
             <div className={`flex ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} w-full justify-center`}>
               <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                 <div 
-                  className="bg-white p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 md:ml-0 cursor-pointer"
+                  className="bg-white p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 md:ml-0 cursor-pointer group"
                   onClick={() => handleOpenModal(experience)}
                 >
                   <div className="flex items-start space-x-4">
@@ -114,7 +114,7 @@ const ExperienceSection = () => {
                         <img 
                           src={experience.logo} 
                           alt={`Logo ${experience.company}`}
-                          className="w-12 h-12 md:w-16 md:h-16 object-contain rounded-lg"
+                          className="w-12 h-12 md:w-16 md:h-16 object-contain rounded-lg grayscale group-hover:grayscale-0 transition-all duration-300"
                         />
                       </div>
                     )}
