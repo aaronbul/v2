@@ -24,24 +24,21 @@ const AboutSection = () => {
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Expertise Humaine</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  L'excellence technique ne peut exister sans une approche profondément humaine. Chaque solution que je
-                  conçois place l'utilisateur au centre, en considérant ses besoins réels et son contexte d'usage.
+                  Je place l'utilisateur au centre de chaque solution que je conçois. Je considère ses besoins réels et son contexte d'usage dans toutes mes décisions techniques.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Conscience Professionnelle</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Dans un monde technologique en constante évolution, je maintiens une veille active et une remise en
-                  question permanente de mes pratiques pour garantir des solutions toujours pertinentes et éthiques.
+                  Je maintiens une veille active sur les évolutions technologiques. Je remets constamment en question mes pratiques pour garantir des solutions pertinentes et éthiques.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Responsabilité Durable</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Chaque décision technique a un impact. Je m'engage à développer des solutions durables, respectueuses de
-                  l'environnement et socialement responsables.
+                  Je développe des solutions durables et respectueuses de l'environnement. Je prends en compte l'impact social de chaque décision technique.
                 </p>
               </div>
             </div>
@@ -58,24 +55,21 @@ const AboutSection = () => {
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Vision à Court Terme</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Consolider mon expertise en architecture logicielle et en gestion de projets complexes, tout en
-                  développant mes compétences en intelligence artificielle et en cybersécurité.
+                  Je consolide mon expertise en architecture logicielle et en gestion de projets complexes. Je développe mes compétences en intelligence artificielle et en cybersécurité.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Ambition à Long Terme</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Devenir un leader technique reconnu, capable de guider des équipes vers l'innovation tout en maintenant
-                  les plus hauts standards de qualité et d'éthique professionnelle.
+                  Je souhaite devenir un leader technique reconnu. Je veux guider des équipes vers l'innovation tout en maintenant les plus hauts standards de qualité.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Impact Souhaité</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Contribuer à des projets qui ont un impact positif sur la société, en particulier dans les domaines de
-                  la santé, de l'éducation et du développement durable.
+                  Je contribue à des projets qui ont un impact positif sur la société. Je me concentre particulièrement sur les domaines de la santé, de l'éducation et du développement durable.
                 </p>
               </div>
             </div>
@@ -92,32 +86,28 @@ const AboutSection = () => {
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Écoute Active</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Capacité à comprendre les besoins non exprimés et à traduire les attentes métier en solutions techniques
-                  adaptées.
+                  Je comprends les besoins non exprimés des utilisateurs. Je traduis les attentes métier en solutions techniques adaptées.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Adaptabilité</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Flexibilité face aux changements technologiques et organisationnels, avec une capacité d'apprentissage
-                  rapide et continue.
+                  Je m'adapte rapidement aux changements technologiques et organisationnels. J'apprends continuellement de nouvelles compétences.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Leadership Collaboratif</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Aptitude à fédérer les équipes autour d'objectifs communs tout en valorisant les contributions
-                  individuelles.
+                  Je fédère les équipes autour d'objectifs communs. Je valorise les contributions individuelles de chaque membre.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Rigueur Méthodologique</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Approche structurée et documentée des projets, garantissant qualité et maintenabilité des solutions
-                  développées.
+                  J'adopte une approche structurée et documentée pour tous mes projets. Je garantis la qualité et la maintenabilité des solutions développées.
                 </p>
               </div>
             </div>
@@ -134,32 +124,28 @@ const AboutSection = () => {
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Innovation Technologique</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Veille active sur les technologies émergentes, participation à des conférences et contribution à des
-                  projets open source.
+                  Je participe activement à la veille technologique. Je contribue à des projets open source et j'assiste à des conférences spécialisées.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Photographie</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Passion pour la photographie de paysage qui développe mon sens de l'observation et ma créativité,
-                  qualités transférables en ingénierie.
+                  Je pratique la photographie de paysage avec passion. Cette activité développe mon sens de l'observation et ma créativité.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Randonnée</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Pratique régulière qui cultive ma persévérance, ma planification et ma gestion du stress - des atouts
-                  précieux en gestion de projet.
+                  Je pratique la randonnée régulièrement. Cette activité cultive ma persévérance et ma capacité de planification.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Lecture Technique</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Approfondissement constant de mes connaissances à travers la littérature spécialisée et les publications
-                  scientifiques.
+                  Je lis constamment la littérature technique spécialisée. J'approfondis mes connaissances à travers les publications scientifiques.
                 </p>
               </div>
             </div>

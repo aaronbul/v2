@@ -108,16 +108,29 @@ const ExperienceSection = () => {
                   className="bg-white p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 md:ml-0 cursor-pointer"
                   onClick={() => handleOpenModal(experience)}
                 >
-                  <h3 className="text-lg md:text-xl font-bold text-primary mb-2">{experience.title}</h3>
-                  <p className="text-sm md:text-base text-gray-600 font-semibold mb-2">{experience.company}</p>
-                  <p className="text-xs md:text-sm text-gray-500 mb-3 md:mb-4">{experience.period}</p>
-                  <ul className="text-sm md:text-base text-gray-700 space-y-1 md:space-y-2">
-                    {experience.description.map((desc, i) => (
-                      <li key={i} className="flex items-start">
-                        {desc}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex items-start space-x-4">
+                    {experience.logo && (
+                      <div className="flex-shrink-0">
+                        <img 
+                          src={experience.logo} 
+                          alt={`Logo ${experience.company}`}
+                          className="w-12 h-12 md:w-16 md:h-16 object-contain rounded-lg"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg md:text-xl font-bold text-primary mb-2">{experience.title}</h3>
+                      <p className="text-sm md:text-base text-gray-600 font-semibold mb-2">{experience.company}</p>
+                      <p className="text-xs md:text-sm text-gray-500 mb-3 md:mb-4">{experience.period}</p>
+                      <ul className="text-sm md:text-base text-gray-700 space-y-1 md:space-y-2">
+                        {experience.description.map((desc, i) => (
+                          <li key={i} className="flex items-start">
+                            {desc}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
