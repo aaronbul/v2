@@ -24,21 +24,21 @@ const AboutSection = () => {
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Expertise Humaine</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je place l'utilisateur au centre de chaque solution que je conçois. Je considère ses besoins réels et son contexte d'usage dans toutes mes décisions techniques.
+                  Placer l'utilisateur au centre de chaque solution permet de créer des interfaces intuitives et des expériences engageantes. Cette approche se traduit par une adoption plus rapide et une satisfaction utilisateur accrue.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Conscience Professionnelle</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je maintiens une veille active sur les évolutions technologiques. Je remets constamment en question mes pratiques pour garantir des solutions pertinentes et éthiques.
+                  Maintenir une veille active sur les évolutions technologiques permet d'anticiper les besoins futurs et d'adapter les solutions en conséquence. Cela se traduit par des architectures robustes et des choix technologiques pertinents.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Responsabilité Durable</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je développe des solutions durables et respectueuses de l'environnement. Je prends en compte l'impact social de chaque décision technique.
+                  Développer des solutions durables et respectueuses de l'environnement permet de réduire l'empreinte carbone des applications. Cela se traduit par des systèmes optimisés et un impact social positif.
                 </p>
               </div>
             </div>
@@ -55,21 +55,21 @@ const AboutSection = () => {
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Vision à Court Terme</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je consolide mon expertise en architecture logicielle et en gestion de projets complexes. Je développe mes compétences en intelligence artificielle et en cybersécurité.
+                  Consolider l'expertise en architecture logicielle et en gestion de projets complexes permet de mener des initiatives plus ambitieuses. Développer les compétences en IA et cybersécurité se traduit par des solutions plus innovantes et sécurisées.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Ambition à Long Terme</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je souhaite devenir un leader technique reconnu. Je veux guider des équipes vers l'innovation tout en maintenant les plus hauts standards de qualité.
+                  Devenir un leader technique reconnu permet de fédérer des équipes autour de projets innovants. Guider les équipes vers l'innovation se traduit par une culture d'excellence et de créativité.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Impact Souhaité</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je contribue à des projets qui ont un impact positif sur la société. Je me concentre particulièrement sur les domaines de la santé, de l'éducation et du développement durable.
+                  Contribuer à des projets à impact positif sur la société permet de créer de la valeur durable. Se concentrer sur la santé, l'éducation et le développement durable se traduit par des solutions qui améliorent la qualité de vie.
                 </p>
               </div>
             </div>
@@ -86,28 +86,28 @@ const AboutSection = () => {
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Écoute Active</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je comprends les besoins non exprimés des utilisateurs. Je traduis les attentes métier en solutions techniques adaptées.
+                  Comprendre les besoins non exprimés des utilisateurs permet de créer des solutions vraiment adaptées. Traduire les attentes métier en solutions techniques se traduit par une satisfaction client accrue.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Adaptabilité</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je m'adapte rapidement aux changements technologiques et organisationnels. J'apprends continuellement de nouvelles compétences.
+                  S'adapter rapidement aux changements technologiques et organisationnels permet de maintenir la compétitivité. Apprendre continuellement de nouvelles compétences se traduit par une innovation constante.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Leadership Collaboratif</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je fédère les équipes autour d'objectifs communs. Je valorise les contributions individuelles de chaque membre.
+                  Fédérer les équipes autour d'objectifs communs permet d'atteindre des résultats exceptionnels. Valoriser les contributions individuelles se traduit par une motivation et une créativité accrues.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Rigueur Méthodologique</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  J'adopte une approche structurée et documentée pour tous mes projets. Je garantis la qualité et la maintenabilité des solutions développées.
+                  Adopter une approche structurée et documentée pour tous les projets permet de garantir la qualité. Cette rigueur se traduit par des solutions maintenables et évolutives.
                 </p>
               </div>
             </div>
@@ -124,28 +124,28 @@ const AboutSection = () => {
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Innovation Technologique</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je participe activement à la veille technologique. Je contribue à des projets open source et j'assiste à des conférences spécialisées.
+                  Participer activement à la veille technologique permet de rester à la pointe de l'innovation. Contribuer à des projets open source et assister à des conférences se traduit par un partage de connaissances enrichissant.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Photographie</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je pratique la photographie de paysage avec passion. Cette activité développe mon sens de l'observation et ma créativité.
+                  Pratiquer la photographie de paysage développe le sens de l'observation et la créativité. Cette activité se traduit par une attention particulière aux détails dans le design d'interface.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Randonnée</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je pratique la randonnée régulièrement. Cette activité cultive ma persévérance et ma capacité de planification.
+                  Pratiquer la randonnée régulièrement cultive la persévérance et la capacité de planification. Cette expérience se traduit par une approche méthodique dans la gestion de projets complexes.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">Lecture Technique</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Je lis constamment la littérature technique spécialisée. J'approfondis mes connaissances à travers les publications scientifiques.
+                  Lire constamment la littérature technique spécialisée permet d'approfondir les connaissances. Cette pratique se traduit par des solutions techniques plus robustes et innovantes.
                 </p>
               </div>
             </div>
