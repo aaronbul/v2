@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { experiences } from '../data/experience';
-import ExperienceModal from './ExperienceModal';
+import { experiences } from '../../data/experience';
+import ExperienceModal from '../modals/ExperienceModal';
 
 const ExperienceSection = () => {
   const [selectedExperience, setSelectedExperience] = useState<typeof experiences[0] | null>(null);

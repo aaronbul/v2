@@ -1,10 +1,10 @@
 import profilePic from "../assets/about/IMG_1418.png";
 import { linkedSkills } from '../data/skills';
-import SkillsSection from '../components/SkillsSection';
-import ExperienceSection from "../components/ExperienceSection";
-import ProjectsSection from "../components/ProjectsSection";
-import Contact from "../components/ContactSection";
-import AboutSection from "../components/AboutSection";
+import SkillsSection from '../components/sections/SkillsSection';
+import ExperienceSection from "../components/sections/ExperienceSection";
+import ProjectsSection from "../components/sections/ProjectsSection";
+import Contact from "../components/sections/ContactSection";
+import AboutSection from "../components/sections/AboutSection";
 
 const Main = () => (
   <div>

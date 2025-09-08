@@ -1,8 +1,8 @@
-import { Project } from '../data/projects';
+import { Project } from '../../data/projects';
 import { useEffect, useState } from 'react';
-import Portal from './Portal';
-import { Skill, skills } from '../data/skills';
-import { experiences } from '../data/experience';
+import Portal from '../common/Portal';
+import { Skill, skills } from '../../data/skills';
+import { experiences } from '../../data/experience';
 
 type ProjectModalProps = {
   project: Project | null;

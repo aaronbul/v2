@@ -1,4 +1,4 @@
-import { Project } from '../data/projects';
+import { Project } from '../../data/projects';
 
 type ProjectCardProps = {
   project: Project;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import ProjectCard from "./ProjectCard";
-import ProjectModal from "./ProjectModal";
-import { Project, projects } from "../data/projects";
+import ProjectCard from "../cards/ProjectCard";
+import ProjectModal from "../modals/ProjectModal";
+import { Project, projects } from "../../data/projects";
 
 const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);

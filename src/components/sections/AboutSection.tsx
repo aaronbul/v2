@@ -1,4 +1,4 @@
-import resume from "../assets/aaron_bulgheroni_resume.pdf";
+import resume from "../../assets/aaron_bulgheroni_resume.pdf";
 
 const AboutSection = () => {
   return (

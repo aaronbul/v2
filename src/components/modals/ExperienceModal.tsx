@@ -1,8 +1,8 @@
-import { Experience } from '../data/experience';
+import { Experience } from '../../data/experience';
 import { useEffect, useState } from 'react';
-import Portal from './Portal';
-import { projects } from '../data/projects';
-import { Skill, skills } from '../data/skills';
+import Portal from '../common/Portal';
+import { projects } from '../../data/projects';
+import { Skill, skills } from '../../data/skills';
 
 type ExperienceModalProps = {
   experience: Experience | null;

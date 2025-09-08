@@ -1,4 +1,4 @@
-import { Skill } from '../data/skills';
+import { Skill } from '../../data/skills';
 
 interface SkillCardProps {
   skill: Skill;

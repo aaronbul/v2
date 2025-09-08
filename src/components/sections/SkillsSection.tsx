@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Skill } from '../data/skills';
-import SkillModal from './SkillModal';
+import { Skill } from '../../data/skills';
+import SkillModal from '../modals/SkillModal';
 
 interface SkillsSectionProps {
   skills: Skill[];
@@ -15,13 +15,17 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
   const [activeFilter, setActiveFilter] = useState<'all' | 'technical' | 'soft'>('all');
   const [filteredSkills, setFilteredSkills] = useState<Skill[]>(skills);
 
-  // Filtrer les compétences en fonction du filtre actif
+  // Filtrer et trier les compétences en fonction du filtre actif
   useEffect(() => {
-    if (activeFilter === 'all') {
-      setFilteredSkills(skills);
-    } else {
-      setFilteredSkills(skills.filter(skill => skill.category === activeFilter));
+    let filtered = skills;
+    
+    if (activeFilter !== 'all') {
+      filtered = skills.filter(skill => skill.category === activeFilter);
     }
+    
+    // Trier par ordre alphabétique
+    const sortedSkills = filtered.sort((a, b) => a.name.localeCompare(b.name, 'fr'));
+    setFilteredSkills(sortedSkills);
   }, [skills, activeFilter]);
 
   const handleOpenModal = (skill: Skill, projectId: string | null = null, projectTitle: string | null = null, experienceId: string | null = null) => {

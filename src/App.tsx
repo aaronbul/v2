@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import Navbar from "./components/Header";
+import Navbar from "./components/common/Header";
 import About from "./pages/Main";
 import NotFound from './pages/Page404';
-import Footer from "./components/Footer";
-import BackToTop from "./components/BackToTop";
+import Footer from "./components/common/Footer";
+import BackToTop from "./components/common/BackToTop";
 
 // Composant wrapper pour gérer l'affichage conditionnel
 const AppContent = () => {
