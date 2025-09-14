@@ -13,20 +13,28 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
   const [sourceProjectTitle, setSourceProjectTitle] = useState<string | null>(null);
   const [sourceExperienceId, setSourceExperienceId] = useState<string | null>(null);
   const [activeFilter, setActiveFilter] = useState<'all' | 'technical' | 'soft'>('all');
+  const [sortType, setSortType] = useState<'alphabetical' | 'experience'>('alphabetical');
   const [filteredSkills, setFilteredSkills] = useState<Skill[]>(skills);
 
-  // Filtrer et trier les compétences en fonction du filtre actif
+  // Filtrer et trier les compétences en fonction du filtre actif et du type de tri
   useEffect(() => {
-    let filtered = skills;
+    let filtered = [...skills]; // Créer une copie du tableau
     
     if (activeFilter !== 'all') {
-      filtered = skills.filter(skill => skill.category === activeFilter);
+      filtered = filtered.filter(skill => skill.category === activeFilter);
     }
     
-    // Trier par ordre alphabétique
-    const sortedSkills = filtered.sort((a, b) => a.name.localeCompare(b.name, 'fr'));
+    // Trier selon le type sélectionné
+    let sortedSkills;
+    if (sortType === 'alphabetical') {
+      sortedSkills = [...filtered].sort((a, b) => a.name.localeCompare(b.name, 'fr'));
+    } else {
+      // Tri par expérience décroissante (plus d'expérience en premier)
+      sortedSkills = [...filtered].sort((a, b) => b.experience - a.experience);
+    }
+    
     setFilteredSkills(sortedSkills);
-  }, [skills, activeFilter]);
+  }, [skills, activeFilter, sortType]);
 
   const handleOpenModal = (skill: Skill, projectId: string | null = null, projectTitle: string | null = null, experienceId: string | null = null) => {
     setSelectedSkill(skill);
@@ -154,39 +162,49 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
     <div className="opacity-0 animate-fadeIn">
       <h1 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Mes Compétences</h1>
       
-      {/* Boutons de filtre */}
-      <div className="flex justify-center mb-8">
-        <div className="flex space-x-1 md:space-x-2 bg-gray-100 p-1 rounded-lg">
-          <button
-            onClick={() => setActiveFilter('all')}
-            className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
-              activeFilter === 'all'
-                ? 'bg-white text-primary shadow-sm'
-                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
-            }`}
+      {/* Contrôles de filtre et tri */}
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8 max-w-5xl mx-auto px-4">
+        {/* Menu de filtre - à gauche */}
+        <div className="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm">
+          <span className="text-sm font-medium text-gray-700">Filtrer par :</span>
+          <select
+            id="filter-select"
+            value={activeFilter}
+            onChange={(e) => setActiveFilter(e.target.value as 'all' | 'technical' | 'soft')}
+            className="px-4 py-2 bg-gray-50 border-0 rounded-lg text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-white transition-all duration-200 cursor-pointer appearance-none"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+              backgroundPosition: 'right 0.5rem center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '1.5em 1.5em',
+              paddingRight: '2.5rem'
+            }}
           >
-            Toutes
-          </button>
-          <button
-            onClick={() => setActiveFilter('technical')}
-            className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
-              activeFilter === 'technical'
-                ? 'bg-white text-primary shadow-sm'
-                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
-            }`}
+            <option value="all">Toutes</option>
+            <option value="technical">Techniques</option>
+            <option value="soft">Soft Skills</option>
+          </select>
+        </div>
+
+        {/* Menu de tri - à droite */}
+        <div className="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm">
+          <span className="text-sm font-medium text-gray-700">Trier par :</span>
+          <select
+            id="sort-select"
+            value={sortType}
+            onChange={(e) => setSortType(e.target.value as 'alphabetical' | 'experience')}
+            className="px-4 py-2 bg-gray-50 border-0 rounded-lg text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-white transition-all duration-200 cursor-pointer appearance-none"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+              backgroundPosition: 'right 0.5rem center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '1.5em 1.5em',
+              paddingRight: '2.5rem'
+            }}
           >
-            Techniques
-          </button>
-          <button
-            onClick={() => setActiveFilter('soft')}
-            className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
-              activeFilter === 'soft'
-                ? 'bg-white text-primary shadow-sm'
-                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
-            }`}
-          >
-            Soft Skills
-          </button>
+            <option value="alphabetical">Ordre alphabétique</option>
+            <option value="experience">Années d'expérience</option>
+          </select>
         </div>
       </div>
 

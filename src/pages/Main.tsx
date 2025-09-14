@@ -44,9 +44,9 @@ const Main = () => (
               }
             }}
           >
-            <span className="text-gray-600 text-sm font-medium">En savoir plus sur moi</span>
+            <span className="text-gray-600 text-sm font-medium group-hover:font-bold">En savoir plus sur moi</span>
             <button 
-              className="flex justify-center group-hover:animate-bounce transition-opacity"
+              className="flex justify-center animate-bounce transition-opacity"
               aria-label="Défiler vers la section À propos"
             >
               <div className="w-5 h-5 border-b-4 border-gray-600 transform rotate-45 translate-x-[10px]"></div>
