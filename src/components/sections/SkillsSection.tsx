@@ -172,7 +172,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
       {/* Contrôles de filtre et tri */}
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8 max-w-5xl mx-auto px-4">
         {/* Menu de filtre - à gauche */}
-        <div className="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm">
+        <div className="flex items-center gap-4 bg-white p-3 rounded-xl">
           <span className="text-sm font-medium text-gray-700">Filtrer par :</span>
           <select
             id="filter-select"
@@ -195,7 +195,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
         </div>
 
         {/* Menu de tri - à droite */}
-        <div className="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm">
+        <div className="flex items-center gap-4 bg-white p-3 rounded-xl">
           <span className="text-sm font-medium text-gray-700">Trier par :</span>
           <select
             id="sort-select"
