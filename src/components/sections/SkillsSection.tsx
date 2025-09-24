@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Skill } from '../../data/skills';
 import SkillModal from '../modals/SkillModal';
+import PieChart from '../common/PieChart';
 
 interface SkillsSectionProps {
   skills: Skill[];
@@ -12,7 +13,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
   const [sourceProjectId, setSourceProjectId] = useState<string | null>(null);
   const [sourceProjectTitle, setSourceProjectTitle] = useState<string | null>(null);
   const [sourceExperienceId, setSourceExperienceId] = useState<string | null>(null);
-  const [activeFilter, setActiveFilter] = useState<'all' | 'technical' | 'soft'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'technical' | 'soft' | 'comparative'>('all');
   const [sortType, setSortType] = useState<'alphabetical' | 'experience'>('alphabetical');
   const [filteredSkills, setFilteredSkills] = useState<Skill[]>(skills);
 
@@ -20,8 +21,14 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
   useEffect(() => {
     let filtered = [...skills]; // Créer une copie du tableau
     
-    if (activeFilter !== 'all') {
+    if (activeFilter !== 'all' && activeFilter !== 'comparative') {
       filtered = filtered.filter(skill => skill.category === activeFilter);
+    }
+    
+    // Pour le filtre comparative, on ne trie pas car on affiche en camembert
+    if (activeFilter === 'comparative') {
+      setFilteredSkills(filtered);
+      return;
     }
     
     // Trier selon le type sélectionné
@@ -170,7 +177,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
           <select
             id="filter-select"
             value={activeFilter}
-            onChange={(e) => setActiveFilter(e.target.value as 'all' | 'technical' | 'soft')}
+            onChange={(e) => setActiveFilter(e.target.value as 'all' | 'technical' | 'soft' | 'comparative')}
             className="px-4 py-2 bg-gray-50 border-0 rounded-lg text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-white transition-all duration-200 cursor-pointer appearance-none"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
@@ -183,6 +190,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
             <option value="all">Toutes</option>
             <option value="technical">Techniques</option>
             <option value="soft">Soft Skills</option>
+            <option value="comparative">Comparative</option>
           </select>
         </div>
 
@@ -193,9 +201,16 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
             id="sort-select"
             value={sortType}
             onChange={(e) => setSortType(e.target.value as 'alphabetical' | 'experience')}
-            className="px-4 py-2 bg-gray-50 border-0 rounded-lg text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-white transition-all duration-200 cursor-pointer appearance-none"
+            disabled={activeFilter === 'comparative'}
+            className={`px-4 py-2 border-0 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-200 cursor-pointer appearance-none ${
+              activeFilter === 'comparative' 
+                ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
+                : 'bg-gray-50 text-gray-700 focus:bg-white'
+            }`}
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+              backgroundImage: activeFilter === 'comparative' 
+                ? 'none' 
+                : `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
               backgroundPosition: 'right 0.5rem center',
               backgroundRepeat: 'no-repeat',
               backgroundSize: '1.5em 1.5em',
@@ -208,30 +223,39 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 max-w-5xl mx-auto mb-8 md:mb-16">
-        {filteredSkills.map((skill, index) => (
-          <div
-            key={skill.name}
-            className="opacity-0 animate-slideUp"
-            style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
-          >
-            <div 
-              className="flex flex-col items-center p-3 md:p-4 border-2 border-gray-200 rounded-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
-              onClick={() => handleOpenModal(skill)}
+      {activeFilter === 'comparative' ? (
+        <div className="mb-8 md:mb-16">
+          <PieChart 
+            skills={filteredSkills} 
+            onSkillClick={handleOpenModal}
+          />
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 max-w-5xl mx-auto mb-8 md:mb-16">
+          {filteredSkills.map((skill, index) => (
+            <div
+              key={skill.name}
+              className="opacity-0 animate-slideUp"
+              style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
             >
-              <img 
-                src={skill.logo} 
-                alt={skill.name} 
-                className="h-12 w-12 md:h-20 md:w-20 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" 
-              />
-              <p className="mt-2 text-xs md:text-sm font-medium text-center">{skill.name}</p>
-              <p className="text-[10px] md:text-xs text-gray-600 mt-1 text-center">
-                {skill.experience} {skill.experience > 1 ? 'ans' : 'an'} d'expérience
-              </p>
+              <div 
+                className="flex flex-col items-center p-3 md:p-4 border-2 border-gray-200 rounded-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                onClick={() => handleOpenModal(skill)}
+              >
+                <img 
+                  src={skill.logo} 
+                  alt={skill.name} 
+                  className="h-12 w-12 md:h-20 md:w-20 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" 
+                />
+                <p className="mt-2 text-xs md:text-sm font-medium text-center">{skill.name}</p>
+                <p className="text-[10px] md:text-xs text-gray-600 mt-1 text-center">
+                  {skill.experience} {skill.experience > 1 ? 'ans' : 'an'} d'expérience
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       <SkillModal
         skill={selectedSkill}
