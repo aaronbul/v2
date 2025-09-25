@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Skill } from '../../data/skills';
 
 interface PieChartProps {
@@ -15,7 +15,20 @@ const PieChart: React.FC<PieChartProps> = ({ skills, onSkillClick }) => {
     x: number;
     y: number;
   } | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
+
+  // Hook pour détecter les changements de taille d'écran
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
   // Couleurs pastel uniques pour les compétences
   const colors = [
     '#A5B4FC', '#93C5FD', '#60A5FA', '#3B82F6', '#1D4ED8',
@@ -73,9 +86,15 @@ const PieChart: React.FC<PieChartProps> = ({ skills, onSkillClick }) => {
     return `M 0 0 L ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${end.x} ${end.y} Z`;
   };
 
-  const radius = 200;
-  const centerX = 300;
-  const centerY = 300;
+  // Dimensions adaptatives pour mobile
+  const dimensions = {
+    radius: isMobile ? 120 : 200,
+    centerX: isMobile ? 150 : 300,
+    centerY: isMobile ? 150 : 300,
+    svgSize: isMobile ? 300 : 600
+  };
+
+  const { radius, centerX, centerY, svgSize } = dimensions;
 
   // Fonction pour gérer le survol avec tooltip
   const handleMouseEnter = (event: React.MouseEvent, slice: any) => {
@@ -96,9 +115,38 @@ const PieChart: React.FC<PieChartProps> = ({ skills, onSkillClick }) => {
     }
   };
 
+  // Fonction pour gérer les interactions tactiles
+  const handleTouchStart = (event: React.TouchEvent, slice: any) => {
+    event.preventDefault();
+    setHoveredSkill(slice.skill.name);
+    
+    if (svgRef.current) {
+      const rect = svgRef.current.getBoundingClientRect();
+      const touch = event.touches[0];
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      
+      setTooltipData({
+        skill: slice.skill,
+        percentage: slice.percentage,
+        color: slice.color,
+        x,
+        y
+      });
+    }
+  };
+
   const handleMouseLeave = () => {
     setHoveredSkill(null);
     setTooltipData(null);
+  };
+
+  const handleTouchEnd = () => {
+    // Délai pour permettre la lecture du tooltip sur mobile
+    setTimeout(() => {
+      setHoveredSkill(null);
+      setTooltipData(null);
+    }, 2000);
   };
 
   const handleMouseMove = (event: React.MouseEvent) => {
@@ -115,10 +163,10 @@ const PieChart: React.FC<PieChartProps> = ({ skills, onSkillClick }) => {
     <div className="w-full max-w-4xl mx-auto relative">
       <svg 
         ref={svgRef}
-        width="600" 
-        height="600" 
-        viewBox="0 0 600 600" 
-        className="mx-auto"
+        width={svgSize} 
+        height={svgSize} 
+        viewBox={`0 0 ${svgSize} ${svgSize}`} 
+        className="mx-auto w-full max-w-md md:max-w-lg"
         onMouseMove={handleMouseMove}
       >
         <g transform={`translate(${centerX}, ${centerY})`}>
@@ -139,6 +187,8 @@ const PieChart: React.FC<PieChartProps> = ({ skills, onSkillClick }) => {
                   onClick={() => onSkillClick(slice.skill)}
                   onMouseEnter={(e) => handleMouseEnter(e, slice)}
                   onMouseLeave={handleMouseLeave}
+                  onTouchStart={(e) => handleTouchStart(e, slice)}
+                  onTouchEnd={handleTouchEnd}
                 />
               </g>
             );
@@ -149,11 +199,11 @@ const PieChart: React.FC<PieChartProps> = ({ skills, onSkillClick }) => {
       {/* Tooltip */}
       {tooltipData && (
         <div
-          className="absolute bg-white border border-gray-200 rounded-lg shadow-lg p-3 z-50 pointer-events-none"
+          className="absolute bg-white border border-gray-200 rounded-lg shadow-lg p-3 z-50 pointer-events-none max-w-xs"
           style={{
-            left: `${tooltipData.x + 10}px`,
-            top: `${tooltipData.y - 10}px`,
-            transform: 'translateY(-100%)'
+            left: `${Math.min(tooltipData.x + 10, window.innerWidth - 250)}px`,
+            top: `${Math.max(tooltipData.y - 10, 10)}px`,
+            transform: tooltipData.y < 100 ? 'translateY(0)' : 'translateY(-100%)'
           }}
         >
           <div className="flex items-center gap-2">
@@ -177,9 +227,9 @@ const PieChart: React.FC<PieChartProps> = ({ skills, onSkillClick }) => {
       )}
       
       {/* Légende */}
-      <div className="mt-8 space-y-2">
-        <h3 className="text-xl font-semibold text-center mb-6">Années d'expérience par compétence</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-80 overflow-y-auto">
+      <div className="mt-6 md:mt-8 space-y-2">
+        <h3 className="text-lg md:text-xl font-semibold text-center mb-4 md:mb-6 px-4">Années d'expérience par compétence</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 max-h-60 md:max-h-80 overflow-y-auto px-4">
           {slicesWithAngles
             .sort((a, b) => b.skill.experience - a.skill.experience)
             .map((slice) => {
@@ -189,7 +239,7 @@ const PieChart: React.FC<PieChartProps> = ({ skills, onSkillClick }) => {
               return (
                 <div
                   key={slice.skill.name}
-                  className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all duration-200 ${
+                  className={`flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg cursor-pointer transition-all duration-200 ${
                     isHovered ? 'bg-gray-100' : isOtherHovered ? 'opacity-30' : 'hover:bg-gray-50'
                   }`}
                   onClick={() => onSkillClick(slice.skill)}
@@ -197,11 +247,11 @@ const PieChart: React.FC<PieChartProps> = ({ skills, onSkillClick }) => {
                   onMouseLeave={() => setHoveredSkill(null)}
                 >
                   <div
-                    className="w-5 h-5 rounded-full"
+                    className="w-4 h-4 md:w-5 md:h-5 rounded-full flex-shrink-0"
                     style={{ backgroundColor: slice.color }}
                   />
-                  <span className="text-base font-medium flex-1">{slice.skill.name}</span>
-                  <span className="text-base text-gray-600 font-semibold">
+                  <span className="text-sm md:text-base font-medium flex-1 truncate">{slice.skill.name}</span>
+                  <span className="text-sm md:text-base text-gray-600 font-semibold flex-shrink-0">
                     {slice.skill.experience} {slice.skill.experience > 1 ? 'ans' : 'an'}
                   </span>
                 </div>
