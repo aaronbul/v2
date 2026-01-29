@@ -138,7 +138,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
 
             <div>
               <h2 className="text-lg md:text-xl font-semibold mb-2">Développement</h2>
-              <p className="text-sm md:text-base text-gray-700">{project.steps}</p>
+              <div className="text-sm md:text-base text-gray-700 space-y-3">
+                {project.steps.split('\n\n').map((para: string, index: number) => (
+                  <p key={index} dangerouslySetInnerHTML={{ __html: para.trim() }} />
+                ))}
+              </div>
             </div>
 
             <div>

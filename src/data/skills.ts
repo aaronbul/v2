@@ -44,6 +44,8 @@ export interface Skill {
   examples?: SkillExample[];
   relatedProjects?: string[];
   relatedExperiences?: string[]; // IDs des expériences
+  selfCriticism?: string; // Autocritique
+  evolutionAxes?: string; // Axes d'évolution
 }
 
 export const skills: Skill[] = [
@@ -59,11 +61,17 @@ export const skills: Skill[] = [
     J'ai continué à approfondir mes connaissances avec mon portfolio 2025, en utilisant 
     les <strong>dernières fonctionnalités HTML5</strong> pour créer une expérience utilisateur <strong>moderne</strong> et 
     <strong>interactive</strong>.`,
-    officialDescription: `HTML (HyperText Markup Language) est le langage de balisage standard pour 
-    créer des pages web. Il décrit la <strong>structure</strong> du contenu web et permet d'organiser le contenu en 
+    officialDescription: `HTML (HyperText Markup Language) est le langage de balisage standard pour
+    créer des pages web. Il décrit la <strong>structure</strong> du contenu web et permet d'organiser le contenu en
     <strong>sections</strong>, <strong>paragraphes</strong>, <strong>listes</strong>, <strong>liens</strong>, <strong>images</strong> et autres éléments.`,
     officialWebsite: `https://developer.mozilla.org/fr/docs/Web/HTML`,
-    relatedExperiences: ["2", "3", "5"]
+    relatedExperiences: ["2", "3", "5"],
+    selfCriticism: `Bien que maîtrisant les fondamentaux et la <strong>sémantique HTML5</strong>, je dois encore
+    approfondir mes connaissances sur l'<strong>accessibilité avancée (ARIA)</strong> et les <strong>microformats</strong>
+    pour améliorer le référencement et l'interopérabilité.`,
+    evolutionAxes: `Approfondir les <strong>attributs ARIA</strong> pour une meilleure accessibilité, maîtriser les
+    <strong>données structurées</strong> (Schema.org) pour le SEO, et explorer les <strong>nouvelles balises HTML</strong>
+    comme dialog et details/summary.`
   },
   {
     name: `CSS`,
@@ -77,10 +85,16 @@ export const skills: Skill[] = [
     J'ai ensuite évolué vers des approches plus modernes avec mon portfolio 2025, en utilisant 
     <strong>Tailwind CSS</strong> pour créer des interfaces <strong>élégantes</strong> et <strong>performantes</strong>. Cette expérience m'a 
     permis de maîtriser les concepts de <strong>design system</strong> et d'<strong>optimisation des performances</strong> CSS.`,
-    officialDescription: `CSS (Cascading Style Sheets) est un langage de feuille de style utilisé 
-    pour décrire la <strong>présentation</strong> d'un document HTML. Il permet de contrôler la <strong>mise en page</strong>, les 
+    officialDescription: `CSS (Cascading Style Sheets) est un langage de feuille de style utilisé
+    pour décrire la <strong>présentation</strong> d'un document HTML. Il permet de contrôler la <strong>mise en page</strong>, les
     <strong>couleurs</strong>, les <strong>polices</strong>, les <strong>animations</strong> et d'autres aspects visuels.`,
-    officialWebsite: `https://developer.mozilla.org/fr/docs/Web/CSS`
+    officialWebsite: `https://developer.mozilla.org/fr/docs/Web/CSS`,
+    selfCriticism: `Ma maîtrise de CSS est solide, mais je dois encore perfectionner l'utilisation des
+    <strong>CSS Grid</strong> dans des layouts complexes et approfondir les <strong>animations performantes</strong>
+    avec les propriétés composites.`,
+    evolutionAxes: `Explorer les <strong>Container Queries</strong> et les <strong>CSS Layers (@layer)</strong> pour
+    une meilleure organisation du code, et maîtriser les <strong>animations basées sur le scroll</strong>
+    (Scroll-driven Animations).`
   },
   {
     name: `JavaScript`,
@@ -95,10 +109,16 @@ export const skills: Skill[] = [
     2025, où j'ai mis en place une <strong>architecture basée sur les composants</strong> et les <strong>hooks</strong>. Cette 
     expérience m'a permis de maîtriser les concepts de <strong>gestion d'état</strong> et d'<strong>optimisation des 
     performances</strong>.`,
-    officialDescription: `JavaScript est un langage de programmation <strong>dynamique</strong> qui permet d'ajouter 
-    des fonctionnalités <strong>interactives</strong> aux pages web. Il est l'un des trois <strong>langages fondamentaux</strong> du 
+    officialDescription: `JavaScript est un langage de programmation <strong>dynamique</strong> qui permet d'ajouter
+    des fonctionnalités <strong>interactives</strong> aux pages web. Il est l'un des trois <strong>langages fondamentaux</strong> du
     web, aux côtés de HTML et CSS.`,
-    officialWebsite: `https://developer.mozilla.org/fr/docs/Web/JavaScript`
+    officialWebsite: `https://developer.mozilla.org/fr/docs/Web/JavaScript`,
+    selfCriticism: `Je maîtrise bien les concepts fondamentaux et modernes de JavaScript, mais je dois
+    approfondir ma compréhension des <strong>design patterns avancés</strong> et de l'<strong>optimisation mémoire</strong>
+    pour les applications à grande échelle.`,
+    evolutionAxes: `Approfondir les <strong>Web Workers</strong> et le <strong>multithreading</strong> en JavaScript,
+    maîtriser les <strong>patterns fonctionnels</strong> avancés, et explorer les nouvelles APIs comme
+    les <strong>Signals</strong> et l'<strong>API Temporal</strong>.`
   },  
   {
     name: `TypeScript`,
@@ -114,10 +134,16 @@ export const skills: Skill[] = [
     <strong>visualisation de données en temps réel</strong>, où j'ai utilisé TypeScript pour créer une 
     <strong>architecture robuste</strong> et <strong>maintenable</strong>. Cette expérience m'a permis de maîtriser les concepts 
     avancés comme les <strong>types conditionnels</strong> et les <strong>mapped types</strong>.`,
-    officialDescription: `TypeScript est un <strong>sur-ensemble typé</strong> de JavaScript qui se compile en 
-    JavaScript. Il ajoute des <strong>types statiques</strong> optionnels, des <strong>classes</strong>, des <strong>modules</strong> et d'autres 
+    officialDescription: `TypeScript est un <strong>sur-ensemble typé</strong> de JavaScript qui se compile en
+    JavaScript. Il ajoute des <strong>types statiques</strong> optionnels, des <strong>classes</strong>, des <strong>modules</strong> et d'autres
     fonctionnalités à JavaScript.`,
-    officialWebsite: `https://www.typescriptlang.org/fr/`
+    officialWebsite: `https://www.typescriptlang.org/fr/`,
+    selfCriticism: `Je maîtrise le typage et les interfaces, mais je dois encore approfondir les
+    <strong>types utilitaires avancés</strong> et les <strong>patterns de type-safety</strong> pour des architectures
+    plus complexes.`,
+    evolutionAxes: `Maîtriser les <strong>template literal types</strong> et les <strong>types récursifs</strong>,
+    approfondir l'utilisation des <strong>decorators</strong> (stage 3), et explorer les techniques de
+    <strong>type narrowing</strong> avancé.`
   },
   {
     name: `Angular`,
@@ -140,7 +166,12 @@ export const skills: Skill[] = [
         title: `Application de Gestion`,
         description: `Création d'une application de gestion de médiathèque avec Angular`
       }
-    ]
+    ],
+    selfCriticism: `Mon expérience avec Angular reste limitée à quelques projets. Je dois approfondir
+    ma compréhension de l'<strong>écosystème RxJS</strong> et des <strong>patterns réactifs</strong> propres au framework.`,
+    evolutionAxes: `Maîtriser les <strong>Signals Angular</strong> et le nouveau modèle de réactivité,
+    approfondir les <strong>standalone components</strong>, et explorer les techniques d'<strong>optimisation SSR</strong>
+    avec Angular Universal.`
   },
   {
     name: `React`,
@@ -160,11 +191,16 @@ export const skills: Skill[] = [
     création d'<strong>applications cross-platform</strong>. J'ai développé des applications mobiles avec des 
     fonctionnalités comme la <strong>géolocalisation</strong>, les <strong>notifications push</strong>, et l'<strong>intégration de 
     caméra</strong>.`,
-    officialDescription: `React est une <strong>bibliothèque JavaScript</strong> pour créer des <strong>interfaces 
-    utilisateur</strong>. Elle permet de créer des applications web complexes en <strong>composants réutilisables</strong> et 
+    officialDescription: `React est une <strong>bibliothèque JavaScript</strong> pour créer des <strong>interfaces
+    utilisateur</strong>. Elle permet de créer des applications web complexes en <strong>composants réutilisables</strong> et
     gère efficacement le <strong>rendu</strong> et les <strong>mises à jour</strong> de l'interface.`,
     officialWebsite: `https://fr.reactjs.org/`,
-    relatedExperiences: ["5", "7"]
+    relatedExperiences: ["5", "7"],
+    selfCriticism: `Je maîtrise bien les hooks et les composants, mais je dois encore approfondir
+    les <strong>patterns d'optimisation</strong> (memo, useMemo, useCallback) et la gestion d'état à grande échelle.`,
+    evolutionAxes: `Explorer les <strong>React Server Components</strong> et le rendu hybride, approfondir
+    les <strong>patterns de composition avancés</strong>, et maîtriser les nouvelles APIs comme
+    <strong>useOptimistic</strong> et <strong>useFormStatus</strong>.`
   },
   {
     name: `Tailwind`,
@@ -175,9 +211,13 @@ export const skills: Skill[] = [
     <strong>interface moderne</strong> et <strong>responsive</strong>. Cette expérience m'a permis de maîtriser l'<strong>approche 
     utility-first</strong> et de comprendre l'importance de la <strong>conception d'interfaces utilisateur 
     performantes</strong>.`,
-    officialDescription: `Tailwind CSS est un <strong>framework CSS utility-first</strong> qui permet de construire 
+    officialDescription: `Tailwind CSS est un <strong>framework CSS utility-first</strong> qui permet de construire
     rapidement des <strong>designs personnalisés</strong> sans quitter votre HTML.`,
-    officialWebsite: `https://tailwindcss.com/`
+    officialWebsite: `https://tailwindcss.com/`,
+    selfCriticism: `Mon expérience avec Tailwind est encore récente. Je dois mieux maîtriser la
+    <strong>personnalisation du thème</strong> et l'organisation des classes pour des projets de grande envergure.`,
+    evolutionAxes: `Approfondir la <strong>configuration avancée</strong> et la création de <strong>plugins custom</strong>,
+    maîtriser les <strong>variants personnalisés</strong>, et optimiser la <strong>purge CSS</strong> pour des bundles minimaux.`
   },
   {
     name: `Bootstrap`,
@@ -190,9 +230,15 @@ export const skills: Skill[] = [
 
     J'ai également utilisé Bootstrap dans d'autres projets, comme une <strong>application de gestion de 
     tâches</strong>, où j'ai mis en place une interface utilisateur <strong>moderne</strong> et <strong>accessible</strong>.`,
-    officialDescription: `Bootstrap est un <strong>framework CSS open-source</strong> qui facilite le développement 
+    officialDescription: `Bootstrap est un <strong>framework CSS open-source</strong> qui facilite le développement
     de sites web <strong>responsifs</strong> et <strong>mobiles-first</strong>.`,
-    officialWebsite: `https://getbootstrap.com/`
+    officialWebsite: `https://getbootstrap.com/`,
+    selfCriticism: `Je maîtrise bien les composants Bootstrap, mais j'ai tendance à privilégier des
+    approches plus modernes comme Tailwind. Ma connaissance de la <strong>personnalisation Sass</strong>
+    de Bootstrap pourrait être approfondie.`,
+    evolutionAxes: `Approfondir la <strong>personnalisation via les variables Sass</strong>, explorer les
+    <strong>nouveautés de Bootstrap 5</strong> comme les utilities API, et maîtriser l'intégration avec
+    les frameworks JavaScript modernes.`
   },
   {
     name: `Docker`,
@@ -211,7 +257,12 @@ export const skills: Skill[] = [
         title: `Microservices`,
         description: `Mise en place d'une architecture microservices avec Docker`
       }
-    ]
+    ],
+    selfCriticism: `Je maîtrise la conteneurisation de base, mais je dois approfondir les
+    <strong>optimisations d'images</strong> (multi-stage builds) et la <strong>sécurité des conteneurs</strong>.`,
+    evolutionAxes: `Maîtriser les <strong>Docker multi-stage builds</strong> pour des images optimisées,
+    approfondir <strong>Docker Compose</strong> pour les environnements complexes, et explorer les
+    <strong>bonnes pratiques de sécurité</strong> des conteneurs.`
   },
   {
     name: `Kubernetes`,
@@ -230,7 +281,12 @@ export const skills: Skill[] = [
         title: `Cluster de Production`,
         description: `Configuration d'un cluster Kubernetes pour le déploiement d'applications`
       }
-    ]
+    ],
+    selfCriticism: `Mon expérience avec Kubernetes reste basique. Je dois approfondir la
+    <strong>gestion des ressources</strong>, le <strong>monitoring</strong> et les <strong>stratégies de déploiement</strong> avancées.`,
+    evolutionAxes: `Maîtriser les <strong>Helm charts</strong> pour la gestion des déploiements, approfondir
+    les <strong>stratégies de scaling</strong> (HPA, VPA), et explorer les outils de <strong>monitoring</strong>
+    comme Prometheus et Grafana.`
   },
   {
     name: `GitHub`,
@@ -241,9 +297,14 @@ export const skills: Skill[] = [
     personnels et professionnels</strong>. J'ai mis en place des <strong>workflows de développement collaboratif</strong>, 
     des <strong>pipelines CI/CD</strong>, et des <strong>processus de code review</strong> qui ont permis d'améliorer la <strong>qualité 
     du code</strong> et la <strong>collaboration</strong> au sein des équipes.`,
-    officialDescription: `GitHub est une <strong>plateforme de développement</strong> qui permet de collaborer sur 
+    officialDescription: `GitHub est une <strong>plateforme de développement</strong> qui permet de collaborer sur
     des projets de <strong>code source</strong> en utilisant Git.`,
-    officialWebsite: `https://github.com/`
+    officialWebsite: `https://github.com/`,
+    selfCriticism: `Je maîtrise bien les fonctionnalités de base et les workflows Git, mais je dois
+    approfondir les <strong>GitHub Actions</strong> complexes et les <strong>intégrations avancées</strong>.`,
+    evolutionAxes: `Maîtriser les <strong>GitHub Actions</strong> avancées avec des workflows réutilisables,
+    explorer les <strong>GitHub Packages</strong> pour la gestion des artefacts, et approfondir les
+    <strong>GitHub Apps</strong> pour l'automatisation.`
   },
   {
     name: `GitLab`,
@@ -262,7 +323,12 @@ export const skills: Skill[] = [
         title: `Pipeline CI/CD`,
         description: `Mise en place de pipelines CI/CD avec GitLab`
       }
-    ]
+    ],
+    selfCriticism: `Je maîtrise bien les pipelines CI/CD de base, mais je dois approfondir les
+    <strong>pipelines multi-projets</strong> et les <strong>stratégies de déploiement</strong> avancées.`,
+    evolutionAxes: `Explorer les <strong>GitLab Auto DevOps</strong> pour l'automatisation complète,
+    maîtriser les <strong>environnements dynamiques</strong> et les <strong>review apps</strong>, et approfondir
+    l'intégration avec <strong>Kubernetes</strong>.`
   },
   {
     name: `Figma`,
@@ -278,9 +344,14 @@ export const skills: Skill[] = [
     <strong>mobiles</strong>, en créant des <strong>maquettes détaillées</strong> et des <strong>prototypes fonctionnels</strong>. Cette 
     expérience m'a permis de maîtriser les concepts de <strong>design system</strong> et d'<strong>optimisation des 
     workflows de design</strong>.`,
-    officialDescription: `Figma est un <strong>outil de design collaboratif</strong> basé sur le web qui permet de 
+    officialDescription: `Figma est un <strong>outil de design collaboratif</strong> basé sur le web qui permet de
     créer des <strong>interfaces utilisateur</strong> et des <strong>prototypes</strong>.`,
-    officialWebsite: `https://www.figma.com/`
+    officialWebsite: `https://www.figma.com/`,
+    selfCriticism: `Je maîtrise la création de maquettes et prototypes, mais je dois approfondir
+    l'<strong>organisation des design systems</strong> et les <strong>plugins Figma</strong> pour optimiser mon workflow.`,
+    evolutionAxes: `Maîtriser les <strong>variables Figma</strong> et les <strong>modes</strong> pour les design systems,
+    explorer le <strong>Dev Mode</strong> pour améliorer la collaboration avec les développeurs, et
+    apprendre à créer des <strong>plugins personnalisés</strong>.`
   },
   {
     name: `Java`,
@@ -303,7 +374,12 @@ export const skills: Skill[] = [
         title: `Application Backend`,
         description: `Développement d'une application backend avec Java et Spring Boot`
       }
-    ]
+    ],
+    selfCriticism: `Je maîtrise bien les fondamentaux Java et Spring Boot, mais je dois approfondir
+    les <strong>nouvelles fonctionnalités des versions récentes</strong> (records, sealed classes, pattern matching).`,
+    evolutionAxes: `Explorer les <strong>virtual threads</strong> (Project Loom) pour la concurrence,
+    approfondir la <strong>programmation réactive</strong> avec Spring WebFlux, et maîtriser les
+    <strong>optimisations JVM</strong> et le profiling.`
   },
   {
     name: `Kotlin`,
@@ -322,7 +398,12 @@ export const skills: Skill[] = [
         title: `Application Android`,
         description: `Développement d'une application Android avec Kotlin`
       }
-    ]
+    ],
+    selfCriticism: `Mon expérience avec Kotlin reste limitée au développement Android basique. Je dois
+    approfondir les <strong>coroutines</strong> et les <strong>patterns Kotlin idiomatiques</strong>.`,
+    evolutionAxes: `Maîtriser les <strong>coroutines</strong> et <strong>Flow</strong> pour la programmation asynchrone,
+    explorer <strong>Jetpack Compose</strong> pour les interfaces modernes, et découvrir
+    <strong>Kotlin Multiplatform</strong> pour le développement cross-platform.`
   },
   {
     name: `Prolog`,
@@ -335,11 +416,16 @@ export const skills: Skill[] = [
 
     Cette expérience m'a permis de maîtriser la <strong>programmation logique</strong> et de comprendre l'importance 
     de la <strong>validation des contraintes métier</strong> dans les applications critiques.`,
-    officialDescription: `Prolog est un langage de <strong>programmation logique</strong> basé sur la 
-    <strong>logique du premier ordre</strong>. Il est particulièrement adapté pour la <strong>résolution de problèmes</strong> 
+    officialDescription: `Prolog est un langage de <strong>programmation logique</strong> basé sur la
+    <strong>logique du premier ordre</strong>. Il est particulièrement adapté pour la <strong>résolution de problèmes</strong>
     et la <strong>programmation par contraintes</strong>.`,
     officialWebsite: `https://www.swi-prolog.org/`,
-    relatedExperiences: ["6"]
+    relatedExperiences: ["6"],
+    selfCriticism: `Mon expérience avec Prolog est spécifique au contexte métier de Cegedim. Je dois
+    approfondir les <strong>concepts théoriques</strong> et les <strong>optimisations de requêtes</strong> logiques.`,
+    evolutionAxes: `Explorer les <strong>applications modernes</strong> de Prolog comme l'IA symbolique,
+    approfondir les <strong>techniques d'optimisation</strong> des prédicats, et découvrir les
+    <strong>intégrations</strong> avec d'autres langages.`
   },
   {
     name: `C#`,
@@ -358,7 +444,12 @@ export const skills: Skill[] = [
         title: `Application Windows`,
         description: `Développement d'une application Windows Forms avec C#`
       }
-    ]
+    ],
+    selfCriticism: `Mon expérience avec C# reste basique et date de projets académiques. Je dois
+    actualiser mes connaissances sur les <strong>versions récentes du langage</strong> et l'écosystème .NET moderne.`,
+    evolutionAxes: `Explorer <strong>.NET Core</strong> et les <strong>Minimal APIs</strong> pour le développement web,
+    découvrir <strong>Blazor</strong> pour les applications web interactives, et approfondir
+    les <strong>patterns asynchrones</strong> avec async/await.`
   },
   {
     name: `MongoDB`,
@@ -377,7 +468,12 @@ export const skills: Skill[] = [
         title: `API REST`,
         description: `Création d'une API REST avec Node.js et MongoDB`
       }
-    ]
+    ],
+    selfCriticism: `Je maîtrise les opérations CRUD et l'indexation de base, mais je dois approfondir
+    les <strong>pipelines d'agrégation</strong> complexes et les <strong>stratégies de sharding</strong>.`,
+    evolutionAxes: `Maîtriser les <strong>agrégations avancées</strong> et les <strong>transactions multi-documents</strong>,
+    explorer <strong>MongoDB Atlas</strong> et ses fonctionnalités cloud, et approfondir les
+    <strong>patterns de modélisation</strong> pour les données relationnelles.`
   },
   {
     name: `Node.js`,
@@ -394,10 +490,15 @@ export const skills: Skill[] = [
     examples: [
       {
         title: `API REST`,
-        description: `Développement d'une API REST complète avec authentification JWT et gestion 
+        description: `Développement d'une API REST complète avec authentification JWT et gestion
         des fichiers`
       }
-    ]
+    ],
+    selfCriticism: `Je maîtrise bien Express et les APIs REST, mais je dois approfondir les
+    <strong>architectures microservices</strong> et les <strong>patterns de scalabilité</strong> en Node.js.`,
+    evolutionAxes: `Explorer les <strong>frameworks modernes</strong> comme Fastify et NestJS, approfondir
+    les <strong>WebSockets</strong> et le temps réel, et maîtriser les <strong>tests de charge</strong> et
+    l'<strong>optimisation des performances</strong>.`
   },
   {
     name: `Spring`,
@@ -416,7 +517,12 @@ export const skills: Skill[] = [
         title: `Application Web`,
         description: `Création d'une application web avec Spring Boot`
       }
-    ]
+    ],
+    selfCriticism: `Mon expérience avec Spring reste concentrée sur les applications classiques. Je dois
+    approfondir <strong>Spring Security</strong> et les <strong>architectures réactives</strong> avec WebFlux.`,
+    evolutionAxes: `Maîtriser <strong>Spring Security</strong> et les mécanismes d'authentification avancés,
+    explorer <strong>Spring Cloud</strong> pour les microservices, et approfondir les <strong>tests
+    d'intégration</strong> avec Spring Boot Test.`
   },
   {
     name: `PHP`,
@@ -431,9 +537,14 @@ export const skills: Skill[] = [
     J'ai également travaillé sur l'<strong>optimisation des performances</strong> et la <strong>sécurité</strong> des 
     applications PHP, en implémentant des bonnes pratiques comme la <strong>validation des entrées</strong>, 
     la <strong>protection contre les injections SQL</strong>, et la <strong>gestion des sessions</strong>.`,
-    officialDescription: `PHP est un <strong>langage de script généraliste</strong> particulièrement adapté au 
+    officialDescription: `PHP est un <strong>langage de script généraliste</strong> particulièrement adapté au
     <strong>développement web</strong>.`,
-    officialWebsite: `https://www.php.net/`
+    officialWebsite: `https://www.php.net/`,
+    selfCriticism: `Ma pratique de PHP date principalement de projets plus anciens. Je dois actualiser
+    mes connaissances sur <strong>PHP 8+</strong> et les <strong>frameworks modernes</strong> comme Laravel ou Symfony.`,
+    evolutionAxes: `Explorer les <strong>nouvelles fonctionnalités PHP 8</strong> (attributes, named arguments,
+    match), approfondir <strong>Laravel</strong> ou <strong>Symfony</strong> pour les projets modernes, et maîtriser
+    les <strong>bonnes pratiques PSR</strong>.`
   },
   {
     name: `PrestaShop`,
@@ -452,7 +563,12 @@ export const skills: Skill[] = [
         title: `Boutique en Ligne`,
         description: `Création d'une boutique en ligne avec PrestaShop`
       }
-    ]
+    ],
+    selfCriticism: `Mon expérience avec PrestaShop est limitée à la création de thèmes et modules basiques.
+    Je dois approfondir l'<strong>architecture interne</strong> et les <strong>hooks avancés</strong>.`,
+    evolutionAxes: `Maîtriser le développement de <strong>modules complexes</strong> et les <strong>overrides</strong>,
+    approfondir l'<strong>API webservices</strong> de PrestaShop, et explorer les <strong>bonnes pratiques
+    de performance</strong> pour les boutiques à fort trafic.`
   },
   {
     name: `Python`,
@@ -475,7 +591,12 @@ export const skills: Skill[] = [
         title: `Script d'Automatisation`,
         description: `Développement d'un script d'automatisation avec Python`
       }
-    ]
+    ],
+    selfCriticism: `Je maîtrise bien les scripts et l'analyse de données, mais je dois approfondir
+    les <strong>frameworks web</strong> Python et les <strong>bonnes pratiques de packaging</strong>.`,
+    evolutionAxes: `Explorer <strong>FastAPI</strong> pour les APIs modernes, approfondir les <strong>bibliothèques
+    de machine learning</strong> (scikit-learn, TensorFlow), et maîtriser les <strong>outils de qualité
+    de code</strong> (mypy, black, ruff).`
   },
   {
     name: `Sass`,
@@ -486,9 +607,14 @@ export const skills: Skill[] = [
     <strong>styles CSS plus maintenables</strong> et <strong>modulaires</strong>. J'ai travaillé sur l'implémentation de 
     <strong>variables</strong>, de <strong>mixins</strong> et de <strong>fonctions</strong> pour optimiser la <strong>réutilisation du code</strong> et 
     améliorer la <strong>maintenabilité des styles</strong>.`,
-    officialDescription: `Sass est un <strong>préprocesseur CSS</strong> qui ajoute des fonctionnalités puissantes 
+    officialDescription: `Sass est un <strong>préprocesseur CSS</strong> qui ajoute des fonctionnalités puissantes
     comme les <strong>variables</strong>, les <strong>imbrications</strong> et les <strong>mixins</strong>.`,
-    officialWebsite: `https://sass-lang.com/`
+    officialWebsite: `https://sass-lang.com/`,
+    selfCriticism: `Je maîtrise les bases de Sass, mais je sous-utilise les fonctionnalités avancées
+    comme les <strong>fonctions personnalisées</strong> et les <strong>maps</strong> pour des architectures CSS complexes.`,
+    evolutionAxes: `Approfondir les <strong>@use et @forward</strong> pour une meilleure modularité,
+    maîtriser les <strong>fonctions Sass</strong> pour les calculs dynamiques, et explorer les
+    <strong>patterns d'architecture</strong> comme ITCSS ou 7-1.`
   },
   {
     name: `WordPress`,
@@ -507,7 +633,12 @@ export const skills: Skill[] = [
         title: `Site e-commerce`,
         description: `Création d'un site e-commerce avec WordPress`
       }
-    ]
+    ],
+    selfCriticism: `Mon expérience WordPress est principalement orientée thèmes et personnalisation.
+    Je dois approfondir le développement de <strong>plugins</strong> et l'utilisation de <strong>Gutenberg</strong>.`,
+    evolutionAxes: `Maîtriser le développement de <strong>blocs Gutenberg</strong> personnalisés,
+    explorer l'<strong>API REST WordPress</strong> pour des architectures headless, et approfondir
+    les <strong>bonnes pratiques de sécurité</strong> WordPress.`
   },
   {
     name: `SQL`,
@@ -534,10 +665,15 @@ export const skills: Skill[] = [
     examples: [
       {
         title: `Bases de données relationnelles`,
-        description: `Conception et optimisation de bases de données avec différentes variantes de 
+        description: `Conception et optimisation de bases de données avec différentes variantes de
         SQL`
       }
-    ]
+    ],
+    selfCriticism: `Je maîtrise bien les requêtes et la conception de schémas, mais je dois approfondir
+    l'<strong>optimisation des requêtes complexes</strong> et les <strong>techniques d'indexation avancées</strong>.`,
+    evolutionAxes: `Maîtriser les <strong>plans d'exécution</strong> et l'optimisation des requêtes,
+    approfondir les <strong>window functions</strong> et les <strong>CTE récursives</strong>, et explorer les
+    <strong>extensions</strong> spécifiques (PostGIS, JSON, full-text search).`
   },
   {
     name: `Adaptabilité`,
@@ -550,8 +686,14 @@ export const skills: Skill[] = [
 
     Cette capacité d'adaptation m'a été particulièrement utile lors de mes différents projets, où j'ai dû 
     rapidement <strong>assimiler les besoins spécifiques</strong> et m'adapter aux <strong>environnements techniques variés</strong>.`,
-    officialDescription: `L'adaptabilité est la capacité à <strong>s'ajuster efficacement</strong> aux changements et 
-    aux nouvelles situations dans un environnement professionnel en <strong>constante évolution</strong>.`
+    officialDescription: `L'adaptabilité est la capacité à <strong>s'ajuster efficacement</strong> aux changements et
+    aux nouvelles situations dans un environnement professionnel en <strong>constante évolution</strong>.`,
+    selfCriticism: `Mon adaptabilité est un atout, mais je dois parfois prendre plus de temps pour
+    <strong>consolider mes acquis</strong> avant de passer à de nouvelles technologies, afin d'éviter
+    une connaissance trop superficielle.`,
+    evolutionAxes: `Développer une approche plus <strong>structurée de l'apprentissage</strong> avec des
+    objectifs clairs, et améliorer ma capacité à <strong>prioriser</strong> les technologies à approfondir
+    en fonction des besoins du marché.`
   },
   {
     name: `Esprit d'équipe`,
@@ -565,9 +707,13 @@ export const skills: Skill[] = [
     J'ai également contribué à la création d'une <strong>culture de partage des connaissances</strong> au sein des équipes, 
     en organisant des <strong>sessions de code review</strong> et en <strong>documentant les bonnes pratiques</strong>. Cette approche 
     collaborative a permis d'améliorer la <strong>qualité du code</strong> et l'<strong>efficacité de l'équipe</strong>.`,
-    officialDescription: `L'esprit d'équipe est la capacité à <strong>travailler harmonieusement</strong> avec d'autres 
-    personnes, à <strong>contribuer activement</strong> aux objectifs communs et à maintenir un <strong>environnement de travail 
-    positif et productif</strong>.`
+    officialDescription: `L'esprit d'équipe est la capacité à <strong>travailler harmonieusement</strong> avec d'autres
+    personnes, à <strong>contribuer activement</strong> aux objectifs communs et à maintenir un <strong>environnement de travail
+    positif et productif</strong>.`,
+    selfCriticism: `Je collabore bien en équipe, mais je dois améliorer ma capacité à <strong>déléguer</strong>
+    et à <strong>faire confiance</strong> aux autres membres de l'équipe sur des tâches que je maîtrise.`,
+    evolutionAxes: `Développer mes compétences en <strong>mentorat</strong> pour accompagner les développeurs
+    juniors, et améliorer ma <strong>communication asynchrone</strong> pour les équipes distribuées.`
   },
   {
     name: `Organisation`,
@@ -581,8 +727,13 @@ export const skills: Skill[] = [
     J'ai également mis en place des <strong>processus de documentation</strong> et de <strong>versioning rigoureux</strong>, 
     permettant une meilleure <strong>traçabilité</strong> et une <strong>maintenance facilitée</strong> des projets. Cette 
     organisation méthodique contribue à la <strong>qualité</strong> et à la <strong>pérennité</strong> des solutions développées.`,
-    officialDescription: `L'organisation est la capacité à <strong>structurer son travail</strong>, à <strong>gérer efficacement 
-    son temps</strong> et ses ressources pour atteindre les objectifs fixés dans les <strong>délais impartis</strong>.`
+    officialDescription: `L'organisation est la capacité à <strong>structurer son travail</strong>, à <strong>gérer efficacement
+    son temps</strong> et ses ressources pour atteindre les objectifs fixés dans les <strong>délais impartis</strong>.`,
+    selfCriticism: `Mon organisation est efficace, mais je dois améliorer ma gestion des <strong>interruptions</strong>
+    et ma capacité à <strong>estimer le temps</strong> nécessaire pour les tâches complexes.`,
+    evolutionAxes: `Explorer des méthodologies comme <strong>GTD</strong> ou <strong>time blocking</strong> pour optimiser
+    ma productivité, et améliorer ma <strong>documentation personnelle</strong> pour capitaliser sur
+    mes apprentissages.`
   },
   {
     name: `Curiosité`,
@@ -597,8 +748,13 @@ export const skills: Skill[] = [
     Cette <strong>soif d'apprentissage</strong> se reflète dans mes projets personnels, où j'explore 
     régulièrement de <strong>nouvelles approches</strong> et <strong>technologies</strong> pour améliorer mes compétences et 
     enrichir mon expérience.`,
-    officialDescription: `La curiosité est le <strong>désir constant d'apprendre</strong>, de <strong>découvrir</strong> et de <strong>comprendre 
-    de nouvelles choses</strong>, essentiel pour rester compétitif dans un domaine en <strong>perpétuelle évolution</strong>.`
+    officialDescription: `La curiosité est le <strong>désir constant d'apprendre</strong>, de <strong>découvrir</strong> et de <strong>comprendre
+    de nouvelles choses</strong>, essentiel pour rester compétitif dans un domaine en <strong>perpétuelle évolution</strong>.`,
+    selfCriticism: `Ma curiosité est un atout, mais elle peut parfois me disperser sur trop de sujets
+    en même temps, au détriment de l'<strong>approfondissement</strong> de certaines compétences clés.`,
+    evolutionAxes: `Canaliser ma curiosité vers des <strong>objectifs d'apprentissage structurés</strong>,
+    et développer une approche plus <strong>sélective</strong> pour choisir les technologies à explorer
+    en fonction de leur pertinence professionnelle.`
   },
   {
     name: `Autonomie`,
@@ -618,9 +774,14 @@ export const skills: Skill[] = [
     utilisant diverses ressources comme la <strong>documentation officielle</strong>, les <strong>tutoriels en ligne</strong>, 
     et les <strong>projets pratiques</strong>. Cette capacité d'apprentissage autonome me permet de <strong>rester à 
     jour</strong> et de <strong>m'adapter rapidement</strong> aux nouvelles exigences techniques.`,
-    officialDescription: `L'autonomie est la capacité à <strong>travailler de manière indépendante</strong>, à <strong>prendre des 
-    initiatives</strong> et à <strong>assumer la responsabilité</strong> de ses actions tout en maintenant une <strong>collaboration 
-    efficace</strong> avec l'équipe.`
+    officialDescription: `L'autonomie est la capacité à <strong>travailler de manière indépendante</strong>, à <strong>prendre des
+    initiatives</strong> et à <strong>assumer la responsabilité</strong> de ses actions tout en maintenant une <strong>collaboration
+    efficace</strong> avec l'équipe.`,
+    selfCriticism: `Mon autonomie est un point fort, mais je dois parfois mieux <strong>communiquer
+    mon avancement</strong> et demander de l'aide plus tôt lorsque je rencontre des blocages.`,
+    evolutionAxes: `Améliorer ma capacité à <strong>identifier les moments</strong> où il est plus efficace
+    de collaborer que de chercher seul, et développer une meilleure <strong>communication proactive</strong>
+    sur l'état d'avancement de mes tâches.`
   }
 ]; 
 

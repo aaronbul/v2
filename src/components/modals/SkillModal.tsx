@@ -210,6 +210,34 @@ const SkillModal: React.FC<SkillModalProps> = ({
             </div>
           </div>
 
+          {(skill.selfCriticism || skill.evolutionAxes) && (
+            <div className="mb-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-2">Réflexion personnelle</h2>
+              <div className="space-y-4">
+                {skill.selfCriticism && (
+                  <div>
+                    <h3 className="text-md font-semibold text-primary mb-3">Autocritique</h3>
+                    <div className="text-gray-600 leading-relaxed">
+                      {skill.selfCriticism.split('\n\n').map((para: string, index: number) => (
+                        <p key={index} dangerouslySetInnerHTML={{ __html: para }} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {skill.evolutionAxes && (
+                  <div>
+                    <h3 className="text-md font-semibold text-primary mb-3">Axes d'évolution</h3>
+                    <div className="text-gray-600 leading-relaxed">
+                      {skill.evolutionAxes.split('\n\n').map((para: string, index: number) => (
+                        <p key={index} dangerouslySetInnerHTML={{ __html: para }} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
           {relatedProjects.length > 0 && (
             <div className="mb-6">
               <h2 className="text-lg md:text-xl font-semibold mb-2">Projets disponibles utilisant {skill.name}</h2>
