@@ -3,8 +3,13 @@ import cors from 'cors';
 import { Resend } from 'resend';
 import { config } from 'dotenv';
 import rateLimit from 'express-rate-limit';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -93,6 +98,17 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json({ limit: '100kb' })); // Limite la taille des requêtes JSON
+
+// Servir les fichiers statiques avec les bons types MIME
+app.use(express.static(path.join(__dirname, 'dist'), {
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.js') || filePath.endsWith('.mjs')) {
+      res.setHeader('Content-Type', 'application/javascript');
+    } else if (filePath.endsWith('.css')) {
+      res.setHeader('Content-Type', 'text/css');
+    }
+  }
+}));
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -187,6 +203,11 @@ app.post('/api/send-email', emailLimiter, async (req, res) => {
       message: 'Une erreur est survenue lors de l\'envoi de l\'email'
     });
   }
+});
+
+// Route catch-all pour le SPA (doit être après les routes API)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(port, () => {
