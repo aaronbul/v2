@@ -40,8 +40,8 @@ app.use(globalLimiter);
 const allowedOrigins = [
   'http://localhost:5173',   // Développement Vite
   'http://localhost:3000',   // Développement local
-  'https://portfolio.bulgheroni.tech', // Production
-  'https://www.portfolio.bulgheroni.tech' // Production avec www
+  'https://portfolio.bulgheroni.me', // Production
+  'https://www.portfolio.bulgheroni.me' // Production avec www
 ];
 
 // Configuration CORS renforcée

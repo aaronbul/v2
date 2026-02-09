@@ -91,7 +91,7 @@ export const projects: Project[] = [
     future: `Le projet continue d'évoluer avec plusieurs perspectives d'amélioration. À court terme, l'accent sera mis sur l'enrichissement du contenu du blog technique et l'optimisation continue des performances. Les développements futurs incluront l'ajout de nouvelles fonctionnalités interactives et l'intégration d'outils d'analyse plus avancés. Le portfolio est conçu pour être évolutif, permettant l'ajout facile de nouvelles sections et fonctionnalités. Aujourd'hui, il sert de vitrine technique de mes compétences et de plateforme pour partager mes connaissances avec la communauté.`,
     criticalView: `Le projet présente des points forts significatifs dans son architecture et son design. L'utilisation de React et TypeScript a permis de créer une base de code maintenable et évolutive. L'interface, moderne et intuitive, offre une excellente expérience utilisateur. Les performances ont été optimisées grâce à des techniques comme le lazy loading et le code splitting. Cependant, certaines améliorations restent possibles. L'ajout de tests automatisés plus complets serait bénéfique, et l'optimisation du SEO pourrait être renforcée. Cette expérience m'a enseigné l'importance d'une architecture bien pensée dès le départ et la valeur d'une approche centrée sur l'utilisateur dans le développement web moderne.`,
     imageUrl: new_portfolio,
-    link: `https://portfolio.bulgheroni.tech`,
+    link: `https://portfolio.bulgheroni.me`,
     codeLink: `https://github.com/aaronbul/v2`,
     technologies: [`React`, `TypeScript`, `Tailwind`, `Node.js`, `JavaScript`, `HTML`, `CSS`, `GitHub`, `Figma`, `Curiosité`, `Autonomie`, `Organisation`],
     relatedExperiences: ["5", "7"]
