@@ -68,11 +68,15 @@ jobs:
           name: dist
           path: dist
 
-      - name: Deploy to IONOS via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.IONOS_FTP_SERVER }}
-          username: ${{ secrets.IONOS_FTP_USERNAME }}
-          password: ${{ secrets.IONOS_FTP_PASSWORD }}
-          local-dir: dist/
-          server-dir: ${{ secrets.IONOS_FTP_SERVER_DIR }}
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy to IONOS via SFTP
+        env:
+          SFTP_HOST: ${{ secrets.IONOS_FTP_SERVER }}
+          SFTP_USER: ${{ secrets.IONOS_FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.IONOS_FTP_PASSWORD }}
+          SFTP_DIR: ${{ secrets.IONOS_FTP_SERVER_DIR }}
+        run: |
+          lftp -e "set sftp:auto-confirm yes; set net:max-retries 2; mirror --reverse --verbose dist/ \"$SFTP_DIR\"; bye" \
+            --env-password -u "$SFTP_USER" "sftp://$SFTP_HOST"
